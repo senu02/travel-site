@@ -3,7 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #ffffff;
-  --primary: #927B64;
+  --text-primary: #927B64;
+  
 
 }
 
@@ -12,6 +13,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,6 +23,13 @@
   }
 }
 
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-line {
+  color: var(--text-line);
+}
 body {
   background: var(--background);
   color: var(--foreground);

@@ -30,73 +30,28 @@ export default function Home() {
       <Navbar />
       <HeroSection />
       </section>
-    <section>
-    <hr className="flex-grow border-t-2 border-primary-300 ml-20 mr-20 mt-5" />
-    </section>
 
-      <div className="flex justify-center mt-8">
-      <section className="bg-white py-16 relative">
-      <div className="text-center mb-10">
-        <span className="w-12 h-1 bg-red-500 mr-2"></span>
-        <p className="text-sm uppercase font-antonio font-bold tracking-widest font-roboto text-[#6d563b]">DREAM. EXPLORE. DISCOVER</p>
+      <div className="flex justify-center mt-2">
+        
+      <section className="grid grid-cols-2 bg-white py-2 relative justify-items-center ">
+        <div className="relative w-[700px] h-[420px]">
+          <div className="absolute top-4 left-4 right-4 z-10 text-white text-xl font-bold px-4 py-2 rounded-lg">
+            CATEGORY 1 . CATEGORY 2
+          </div>
+          <Image src={"/images/category1.png"} alt="Image" width={500} height={420} className="rounded-lg shadow-lg .w-96 h-full object-cover"/>
+          <div className="absolute bottom-4 justify-items-start ml-2 z-10 px- 2py-2 rounded-lg">
+            <p className="font-antonio text-white mb-1">30 oct 2024</p>
+            <p className="font-antonio text-white justify-between">Lorem ipsum dolor sit amet consectetur Ut et tincidunt molestie sapien</p>
+          </div>
+        </div>
+      <div className="justify-start mb-2">
+        <p className="text-sm uppercase font-antonio font-bold tracking-widest font-roboto text-[#6d563b]">      <span className="w-8 h-0.5 bg-red-500 mr-2"></span>DREAM. EXPLORE. DISCOVER</p>
         <h2 className="text-4xl font-antonio  font-semibold text-[#6d563b] mt-2">LATEST TRAVEL STORIES</h2>
+        
       </div>
-
-      <div className="flex flex-col md:flex-row justify-center items-start gap-6 px-4 max-w-6xl mx-auto">
-  {travelData.map((item, idx) => (
-    <div
-      key={idx}
-      className={`flex flex-col ${idx === 0 ? 'md:max-w-[45%]' : 'md:max-w-[25%]'} w-full`}
-    >
-      <div className="relative rounded-xl overflow-hidden shadow-md">
-        <Image
-          src={item.image}
-          alt={item.title}
-          width={600}
-          height={800}
-          className="object-cover h-full w-full"
-        />
-
-        <div className="absolute top-3 left-3 flex gap-2 text-xs font-semibold">
-          {item.categories.map((cat, i) => (
-            <span
-              key={i}
-              className="bg-white/80 text-[#4b4b4b] px-2 py-1 rounded-full text-[10px]"
-            >
-              {cat}
-            </span>
-          ))}
-        </div>
-
-        {idx === 0 && (
-          <>
-            <div className="absolute bottom-4 left-4 right-4 text-white">
-              <p className="text-xs mb-1">{item.date}</p>
-              <h3 className="text-sm md:text-base font-semibold leading-snug">
-                {item.title.toUpperCase()}
-              </h3>
-            </div>
-            <div className="absolute bottom-4 right-4 w-8 h-8 bg-white text-black rounded-full flex items-center justify-center">
-              &rarr;
-            </div>
-          </>
-        )}
-      </div>
-
-      {idx !== 0 && (
-        <div className="mt-4 px-1">
-          <p className="text-xs text-gray-500">{item.date}</p>
-          <h3 className="text-sm md:text-base font-semibold text-[#6d563b] mt-1 leading-snug">
-            {item.title}
-          </h3>
-        </div>
-      )}
-    </div>
-  ))}
-  </div>
     </section>
-    
-    </div>
+   </div>
+   
           <section className="py-16 px-6 md:px-10 bg-white max-w-6xl mx-auto">
      
       <div className="flex flex-col items-center text-center mb-12">
@@ -106,10 +61,10 @@ export default function Home() {
             INSIGHT AND IDEAS
           </p>
         </div>
-        <h2 className="text-2xl font-roboto text-[#6d563b] md:text-3xl font-bold uppercase mb-6">OTHER STORIES</h2>
+        <h2 className="text-5xl font-roboto text-[#6d563b] md:text-5xl font-bold uppercase mb-4">OTHER STORIES</h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
 
   <article className="group text-left">
     <div className="relative h-64 w-full mb-4 overflow-hidden rounded-lg mx-auto">
@@ -203,11 +158,14 @@ export default function Home() {
 </div>
     </section>
 
-   <div className="bg-gray-100 p-8 text-center">
-      <button className="px-8 py-3 mb-12 text-sm border-2 border-[#6d563b] rounded-full font-bold uppercase hover:bg-white hover:text-[#6d563b] text-[#6d563b] transition-colors">
+   <div className=" p-8 text-center">
+      <button className="px-8 py-3 mb-6 text-sm border-2 border-[#6d563b] rounded-full font-bold uppercase hover:bg-white hover:text-[#6d563b] text-[#6d563b] transition-colors">
         VIEW ALL BLOGS
       </button>
-      <h3 className="text-xl font-bold uppercase mb-8 text-[#927B64]">CATEGORIES</h3>
+
+      <hr className="flex-grow border-t-2 border-primary-300 ml-20 mr-20 mt-10 mb-5" />
+
+      <h3 className="text-3xl font-bold uppercase mb-8 mt-8 text-primary">CATEGORIES</h3>
 
       <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
         {[1, 2, 3, 4, 5].map((num) => (
@@ -264,11 +222,11 @@ export default function Home() {
   <h3 className="text-xs text-gray-500 mb-2">
     Sign up for special offers, news updates
   </h3>
-  <div className="flex items-center border boder-[#fdfaf6] rounded-full overflow-hidden bg-[#836e5d]">
+  <div className="flex items-center border boder-[#fdfaf6] rounded-full overflow-hidden ">
     <input
       type="email"
       placeholder="Your Email Address"
-      className="flex-1 px-4 py-2 text-sm bg-transparent text-white placeholder-white focus:outline-none"/>
+      className="flex-1 px-4 py-2 text-sm bg-transparent text-[#836e5d] placeholder-[#836e5d] focus:outline-none"/>
     <button className="px-4 py-2 hover:opacity-90 transition">
       <img src="/icons/telegram.png" alt="Send" className="h-4 w-4" />
     </button>

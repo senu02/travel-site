@@ -23,7 +23,7 @@ export default function HeroSection() {
         </div>
         </div>
       </main>
-      <hr className="flex-grow border-t-2 border-primary-300 ml-20 mr-20 mt-5" />
+      <hr className="flex-grow border-t-2 border-primary-300 ml-20 mr-20 mt-5 mb-2" />
     </section>
   )
 }
