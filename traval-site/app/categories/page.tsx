@@ -8,7 +8,10 @@ export default function CategoriesPage() {
       
       <div className="min-h-screen bg-white text-gray-800">
       <header className="text-center py-10">
-        <h2 className="text-sm tracking-wide text-primary-500 uppercase">Dream. Explore. Discover</h2>
+        <div className="flex items-center justify-center mb-2">
+          <span className="w-12 h-1 bg-red-500 mr-2"></span>
+          <h2 className="text-sm font-roboto tracking-wide text-[#6d563b]-500 uppercase">Dream. Explore. Discover</h2>
+        </div>
         <h1 className="text-5xl font-bold mt-4 text-[#927B64]">DIVE INTO A WORLD OF INSPIRATION</h1>
         <p className="mt-6 text-lg max-w-2xl mx-auto text-gray-600">
           Mackinnons Travels Dive into a world of inspiration, insights, and ideas. Whether you're here to explore, learn, or simply unwind, our blog brings stories that resonate and topics that spark curiosity.

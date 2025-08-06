@@ -26,32 +26,20 @@ const travelData = [
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <section>
       <Navbar />
       <HeroSection />
-      
-      {/* Additional sections would go here */}
-      <div className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          {/* Future content sections */}
-        </div>
-      </div>
+      </section>
+    <section>
+    <hr className="flex-grow border-t-2 border-primary-300 ml-20 mr-20 mt-5" />
+    </section>
 
-    
-      <div className="flex items-center justify-center my-8 w-full">
-        <hr className="flex-grow border-t-2 border-gray-300" />
-        <span className="mx-4 text-gray-400">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8">
-            <path d="M2.5 19.5l19-7.5-19-7.5v6l15 1.5-15 1.5v6z" />
-          </svg>
-        </span>
-        <hr className="flex-grow border-t-2 border-gray-300" />
-      </div>
       <div className="flex justify-center mt-8">
-
       <section className="bg-white py-16 relative">
       <div className="text-center mb-10">
-        <p className="text-sm uppercase font-bold tracking-widest font-roboto text-primary">DREAM. EXPLORE. DISCOVER</p>
-        <h2 className="text-4xl font-semibold text-[#6d563b] mt-2">LATEST TRAVEL STORIES</h2>
+        <span className="w-12 h-1 bg-red-500 mr-2"></span>
+        <p className="text-sm uppercase font-antonio font-bold tracking-widest font-roboto text-[#6d563b]">DREAM. EXPLORE. DISCOVER</p>
+        <h2 className="text-4xl font-antonio  font-semibold text-[#6d563b] mt-2">LATEST TRAVEL STORIES</h2>
       </div>
 
       <div className="flex flex-col md:flex-row justify-center items-start gap-6 px-4 max-w-6xl mx-auto">
@@ -114,11 +102,11 @@ export default function Home() {
       <div className="flex flex-col items-center text-center mb-12">
         <div className="flex items-center mb-4">
           <span className="w-8 h-0.5 bg-red-500 mr-2"></span>
-          <p className="text-xs uppercase font-bold tracking-widest text-white-500">
+          <p className="text-xs font-roboto text-[#6d563b] uppercase font-bold tracking-widest text-primary-500">
             INSIGHT AND IDEAS
           </p>
         </div>
-        <h2 className="text-2xl md:text-3xl font-bold uppercase mb-6">OTHER STORIES</h2>
+        <h2 className="text-2xl font-roboto text-[#6d563b] md:text-3xl font-bold uppercase mb-6">OTHER STORIES</h2>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
@@ -216,7 +204,7 @@ export default function Home() {
     </section>
 
    <div className="bg-gray-100 p-8 text-center">
-      <button className="px-8 py-3 mb-12 text-sm border-2 border-black rounded-full font-bold uppercase hover:bg-black hover:text-white transition-colors">
+      <button className="px-8 py-3 mb-12 text-sm border-2 border-[#6d563b] rounded-full font-bold uppercase hover:bg-white hover:text-[#6d563b] text-[#6d563b] transition-colors">
         VIEW ALL BLOGS
       </button>
       <h3 className="text-xl font-bold uppercase mb-8 text-[#927B64]">CATEGORIES</h3>
@@ -225,7 +213,7 @@ export default function Home() {
         {[1, 2, 3, 4, 5].map((num) => (
           <button 
             key={num}
-            className="rounded-full font-bold uppercase px-6 py-2 uppercase text-[#927B64] hover:bg-white  transition-colors">
+            className="text-[#927B64]bg-[#fdfaf6] rounded-full font-bold uppercase px-6 py-2 uppercase text-[#927B64] hover:bg-white bg-gray-100  transition-colors">
             CATEGORY {num}
           </button>
         ))}
