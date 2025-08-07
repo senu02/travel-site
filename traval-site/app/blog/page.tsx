@@ -10,7 +10,7 @@ export default function blogPage() {
 <section className="flex flex-col items-center">    
     <div className="mb-8 flex flex-col items-start w-[1141px]">
       <p className="text-sm font-bold text-[#927B64] tracking-widest leading-7 mb-1">09 OCT 2024</p>
-      <h2 className="text-3xl font-bold text-[#927B64] font-antonio uppercase mt-2 tracking-tight leading-[1.2]">6 best ryokans in Japan to rejuvenate yourself</h2>
+      <h2 className="text-4xl font-bold text-[#927B64] font-antonio uppercase mt-2 tracking-tight leading-[1.2]">6 best ryokans in Japan to rejuvenate yourself</h2>
     </div>
 
      <div className="relative rounded-2xl overflow-hidden shadow-md w-[1141px] h-[693px] mb-4">
@@ -107,9 +107,10 @@ export default function blogPage() {
 
 <section className="flex flex-col items-center">    
     <div className="mb-8 flex flex-col items-center">
-      <h2 className="text-3xl font-bold text-[#927B64] font-antonio uppercase mt-8 tracking-tight leading-[1.2]">Travel Packages</h2>
+      <h2 className="text-5xl font-bold text-[#927B64] font-antonio uppercase mt-8 tracking-tight leading-[1.2]">Travel Packages</h2>
     </div>
     </section>
+     
 
 <section className="justify-center items-center mb-10">
 <div className="max-w-7xl mx-auto px-4 py-8">
@@ -225,52 +226,63 @@ export default function blogPage() {
 
   <hr className="flex-grow border-t-2 border-primary-300 ml-20 mr-20 mt-5 mb-2" />
 
-        <section className="py-16 px-6 md:px-10 bg-white max-w-6xl mx-auto">
+        <section className="py-16 px-6 bg-white max-w-6xl mx-auto">
          
           <div className="flex flex-col items-start text-center mb-12">
-            <div className="flex items-center mb-4">
-              <span className="w-8 h-0.5 bg-red-500 mr-2"></span>
-              <p className="text-xs font-roboto text-[#6d563b] uppercase font-bold tracking-widest text-primary-500">
-                INSIGHT AND IDEAS
-              </p>
+            <div className="flex items-center justify-between w-full mb-4">
+              <div className="flex items-center">
+                <span className="w-8 h-0.5 bg-red-500 mr-2"></span>
+                <p className="text-xs font-roboto text-[#6d563b] uppercase font-bold tracking-widest text-primary-500">
+                  INSIGHT AND IDEAS
+                </p>
+              </div>
+              <button className="px-8 py-3 text-sm border-2 border-[#6d563b] rounded-full font-bold uppercase hover:bg-white hover:text-[#6d563b] text-[#6d563b] transition-colors">
+                VIEW ALL BLOGS
+              </button>
             </div>
             <h2 className="text-5xl font-roboto text-[#6d563b] md:text-5xl font-bold uppercase mb-4">OTHER STORIES</h2>
           </div>
     
-        <div className="grid grid-cols-2 md:grid-cols-2 gap-8 max-w-4xl mx-auto">  
-      <section className="group text-left">
-        <div className="relative h-64 w-full mb-4 overflow-hidden rounded-lg mx-auto">
-          <Image 
-            src="/images/story1.png" 
-            alt="Ryokan in Japan"
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
-          />
-          <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#ffc400] rounded-b-2xl"></div>
-        </div>
-        <span className="text-xs text-[#927B64] font-antonio uppercase block mb-2">09 AUG 2024</span>
-        <h3 className="text-xl font-bold mb-4 text-[#927B64] font-antonio uppercase group-hover:text-red-500 transition-colors">
-          6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
-        </h3>
-          </section>
-    
-      <section className="group text-left">
-        <div className="relative h-64 w-full mb-4 overflow-hidden rounded-lg mx-auto">
-          <Image 
-            src="/images/story2.png" 
-            alt="Christmas in Asia"
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
-          />
-            <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#d42000] rounded-b-2xl"></div>
-        </div>
-        <span className="text-xs text-[#927B64] font-antonio uppercase block mb-2">30 OCT 2024</span>
-        <h3 className="text-xl font-bold mb-4 text-[#927B64] font-antonio uppercase group-hover:text-red-500 transition-colors">
-          7 BEST PLACES IN ASIA TO CELEBRATE CHRISTMAS
-        </h3>
-      </section>
-    
+     <section className="flex justify-center mt-20 mb-5">
+    <div className="grid grid-cols-2 gap-20">
+       <div className="flex flex-col group mb-5">
+           <div className="relative rounded-3xl overflow-hidden shadow-md w-[560px] h-[349px] mb-4 cursor-pointer">
+             <Image
+               src="/images/story3.png"
+               alt="Travel 2"
+               fill
+               className="object-cover"
+             />
+             <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
+          <div className="absolute top-4 left-4 text-white text-xs tracking-wider font-semibold z-10 leading-6 uppercase">Category 1</div>     
+             <div className="absolute bottom-4 right-4 z-10"></div>
+             <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#F1C40F]"></div>
+           </div>
+           <span className="text-xs text-[#927B64] font-antonio uppercase block mb-2">09 AUG 2024</span>
+    <h3 className="text-xl font-bold mb-4 text-[#927B64] font-antonio uppercase group-hover:text-red-500 transition-colors">
+      6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
+    </h3>
+       </div>
+     
+          <div className="flex flex-col group mb-5">
+           <div className="relative rounded-3xl overflow-hidden shadow-md w-[560px] h-[349px] mb-4 cursor-pointer">
+             <Image
+               src="/images/story4.png"
+               alt="Travel 2"
+               fill
+               className="object-cover"
+             />
+             <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
+          <div className="absolute top-4 left-4 text-white text-xs tracking-wider font-semibold z-10 leading-6 uppercase">Category 1 . Category 2</div>      
+             <div className="absolute bottom-4 right-4 z-10"></div>
+             <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#F1C40F]"></div>
+           </div>
+           <span className="text-xs text-[#927B64] font-antonio uppercase block mb-2">09 AUG 2024</span>
+    <h3 className="text-xl font-bold mb-4 text-[#927B64] font-antonio uppercase group-hover:text-red-500 transition-colors">
+7 best places in Asia to celebrate Christmas    </h3>
+       </div>
     </div>
+</section>
  </section>
 
     <hr className="border-t-2 border-gray-300 w-full my-0" />
