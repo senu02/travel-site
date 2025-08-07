@@ -5,10 +5,10 @@ export default function blogPage() {
   return (
 
 <div className="min-h-screen">
-    <Navbar />
+    <Navbar/>
 
 <section className="flex flex-col items-center">    
-    <div className="mb-8 flex flex-col items-start w-[1141px]">
+    <div className="mb-8 flex flex-col items-start w-2/3">
       <p className="text-sm font-bold text-[#927B64] tracking-widest leading-7 mb-1">09 OCT 2024</p>
       <h2 className="text-4xl font-bold text-[#927B64] font-antonio uppercase mt-2 tracking-tight leading-[1.2]">6 best ryokans in Japan to rejuvenate yourself</h2>
     </div>
@@ -52,7 +52,7 @@ export default function blogPage() {
        <div className="flex flex-col group mb-5">
            <div className="relative rounded-3xl overflow-hidden shadow-md w-[560px] h-[349px] mb-4 cursor-pointer">
              <Image
-               src="/images/story1.png"
+               src="/images/1.jpg"
                alt="Travel 2"
                fill
                className="object-cover"
@@ -65,7 +65,7 @@ export default function blogPage() {
           <div className="flex flex-col group mb-5">
            <div className="relative rounded-3xl overflow-hidden shadow-md w-[560px] h-[349px] mb-4 cursor-pointer">
              <Image
-               src="/images/story1.png"
+               src="/images/2.jpg"
                alt="Travel 2"
                fill
                className="object-cover"
@@ -135,10 +135,8 @@ export default function blogPage() {
         <h3 className="font-bold text-primary  mb-2 uppercase">THAILAND</h3>
         <p className="text-primary text-sm mt-6 mb-4">04 Nights | P/P</p>
         <p className="text-2xl font-bold text-[#002D6A] mb-4">LKR 710,000</p>
-        <button
-          className="w-fit py-2 px-4 rounded-full uppercase font-semibold font-roboto transition-colors bg-[#002D6A] hover:border-[#927B64]  text-[#ffffff] hover:bg-[#ffffff] hover:text-[#927B64] ">
-          BOOK NOW
-        </button>
+        
+        <button className="w-fit py-2 px-4 rounded-full uppercase font-semibold font-roboto transition-colors bg-[#002D6A] text-[#ffffff] border border-transparent hover:border-[#927B64] hover:bg-[#ffffff] hover:text-[#927B64]">BOOK NOW</button>
       </div>
     </div>
 
@@ -162,10 +160,9 @@ export default function blogPage() {
         <h3 className="font-bold text-primary  mb-2 uppercase">THAILAND</h3>
         <p className="text-primary text-sm mt-6 mb-4">02 Nights | P/P</p>
         <p className="text-2xl font-bold text-[#002D6A] mb-4">LKR 350,000</p>
-        <button
-          className="w-fit py-2 px-4 rounded-full uppercase font-semibold font-roboto transition-colors bg-[#002D6A] hover:border-[#927B64]  text-[#ffffff] hover:bg-[#ffffff] hover:text-[#927B64] ">
-          BOOK NOW
-        </button>
+
+        <button className="w-fit py-2 px-4 rounded-full uppercase font-semibold font-roboto transition-colors bg-[#002D6A] text-[#ffffff] border border-transparent hover:border-[#927B64] hover:bg-[#ffffff] hover:text-[#927B64]">BOOK NOW</button>
+
       </div>
     </div>
 
@@ -188,10 +185,8 @@ export default function blogPage() {
         <h3 className="font-bold text-primary  mb-2 uppercase">Colombo - MALE</h3>
         <p className="text-primary text-sm mt-6 mb-4">Round-trip  |  Business</p>
         <p className="text-2xl font-bold text-[#002D6A] mb-4">LKR 90,000</p>
-        <button
-          className="w-fit py-2 px-4 rounded-full uppercase font-semibold font-roboto transition-colors bg-[#002D6A] hover:border-[#927B64]  text-[#ffffff] hover:bg-[#ffffff] hover:text-[#927B64] ">
-          BOOK NOW
-        </button>
+        
+        <button className="w-fit py-2 px-4 rounded-full uppercase font-semibold font-roboto transition-colors bg-[#002D6A] text-[#ffffff] border border-transparent hover:border-[#927B64] hover:bg-[#ffffff] hover:text-[#927B64]">BOOK NOW</button>
       </div>
     </div>
 
@@ -214,10 +209,8 @@ export default function blogPage() {
         <h3 className="font-bold text-primary  mb-2 uppercase">THAILAND</h3>
         <p className="text-primary text-sm mt-6 mb-4">04 Nights | P/P</p>
         <p className="text-2xl font-bold text-[#002D6A] mb-4">LKR 520,000</p>
-        <button
-          className="w-fit py-2 px-4 rounded-full uppercase font-semibold font-roboto transition-colors bg-[#002D6A] hover:border-[#927B64]  text-[#ffffff] hover:bg-[#ffffff] hover:text-[#927B64] ">
-          BOOK NOW
-        </button>
+
+        <button className="w-fit py-2 px-4 rounded-full uppercase font-semibold font-roboto transition-colors bg-[#002D6A] text-[#ffffff] border border-transparent hover:border-[#927B64] hover:bg-[#ffffff] hover:text-[#927B64]">BOOK NOW</button>
       </div>
     </div>
   </div>
@@ -236,9 +229,13 @@ export default function blogPage() {
                   INSIGHT AND IDEAS
                 </p>
               </div>
-              <button className="px-8 py-3 text-sm border-2 border-[#6d563b] rounded-full font-bold uppercase hover:bg-white hover:text-[#6d563b] text-[#6d563b] transition-colors">
-                VIEW ALL BLOGS
-              </button>
+              <button className="px-8 py-3 text-sm border-2 border-[#927B64] rounded-full font-bold uppercase 
+             text-[#927B64] bg-transparent
+             hover:bg-[#6d563b] hover:text-[#ffffff] hover:border-[#6d563b] 
+             transition-colors duration-200">
+  VIEW ALL BLOGS
+</button>
+
             </div>
             <h2 className="text-5xl font-roboto text-[#6d563b] md:text-5xl font-bold uppercase mb-4">OTHER STORIES</h2>
           </div>

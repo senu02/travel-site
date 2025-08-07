@@ -241,7 +241,7 @@ export default function Home() {
     </section>
 
    <div className=" p-8 text-center">
-      <button className="px-8 py-3 mb-6 text-sm border-2 border-[#6d563b] rounded-full font-bold uppercase hover:bg-white hover:text-[#6d563b] text-[#6d563b] transition-colors">
+      <button className="px-8 py-3 mb-6 text-sm border-2 border-[#6d563b] rounded-full font-bold uppercase hover:bg-[#D0C7B8] hover:text-[#6d563b] text-[#6d563b] transition-colors">
         VIEW ALL BLOGS
       </button>
 
@@ -253,7 +253,7 @@ export default function Home() {
         {[1, 2, 3, 4, 5].map((num) => (
           <button 
             key={num}
-            className="text-[#927B64]bg-[#fdfaf6] rounded-full font-bold uppercase px-6 py-2 uppercase text-[#927B64] hover:bg-white bg-gray-100  transition-colors">
+            className="text-[#927B64]bg-[#fdfaf6] rounded-full font-bold  px-6 py-2 uppercase text-[#927B64] hover:bg-[#D0C7B8] bg-gray-100  transition-colors">
             CATEGORY {num}
           </button>
         ))}
