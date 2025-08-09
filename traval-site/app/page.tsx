@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar"
 import HeroSection from "./components/HeroSection"
 import Image from "next/image"
+import Footer from "./components/footer";
 
 const travelData = [
   {
@@ -31,10 +32,10 @@ export default function Home() {
       <HeroSection />
       </section>
 
- <div className="bg-white py-12 px-6 flex flex-col items-center">
+ <div className="bg-white  px-6 flex flex-col items-center">
 
   <section className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-7xl w-full font-antonio uppercase">
-  <div className="relative col-span-1 lg:col-span-1 rounded-2xl overflow-hidden shadow-lg h-[520px]">
+  <div className="relative col-span-1 lg:col-span-1 rounded-2xl overflow-hidden shadow-lg h-100%">
     <Image
       src="/images/category1.png"
       alt="Travel 1"
@@ -127,7 +128,7 @@ export default function Home() {
 </div>
 
 
-    <section className="py-16 px-6 md:px-10 bg-white max-w-6xl mx-auto">
+    <section className="py-16 px-6 md:px-10 bg-white max-w-6xl mx-auto mt-20">
      
       <div className="flex flex-col items-center text-center mb-12">
         <div className="flex items-center mb-4">
@@ -139,10 +140,10 @@ export default function Home() {
         <h2 className="text-5xl font-roboto text-[#6d563b] md:text-5xl font-bold uppercase mb-4">OTHER STORIES</h2>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div className="grid grid-cols-2 md:grid-cols-2 gap-8  mx-auto">
 
   <article className="group text-left">
-    <div className="relative h-64 w-full mb-4 overflow-hidden rounded-lg mx-auto">
+    <div className="relative h-3/4 w-full mb-4 overflow-hidden rounded-lg mx-auto">
       <Image 
         src="/images/story1.png" 
         alt="Ryokan in Japan"
@@ -240,97 +241,46 @@ export default function Home() {
 </div>
     </section>
 
-   <div className=" p-8 text-center">
-      <button className="px-8 py-3 mb-6 text-sm border-2 border-[#6d563b] rounded-full font-bold uppercase hover:bg-[#D0C7B8] hover:text-[#6d563b] text-[#6d563b] transition-colors">
-        VIEW ALL BLOGS
-      </button>
+<div className="relative p-8 text-center">
+  <div className="absolute inset-0">
+    <Image
+      src="/images/bg4.png" 
+      alt="Background"
+      fill
+      className="object-cover opacity-10" 
+    />
+    <div className="absolute inset-0 bg-white/40" /> 
+  </div>
 
-      <hr className="flex-grow border-t-2 border-primary-300 ml-20 mr-20 mt-10 mb-5" />
+  <div className="relative z-10">
+    <button className="px-8 py-3 mb-6 text-sm border-2 border-[#6d563b] rounded-full font-bold uppercase hover:bg-[#D0C7B8] hover:text-[#6d563b] text-[#6d563b] transition-colors">
+      VIEW ALL BLOGS
+    </button>
 
-      <h3 className="text-3xl font-bold uppercase mb-8 mt-8 text-primary">CATEGORIES</h3>
+    <hr className="flex-grow border-t-2 border-primary-300 ml-20 mr-20 mt-10 mb-5" />
 
-      <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
-        {[1, 2, 3, 4, 5].map((num) => (
-          <button 
-            key={num}
-            className="text-[#927B64]bg-[#fdfaf6] rounded-full font-bold  px-6 py-2 uppercase text-[#927B64] hover:bg-[#D0C7B8] bg-gray-100  transition-colors">
-            CATEGORY {num}
-          </button>
-        ))}
-      </div>
+    <h3 className="text-3xl font-bold uppercase mb-8 mt-8 text-primary">
+      CATEGORIES
+    </h3>
+
+    <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
+      {[1, 2, 3, 4, 5].map((num) => (
+        <button
+          key={num}
+          className="bg-[#F5F4F1] text-[#927B64] rounded-full font-semibold px-6 py-2 uppercase hover:bg-[#D0C7B8] transition-colors"
+        >
+          CATEGORY {num}
+        </button>
+      ))}
     </div>
+  </div>
+</div>
 
       <hr className="border-t-2 border-gray-300 w-full my-0" />
 
-      <footer className="bg-[#fdfaf6] text-[#836e5d] text-sm">
-      <div className="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
-        <div className="space-y-4">
-          <img src="/images/logo.png" alt="Mackinnons" className="h-12" />
-          <div className="flex space-x-4">
-            <a href="#" className="hover:opacity-75">
-              <img src="/icons/fb.png" alt="Facebook" className="h-6 w-6" />
-            </a>
-            <a href="#" className="hover:opacity-75">
-              <img src="/icons/instagram.png" alt="Instagram" className="h-6 w-6" />
-            </a>
-            <a href="#" className="hover:opacity-75">
-              <img src="/icons/linkedin.png" alt="LinkedIn" className="h-6 w-6" />
-            </a>
-            <a href="#" className="hover:opacity-75">
-              <img src="/icons/tik-tok.png" alt="TikTok" className="h-6 w-6" />
-            </a>
-          </div>
-        </div>
-
-        <div>
-          <h3 className="text-1sm font-roboto text-primary">Contact Info</h3>
-          <br></br>
-          <p className="text-1xl font-bold mb-3 font-roboto text-primary">Mackinnons Travels</p>
-          <p>#186 Vauxhall Steet, Colombo 02,</p>
-          <p>Sri Lanka.</p>
-          <p className="mt-3">+94 11 799 100</p>
-          <p className="mt-3">online@mackinnonstravels.com</p>
-        </div>
-
-        <div>
-          <h3 className="font-semibold mb-2">Discover</h3>
-          <ul className="space-y-1">
-            <li><a href="#" className="hover:underline">Mackinnons Home</a></li>
-            <li><a href="#" className="hover:underline">Blog Home</a></li>
-            <li><a href="#" className="hover:underline">Categories</a></li>
-          </ul>
-        </div>
-    <div>
-  <h3 className="text-xs text-gray-500 mb-2">
-    Sign up for special offers, news updates
-  </h3>
-  <div className="flex items-center border boder-[#fdfaf6] rounded-full overflow-hidden ">
-    <input
-      type="email"
-      placeholder="Your Email Address"
-      className="flex-1 px-4 py-2 text-sm bg-transparent text-[#836e5d] placeholder-[#836e5d] focus:outline-none"/>
-    <button className="px-4 py-2 hover:opacity-90 transition">
-      <img src="/icons/telegram.png" alt="Send" className="h-4 w-4" />
-    </button>
-  </div>
-  </div>
-</div>
-    <div className="fixed bottom-10 right-4 flex flex-col gap-3 z-50">
-        <a href="#"><img src="/icons/whatsapp.png" alt="WhatsApp" className="h-10 w-10" /></a>
-        <a href="#"><img src="/icons/messenger.png" alt="Messenger" className="h-10 w-10" /></a>
-      </div>
-    <br></br>
-
-      <div className="border-t border-gray-200 mt-10 py-4 text-xs text-center flex flex-col md:flex-row justify-between items-center px-4">
-        <p>© 2024 Mackinnons Travel. All rights reserved.</p>
-        <div className="space-x-4">
-          <a href="#" className="hover:underline">Terms & Conditions</a>
-          <a href="#" className="hover:underline">Privacy Policy</a>
-          <a href="#" className="hover:underline">Sitemap</a>
-        </div>
-        <p>Website Designed & Developed by eMarketingEye</p>
-      </div>
-    </footer>
+    <section>
+      <Footer />
+      </section>
     </div>
   )
 }

@@ -1,19 +1,44 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
+  const pathname = usePathname();
+
   return (
-    <header className="flex items-center justify-between px-6 py-6 w-full">
-      <nav className="flex items-center gap-6 text-gray-600 font-medium w-full">
+    <header className="flex items-center justify-between px-6 py-6 w-full relative">
+      <nav className="flex items-center gap-6 text-primary font-medium w-full">
         <div className="flex justify-center items-center">
-        <Image src="/images/john.png" alt="john Logo" width={100} height={100} />
+          <Image src="/images/john.png" alt="john Logo" width={100} height={100} />
         </div>
-        <a href="#" className="hover:text-black">Travel Packages</a>
-        <a href="/" className="hover:text-black">Blog Home</a>
-        <Link href="/categories" className="hover:text-black">Categories</Link>
-        <div className="flex jjustify-center">
-        <Image src="/images/logo.png" alt="Logo" className="flex justify-between" width={160} height={190}/>
+        
+        <Link 
+          href="#" 
+          className={`hover:text-black  font-bold ${pathname === '#' ? 'font-bold text-[#002D6A]' : ''}`}
+        >
+          Travel Packages
+        </Link>
+        
+        <Link 
+          href="/" 
+          className={`hover:text-black  font-bold ${pathname === '/' ? 'font-bold text-[#002D6A]' : ''}`}
+        >
+          Blog Home
+        </Link>
+        
+        <Link 
+          href="/categories" 
+          className={`hover:text-black  font-bold ${pathname === '/categories' ? 'font-bold text-[#002D6A]' : ''}`}
+        >
+          Categories
+        </Link>
+
+        <div className="absolute left-1/2 transform -translate-x-1/2">
+          <Image src="/images/logo.png" alt="Logo" width={160} height={190}/>
         </div>
+
         <div className="flex gap-4 ml-auto">
           <a href="#"><img src="/icons/fb.png" alt="fb" width={30}/></a>
           <a href="#"><img src="/icons/instagram.png" alt="Instagram" width={30} /></a>
