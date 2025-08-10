@@ -11,12 +11,12 @@ export default function CategoriesPage() {
       <header className="text-center py-10">
   <div className="flex items-center justify-center mb-6">
     <span className="w-20 h-1 bg-red-500 mr-4"></span>
-    <h2 className="text-[18px] font-primary font-roboto font-medium tracking-[10%] uppercase leading-none">
+    <h2 className="text-[18px] text-primary font-roboto font-medium tracking-[10%] uppercase leading-none">
       DREAM. EXPLORE. DISCOVER
     </h2>
   </div>
 
-  <h1 className="text-[50px] font-antonio font-normal leading-[120%] text-[#927B64] uppercase">
+  <h1 className="text-[50px] font-antonio font-bold leading-[120%] text-[#927B64] uppercase">
     DIVE INTO A WORLD OF<br />INSPIRATION
   </h1>
 
