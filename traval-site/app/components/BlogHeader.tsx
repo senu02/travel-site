@@ -1,7 +1,7 @@
 export default function BlogHeader() {
   return (
     <section className="relative bg-gray-900 text-white py-24">
-      {/* Background image would go here */}
+
       <div className="absolute inset-0 bg-black/50 z-0" />
       
       <div className="container mx-auto px-6 relative z-10">

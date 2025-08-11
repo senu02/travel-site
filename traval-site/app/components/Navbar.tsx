@@ -2,6 +2,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTiktok } from "react-icons/fa";
+
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -40,39 +42,19 @@ export default function Navbar() {
         </div>
 
         <div className="flex gap-4 ml-auto">
-          <a href="#">
-            <img 
-              src="/icons/fb.svg" 
-              alt="fb" 
-              width={30}
-              className="rounded-full border-2 border-primary p-1 bg-white"
-            />
-          </a>
-          <a href="#">
-            <img 
-              src="/icons/instagram.svg" 
-              alt="Instagram" 
-              width={30}
-              className="rounded-full border-2 border-primary p-1 bg-white"
-            />
-          </a>
-          <a href="#">
-            <img 
-              src="/icons/linkedin.svg" 
-              alt="linkedin" 
-              width={30}
-              className="rounded-full border-2 border-primary p-1 bg-white"
-            />
-          </a>
-          <a href="#">
-            <img 
-              src="/icons/tiktok.svg" 
-              alt="tiktok" 
-              width={30}
-              className="rounded-full border-2 border-primary p-1 bg-white"
-            />
-          </a>
-        </div>
+  <a href="#" className="p-1 rounded-full border-2 border-primary bg-white text-primary">
+    <FaFacebookF size={20} />
+  </a>
+  <a href="#" className="p-1 rounded-full border-2 border-primary bg-white text-primary">
+    <FaInstagram size={20} />
+  </a>
+  <a href="#" className="p-1 rounded-full border-2 border-primary bg-white text-primary">
+    <FaLinkedinIn size={20} />
+  </a>
+  <a href="#" className="p-1 rounded-full border-2 border-primary bg-white text-primary">
+    <FaTiktok size={20} />
+  </a>
+</div>
         
       </nav>
     </header>
