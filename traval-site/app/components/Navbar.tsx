@@ -40,10 +40,38 @@ export default function Navbar() {
         </div>
 
         <div className="flex gap-4 ml-auto">
-          <a href="#"><img src="/icons/fb.png" alt="fb" width={30} /></a>
-          <a href="#"><img src="/icons/instagram.png" alt="Instagram" width={30} /></a>
-          <a href="#"><img src="/icons/linkedin.png" alt="linkedin" width={30} /></a>
-          <a href="#"><img src="/icons/tik-tok.png" alt="tiktok" width={30} /></a>
+          <a href="#">
+            <img 
+              src="/icons/fb.svg" 
+              alt="fb" 
+              width={30}
+              className="rounded-full border-2 border-primary p-1 bg-white"
+            />
+          </a>
+          <a href="#">
+            <img 
+              src="/icons/instagram.svg" 
+              alt="Instagram" 
+              width={30}
+              className="rounded-full border-2 border-primary p-1 bg-white"
+            />
+          </a>
+          <a href="#">
+            <img 
+              src="/icons/linkedin.svg" 
+              alt="linkedin" 
+              width={30}
+              className="rounded-full border-2 border-primary p-1 bg-white"
+            />
+          </a>
+          <a href="#">
+            <img 
+              src="/icons/tiktok.svg" 
+              alt="tiktok" 
+              width={30}
+              className="rounded-full border-2 border-primary p-1 bg-white"
+            />
+          </a>
         </div>
         
       </nav>
