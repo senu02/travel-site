@@ -7,17 +7,18 @@ export default function CategoriesPage() {
   return (
  <div className="min-h-screen">
         <Navbar />
-      
-      <div className="min-h-screen bg-white">
+            <hr className="border-t-2 border-[#B9AB9661] w-full mb-10" />
+
+  <div className="min-h-screen bg-white">
   <header className="text-center py-10">
   <div className="flex items-center justify-center mb-6">
     <span className="w-20 h-1 bg-red-500 mr-4"></span>
-    <h2 className="text-[18px] text-primary font-roboto font-medium tracking-[10%] uppercase leading-none">
+    <h2 className="text-[18px] text-primary font-roboto font-font-medium tracking-[10%] uppercase leading-none">
       DREAM. EXPLORE. DISCOVER
     </h2>
   </div>
 
-  <h1 className="text-[50px] font-antonio font-bold leading-[120%] text-[#927B64] uppercase">
+  <h1 className="text-[50px] font-antonio font-normal leading-[120%] text-[#927B64] uppercase">
     DIVE INTO A WORLD OF<br />INSPIRATION
   </h1>
 
@@ -26,10 +27,10 @@ export default function CategoriesPage() {
   </p>
   </header>
 
-      <div className="flex justify-center space-x-4 mb-10">
-        <button className="bg-[#F5F4F1] hover:bg-[#002D6A] hover:text-white text-primary font-semibold py-2 px-4 rounded-full">Categories</button>
-        <button className="bg-[#F5F4F1] hover:bg-[#002D6A]  hover:text-[#ffffff] text-primary py-2 px-4 rounded-full font-semibold">Years</button>
-      </div>
+  <div className="flex justify-center space-x-4 mb-10">
+    <button className="bg-[#F5F4F1] hover:bg-[#002D6A] hover:text-white text-primary font-semibold py-2 px-4 rounded-full">Categories</button>
+    <button className="bg-[#F5F4F1] hover:bg-[#002D6A] hover:text-white text-primary py-2 px-4 rounded-full font-semibold">Years</button>
+  </div>
 
       <div className="flex justify-center space-x-4 text-primary font-semibold">
         <span>2024</span>
@@ -73,8 +74,8 @@ export default function CategoriesPage() {
           src="/images/story2.png"
           alt="Travel 3"
           fill
-          className="object-cover"
-        />
+          className="object-cover"/>
+
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
         <div className="absolute top-4 left-4 text-white text-xs tracking-wider font-semibold z-10 leading-6">
           CATEGORY 1
@@ -97,8 +98,7 @@ export default function CategoriesPage() {
           src="/images/story3.png"
           alt="Travel 2"
           fill
-          className="object-cover"
-        />
+          className="object-cover"/>
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
         <div className="absolute top-4 left-4 text-white text-xs tracking-wider font-semibold z-10 leading-6">
           CATEGORY 1
@@ -121,8 +121,7 @@ export default function CategoriesPage() {
           src="/images/story4.png"
           alt="Travel 3"
           fill
-          className="object-cover"
-        />
+          className="object-cover"/>
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
         <div className="absolute top-4 left-4 text-white text-xs tracking-wider font-semibold z-10 leading-6">
           CATEGORY 1
@@ -145,8 +144,7 @@ export default function CategoriesPage() {
             src="/images/story5.jpg"
             alt="Travel 2"
             fill
-            className="object-cover"
-          />
+            className="object-cover"/>
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
           <div className="absolute top-4 left-4 text-white text-xs tracking-wider font-semibold z-10 leading-6">
             CATEGORY 1
@@ -169,8 +167,7 @@ export default function CategoriesPage() {
           src="/images/story6.png"
           alt="Travel 3"
           fill
-          className="object-cover"
-        />
+          className="object-cover"/>
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
         <div className="absolute top-4 left-4 text-white text-xs tracking-wider font-semibold z-10 leading-6">
           CATEGORY 1
@@ -193,8 +190,7 @@ export default function CategoriesPage() {
           src="/images/story3.png"
           alt="Travel 2"
           fill
-          className="object-cover"
-        />
+          className="object-cover"/>
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
         <div className="absolute top-4 left-4 text-white text-xs tracking-wider font-semibold z-10 leading-6">
           CATEGORY 1
@@ -235,6 +231,7 @@ export default function CategoriesPage() {
     </div>
      </div>
 </div>
+
      <section className=" justify items-center mt-10 mb-25">
     <div className="flex justify-center items-center gap-4 my-6">
 

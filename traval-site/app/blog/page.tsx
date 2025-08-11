@@ -2,16 +2,17 @@ import Navbar from "../components/Navbar";
 import Image from 'next/image';
 import Footer from "../components/footer";
 
-
 export default function blogPage() {
   return (
 
 <div className="min-h-screen">
     <Navbar/>
 
+    <hr className="border-t-2 border-[#B9AB9661] w-full mb-10" />
+
 <section className="flex flex-col items-center">
 
-  <div className="mb-8 flex flex-col items-start w-4/5 max-w-6xl">
+  <div className="mb-8 mt-10 flex flex-col items-start w-4/5 max-w-6xl">
     <p className="text-sm font-bold text-[#927B64] tracking-widest leading-7 mb-1">09 OCT 2024</p>
     <h2 className="text-4xl font-bold text-[#927B64] font-antonio uppercase mt-2 tracking-tight leading-[1.2]">
       6 best ryokans in Japan to rejuvenate yourself
@@ -29,10 +30,10 @@ export default function blogPage() {
     <div className="absolute top-4 left-4 text-white text-xs tracking-wider font-semibold z-10 leading-6 uppercase">
       Category 1  .  Category 2  .  Category 3
     </div>
-    <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#F1C40F]"></div>
+    <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#E74C3C]"></div>
   </div>
 
-  <div className="w-4/5 max-w-6xl">
+  <div className="w-4/5 max-w-6xl pl-2 pr-2">
     <p className="text-[#434343] text-base font-roboto font-light mb-8 leading-relaxed">
       Mackinnons Travels Dive into a world of inspiration, insights, and ideas. Whether you're here to explore, learn, or simply unwind, our blog brings stories that resonate and topics that spark curiosity. 
       Dive into a world of inspiration, insights, and ideas Lorem ipsum dolor sit amet consectetur. Ipsum pretium nisl condimentum scelerisque faucibus porta pellentesque scelerisque ac. Varius sollicitudin rhoncus pellentesque vitae non risus pulvinar pretium. 
@@ -74,7 +75,7 @@ export default function blogPage() {
                className="object-cover"
              />        
              <div className="absolute bottom-4 right-4 z-10"></div>
-             <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#F1C40F]"></div>
+             <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#E74C3C]"></div>
            </div>
        </div>
     </div>
@@ -209,7 +210,7 @@ export default function blogPage() {
         <p className="text-primary text-sm mt-6 mb-4">04 Nights | P/P</p>
         <p className="text-2xl font-bold text-[#002D6A] mb-4">LKR 520,000</p>
 
-        <button className="w-fit py-2 px-4 rounded-full uppercase font-semibold font-roboto transition-colors bg-[#002D6A] text-[#ffffff] border border-transparent hover:border-[#927B64] hover:bg-[#ffffff] hover:text-[#927B64]">BOOK NOW</button>
+        <button className="py-2 px-4 rounded-full uppercase font-semibold font-roboto transition-colors bg-[#002D6A] text-[#ffffff] border border-transparent hover:border-[#927B64] hover:bg-[#ffffff] hover:text-[#927B64]">BOOK NOW</button>
       </div>
     </div>
   </div>
@@ -227,7 +228,7 @@ export default function blogPage() {
                 <p className="text-xs font-roboto text-[#6d563b] uppercase font-bold tracking-widest text-primary-500">
                   INSIGHT AND IDEAS
                 </p>
-              </div>
+          </div>
               <button className="px-8 py-3 text-sm border-2 border-[#927B64] rounded-full font-bold uppercase 
              text-[#927B64] bg-transparent
              hover:bg-[#6d563b] hover:text-[#ffffff] hover:border-[#6d563b] 
@@ -252,10 +253,10 @@ export default function blogPage() {
              <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
           <div className="absolute top-4 left-4 text-white text-xs tracking-wider font-semibold z-10 leading-6 uppercase">Category 1</div>     
              <div className="absolute bottom-4 right-4 z-10"></div>
-             <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#F1C40F]"></div>
+             <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#2ECC71]"></div>
            </div>
-           <span className="text-xs text-[#927B64] font-antonio uppercase block mb-2">09 AUG 2024</span>
-    <h3 className="text-xl font-bold mb-4 text-[#927B64] font-antonio uppercase group-hover:text-red-500 transition-colors">
+           <span className="text-xs text-[#927B64] font-antonio font-bold uppercase block mb-2">09 AUG 2024</span>
+    <h3 className="text-xl font-bold mb-4 text-[#927B64] font-antonio uppercasetransition-colors">
       6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
     </h3>
        </div>
@@ -271,11 +272,11 @@ export default function blogPage() {
              <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
           <div className="absolute top-4 left-4 text-white text-xs tracking-wider font-semibold z-10 leading-6 uppercase">Category 1 . Category 2</div>      
              <div className="absolute bottom-4 right-4 z-10"></div>
-             <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#F1C40F]"></div>
+             <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#9B59B6]"></div>
            </div>
-           <span className="text-xs text-[#927B64] font-antonio uppercase block mb-2">09 AUG 2024</span>
-    <h3 className="text-xl font-bold mb-4 text-[#927B64] font-antonio uppercase group-hover:text-red-500 transition-colors">
-7 best places in Asia to celebrate Christmas    </h3>
+           <span className="text-xs text-[#927B64] font-antonio font-bold uppercase block mb-2">09 AUG 2024</span>
+    <h3 className="text-xl font-bold mb-4 text-[#927B64] font-antonio uppercase  transition-colors">
+7 best places in Asia to celebrate Christmas  </h3>
        </div>
     </div>
 </section>

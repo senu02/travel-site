@@ -1,5 +1,4 @@
 'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -9,7 +8,8 @@ export default function Navbar() {
 
   return (
     <header className="flex items-center justify-between px-6 py-6 w-full relative">
-      <nav className="flex items-center gap-6 text-primary font-medium w-full">
+      <div style={{ height: '10px', width: '100%', background: 'linear-gradient(to right, #002D6A, #C41230)', position: 'absolute', top: 0, left: 0, zIndex: 20 }} />
+      <nav className="flex items-center gap-6 text-primary font-medium w-full" style={{ position: 'relative', zIndex: 10 }}>
         <div className="flex justify-center items-center">
           <Image src="/images/john.png" alt="john Logo" width={100} height={100} />
         </div>
@@ -40,11 +40,12 @@ export default function Navbar() {
         </div>
 
         <div className="flex gap-4 ml-auto">
-          <a href="#"><img src="/icons/fb.png" alt="fb" width={30}/></a>
+          <a href="#"><img src="/icons/fb.png" alt="fb" width={30} /></a>
           <a href="#"><img src="/icons/instagram.png" alt="Instagram" width={30} /></a>
           <a href="#"><img src="/icons/linkedin.png" alt="linkedin" width={30} /></a>
           <a href="#"><img src="/icons/tik-tok.png" alt="tiktok" width={30} /></a>
         </div>
+        
       </nav>
     </header>
   );

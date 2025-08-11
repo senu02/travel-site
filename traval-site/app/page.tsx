@@ -35,7 +35,7 @@ export default function Home() {
  <div className="bg-white  px-6 flex flex-col items-center">
 
   <section className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-7xl w-full font-antonio uppercase">
-  <div className="relative col-span-1 lg:col-span-1 rounded-2xl overflow-hidden shadow-lg h-100%">
+  <div className="relative col-span-1 lg:col-span-1 rounded-2xl mr-10 overflow-hidden shadow-lg h-100%">
     <Image
       src="/images/category1.png"
       alt="Travel 1"
@@ -48,6 +48,7 @@ export default function Home() {
     <div className="absolute top-4 left-4 text-white text-xs tracking-wider font-semibold z-10 leading-6">
       CATEGORY 1 • CATEGORY 2
     </div>
+    
     <div className="absolute bottom-4 left-4 right-1 text-white z-10">
       <p className="text-xs mb-1 leading-6">30 OCT 2024</p>
       <p className="text-lg font-semibold leading-8">
@@ -126,7 +127,6 @@ export default function Home() {
   </div>
 </section>
 </div>
-
 
     <section className="py-16 px-6 md:px-10 bg-white max-w-6xl mx-auto mt-20">
      
@@ -215,7 +215,7 @@ export default function Home() {
         fill
         className="object-cover group-hover:scale-105 transition-transform duration-300"
       />
-            <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#ffc400] rounded-b-2xl"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#ffc400] rounded-b-2xl"></div>
     </div>
     <span className="text-xs text-[#927B64] font-antonio uppercase block mb-2">09 AUG 2024</span>
     <h3 className="text-xl font-bold mb-4 text-[#927B64] font-antonio uppercase group-hover:text-red-500 transition-colors">
@@ -239,7 +239,7 @@ export default function Home() {
     </h3>
   </article>
 </div>
-    </section>
+</section>
 
 <div className="relative p-8 text-center">
   <div className="absolute inset-0">
