@@ -8,7 +8,7 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="flex items-center justify-between px-6 py-6 w-full relative">
+    <header className="flex items-center justify-between px-6 py-6 w-full relative bg-white">
       <div style={{ height: '10px', width: '100%', background: 'linear-gradient(to right, #002D6A, #C41230)', position: 'absolute', top: 0, left: 0, zIndex: 20 }} />
       <nav className="flex items-center gap-6 text-primary font-medium w-full" style={{ position: 'relative', zIndex: 10 }}>
         <div className="flex justify-center items-center">

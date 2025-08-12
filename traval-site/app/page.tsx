@@ -27,39 +27,61 @@ const travelData = [
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <div className="fixed inset-0 -z-10">
+    <Image
+      src="/images/bg4.png"
+      alt="Background"
+      fill
+      className="object-cover opacity-10"
+      priority
+    />
+    <div className="absolute inset-0 bg-white/40" />
+  </div>
       <section>
         <Navbar />
         <HeroSection />
       </section>
 
-      <div className="bg-white px-6 flex flex-col items-center">
+      <div className="bg-white px-6 flex flex-col items-center mt-5">
         <section className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-7xl w-full font-antonio uppercase">
-          <div className="relative col-span-1 lg:col-span-1 rounded-2xl mr-10 overflow-hidden shadow-lg h-100%">
-            <Image
-              src="/images/category1.png"
-              alt="Travel 1"
-              fill
-              className="object-cover"
-            />
+          <div className="relative col-span-1 lg:col-span-1 rounded-2xl mr-10 overflow-hidden shadow-lg h-full">
+  <Image
+    src="/images/category1.png"
+    alt="Travel 1"
+    fill
+    className="object-cover"
+  />
+  <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
 
-            <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
+  <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent z-0"></div>
 
-            <div className="absolute top-4 left-4 text-white text-xs tracking-wider font-semibold z-10 leading-6">
-              CATEGORY 1 • CATEGORY 2
-            </div>
-            
-            <div className="absolute bottom-4 left-4 right-1 text-white z-10">
-              <p className="text-xs mb-1 leading-6">30 OCT 2024</p>
-              <p className="text-lg font-semibold leading-8">
-                LOREM IPSUM DOLOR SIT AMET CONSECTETUR UT ET TINCIDUNT MOLESTIE SAPIEN
-              </p>
-            </div>
-            <div className="absolute bottom-4 right-4 z-10">
-                <svg className="bg-white rounded-full w-9 h-9 flex items-center p-2 justify-center" width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M12.064 8.09602C12.4545 7.7055 12.4545 7.07233 12.064 6.68181L5.69999 0.31785C5.30947 -0.0726743 4.6763 -0.0726744 4.28578 0.31785C3.89525 0.708374 3.89525 1.34154 4.28578 1.73206L9.94263 7.38892L4.28578 13.0458C3.89525 13.4363 3.89525 14.0695 4.28578 14.46C4.6763 14.8505 5.30947 14.8505 5.69999 14.46L12.064 8.09602ZM0.644531 7.38892L0.644531 8.38892L11.3568 8.38892L11.3568 7.38892L11.3568 6.38892L0.644531 6.38892L0.644531 7.38892Z" fill="#927B64"/>
-</svg>
-            </div>
-          </div>
+  <div className="absolute top-4 left-4 text-white text-xs tracking-wider font-semibold z-10 leading-6">
+    CATEGORY 1 • CATEGORY 2
+  </div>
+
+  <div className="absolute bottom-4 left-4 right-12 text-white z-10">
+    <p className="text-xs mb-1 leading-6">30 OCT 2024</p>
+    <p className="text-lg font-semibold leading-8">
+      LOREM IPSUM DOLOR SIT AMET CONSECTETUR UT ET TINCIDUNT MOLESTIE SAPIEN
+    </p>
+  </div>
+
+  <div className="absolute bottom-4 right-4 z-10">
+    <svg
+      className="bg-white rounded-full w-9 h-9 flex items-center p-2 justify-center"
+      width="13"
+      height="15"
+      viewBox="0 0 13 15"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M12.064 8.09602C12.4545 7.7055 12.4545 7.07233 12.064 6.68181L5.69999 0.31785C5.30947 -0.0726743 4.6763 -0.0726744 4.28578 0.31785C3.89525 0.708374 3.89525 1.34154 4.28578 1.73206L9.94263 7.38892L4.28578 13.0458C3.89525 13.4363 3.89525 14.0695 4.28578 14.46C4.6763 14.8505 5.30947 14.8505 5.69999 14.46L12.064 8.09602ZM0.644531 7.38892L0.644531 8.38892L11.3568 8.38892L11.3568 7.38892L11.3568 6.38892L0.644531 6.38892L0.644531 7.38892Z"
+        fill="#927B64"
+      />
+    </svg>
+  </div>
+</div>
 
           <div className="flex flex-col col-span-2">
             <div className="text-center mb-8 justify-items-start">
@@ -128,7 +150,7 @@ export default function Home() {
         </section>
       </div>
 
-      <section className="py-16 px-6 md:px-10 bg-white max-w-6xl mx-auto mt-20">
+      <section className="py-16 px-6 md:px-10 max-w-6xl mx-auto mt-20">
         <div className="flex flex-col items-center text-center mb-12">
           <div className="flex items-center mb-4">
             <span className="w-8 h-0.5 bg-red-500 mr-2"></span>
@@ -239,15 +261,7 @@ export default function Home() {
       </section>
 
       <div className="relative p-8 text-center">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/bg4.png" 
-            alt="Background"
-            fill
-            className="object-cover opacity-10" 
-          />
-          <div className="absolute inset-0 bg-white/40" /> 
-        </div>
+      
 
         <div className="relative z-10">
           <button className="px-8 py-3 mb-6 text-sm border-2 border-[#6d563b] rounded-full font-bold uppercase hover:bg-[#D0C7B8] hover:text-[#6d563b] text-[#6d563b] transition-colors">
