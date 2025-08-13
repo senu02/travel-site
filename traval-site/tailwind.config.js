@@ -9,6 +9,7 @@ const config = {
       fontFamily: {
         roboto: ['Roboto', 'sans-serif'],
         antonio: ['Antonio', 'sans-serif'],
+        oswald: ['Oswald', 'sans-serif'],
       },
       gridTemplateColumns: {
         '13': 'repeat(13, minmax(0, 1fr))',

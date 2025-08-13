@@ -26,19 +26,25 @@ export default function CategoriesPage() {
             Mackinnons Travels Dive into a world of inspiration, insights, and ideas. Whether you're here to explore, learn, or simply unwind, our blog brings stories that resonate and topics that spark curiosity. Dive into a world of inspiration, insights, and ideas. at in. Aliquet pharetra ut pellentesque non etorem volutpat cras adipiscing non donec quis proin sit. Cum tincidunt proin faucibus nulla. Mauris scelerisque urna urna consectetur.
           </p>
         </header>
+<div className="flex justify-center space-x-4 mb-10">
+  <button className="bg-[#F5F4F1] text-primary font-semibold py-2 px-4 rounded-full transition-colors duration-300 hover:bg-[#002D6A] hover:text-white">
+    Categories
+  </button>
+  <button className="bg-[#F5F4F1] text-primary font-semibold py-2 px-4 rounded-full transition-colors duration-300 hover:bg-[#002D6A] hover:text-white">
+    Years
+  </button>
+</div>
 
-        <div className="flex justify-center space-x-4 mb-10">
-          <button className="bg-[#F5F4F1] hover:bg-[#002D6A] hover:text-white text-primary font-semibold py-2 px-4 rounded-full">Categories</button>
-          <button className="bg-[#F5F4F1] hover:bg-[#002D6A] hover:text-white text-primary py-2 px-4 rounded-full font-semibold">Years</button>
-        </div>
-
-        <div className="flex justify-center space-x-4 text-primary font-semibold">
-          <span>2024</span>
-          <span>2023</span>
-          <span>2022</span>
-          <span>2021</span>
-          <span>2020</span>
-        </div>
+<div className="flex justify-center space-x-4 text-primary font-semibold">
+  {["2024", "2023", "2022", "2021", "2020"].map((year) => (
+    <span
+      key={year}
+      className="cursor-pointer transition-colors duration-200 hover:text-[#002D6A] hover:underline "
+    >
+      {year}
+    </span>
+  ))}
+</div>
 
         <div className="mx-[10%] mt-20"> 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
