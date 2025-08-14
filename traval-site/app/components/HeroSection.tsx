@@ -4,7 +4,7 @@ export default function HeroSection() {
   return (
     <section className="relative h-screen mb-20 bg-white">
       <main className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 items-center">
-        <div className="flex items-center">
+        <div className="flex items-left">
           <div className="relative w-2/3 h-[350px] mt-70">
             <Image
               src="/images/bg.png"
@@ -16,19 +16,19 @@ export default function HeroSection() {
 
           <div className="space-y-6 ml-15">
             <div className="flex items-center">
-              <span className="w-12 h-0.5 bg-red-500 mr-2"></span>
-              <p className="text-m uppercase font-bold tracking-widest font-antonio text-[#927B64]">
+              <span className="w-[100px] h-0.5 bg-[#C41230] mr-2"></span>
+              <p className="text-lg uppercase  font-medium tracking-widest font-roboto text-[#927B64]">
                 Mackinnons Travels Blog
               </p>
             </div>
 
-            <h1 className="text-5xl font-antonio font-bold uppercase text-[#927B64] leading-tight">
+            <h1 className="text-8xl font-antonio font-medium uppercase text-[#927B64] leading-tight">
               Adventure Awaits
               <br />
               Around the World
             </h1>
 
-            <p className="text-gray-600">
+            <p className="text-[#434343] font-roboto font-light text-xl">
               Mackinnons Travels revolutionizes the way you book your travel by
               giving you the flexibility to tailor-make your own travel package
               using our comprehensive suite.
@@ -39,7 +39,7 @@ export default function HeroSection() {
         <div className="flex justify-end items-end h-full">
           <video
             src="/images/bgvideo.mp4"
-            className="rounded-bl-2xl rounded-l-2xl h-[600px] w-3/4 object-cover"
+            className="rounded-bl-2xl rounded-l-2xl h-[638px] w-[838px] object-cover"
             autoPlay
             loop
             muted
@@ -49,7 +49,7 @@ export default function HeroSection() {
         </div>
       </main>
 
-      <section className="flex justify-center mb-10 mt-10">
+      <div className="flex justify-center mb-10 mt-10">
         <svg
           width="1441"
           height="15"
@@ -78,7 +78,7 @@ export default function HeroSection() {
             fill="#B9AB96"
           />
         </svg>
-      </section>
+      </div>
     </section>
   );
 }

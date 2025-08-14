@@ -2,7 +2,7 @@
 export default function Footer() {
   return (
 
-    <footer className="bg-[#fdfaf6] text-[#836e5d] text-sm">
+    <footer className="bg-[#fdfaf6] text-[#836e5d]">
       <div className="w-full flex items-center justify-center ">
         <div className="flex-grow border-t" style={{ borderTop: '1px solid #B9AB9661' }}></div>
         <span className="mx-4 flex-shrink-0 flex items-center justify-center">
@@ -12,13 +12,13 @@ export default function Footer() {
         </span>
         <div className="flex-grow border-t" style={{ borderTop: '1px solid #B9AB9661' }}></div>
       </div>
-      <div className="max-w-7xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="px-20 py-10 grid grid-cols-1 md:grid-cols-4 gap-8 mt-20">
         
         <div className="space-y-4">
-          <img src="/images/logo.png" alt="Mackinnons" className="h-15" />
+          <img src="/images/logo.png" alt="Mackinnons" className="h-[99px] w-[280px]" />
           <div className="flex space-x-4 ">
 
-            <svg width="150" height="48" viewBox="0 0 240 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="240" height="48" viewBox="0 0 240 48" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="88" cy="24" r="24" fill="#927B64"/>
 <path d="M96.9543 19.5861C96.9121 18.5765 96.7574 17.8825 96.5358 17.2811C96.3072 16.6427 95.9555 16.0711 95.4947 15.596C95.0445 15.1135 94.4994 14.7386 93.9015 14.5011C93.3283 14.2672 92.6741 14.104 91.7175 14.0594C90.7538 14.0112 90.4478 14 88.0035 14C85.5592 14 85.2532 14.0112 84.2931 14.0557C83.3365 14.1002 82.6788 14.2636 82.1091 14.4973C81.5041 14.7386 80.9625 15.1097 80.5123 15.596C80.0551 16.0711 79.7 16.6465 79.4748 17.2774C79.2532 17.8825 79.0985 18.5728 79.0563 19.5823C79.0106 20.5994 79 20.9223 79 23.5019C79 26.0815 79.0106 26.4044 79.0528 27.4177C79.0949 28.4272 79.2498 29.1213 79.4714 29.7227C79.7 30.3611 80.0551 30.9326 80.5123 31.4078C80.9625 31.8903 81.5076 32.2652 82.1055 32.5027C82.6788 32.7366 83.3329 32.8998 84.2896 32.9443C85.2497 32.989 85.5558 33 88.0001 33C90.4444 33 90.7503 32.989 91.7105 32.9443C92.6671 32.8998 93.3247 32.7366 93.8945 32.5027C95.1044 32.009 96.061 30.9995 96.5288 29.7227C96.7502 29.1177 96.9051 28.4272 96.9472 27.4177C96.9894 26.4044 97 26.0815 97 23.5019C97 20.9223 96.9964 20.5994 96.9543 19.5861ZM95.333 27.3435C95.2943 28.2714 95.1466 28.7725 95.0235 29.1065C94.721 29.9342 94.0985 30.5912 93.3142 30.9104C92.9976 31.0404 92.5194 31.1962 91.6436 31.237C90.694 31.2816 90.4092 31.2926 88.0071 31.2926C85.6049 31.2926 85.3166 31.2816 84.3704 31.237C83.4912 31.1962 83.0164 31.0404 82.6998 30.9104C82.3095 30.7582 81.9543 30.5169 81.6659 30.2015C81.367 29.8934 81.1384 29.5222 80.9941 29.1103C80.871 28.7762 80.7233 28.2714 80.6847 27.3472C80.6424 26.3451 80.632 26.0444 80.632 23.5093C80.632 20.9742 80.6424 20.6698 80.6847 19.6715C80.7233 18.7435 80.871 18.2425 80.9941 17.9084C81.1384 17.4964 81.367 17.1216 81.6695 16.8171C81.9613 16.5016 82.313 16.2604 82.7034 16.1083C83.02 15.9784 83.4983 15.8225 84.374 15.7816C85.3236 15.7371 85.6085 15.7259 88.0105 15.7259C90.4162 15.7259 90.701 15.7371 91.6472 15.7816C92.5264 15.8225 93.0012 15.9784 93.3177 16.1083C93.708 16.2604 94.0633 16.5016 94.3517 16.8171C94.6506 17.1252 94.8792 17.4964 95.0235 17.9084C95.1466 18.2425 95.2943 18.7472 95.333 19.6715C95.3752 20.6736 95.3858 20.9742 95.3858 23.5093C95.3858 26.0444 95.3752 26.3413 95.333 27.3435Z" fill="white"/>
 <path d="M88.0025 18.6216C85.4493 18.6216 83.3777 20.8077 83.3777 23.5025C83.3777 26.1972 85.4493 28.3833 88.0025 28.3833C90.5559 28.3833 92.6274 26.1972 92.6274 23.5025C92.6274 20.8077 90.5559 18.6216 88.0025 18.6216ZM88.0025 26.6686C86.3461 26.6686 85.0025 25.2507 85.0025 23.5025C85.0025 21.7542 86.3461 20.3364 88.0025 20.3364C89.6591 20.3364 91.0025 21.7542 91.0025 23.5025C91.0025 25.2507 89.6591 26.6686 88.0025 26.6686Z" fill="white"/>
@@ -36,28 +36,28 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-1sm font-roboto text-primary">Contact Info</h3>
+          <h3 className="text-sm font-roboto text-primary">Contact Info</h3>
           <br></br>
-          <p className="text-1xl font-bold mb-3 font-roboto text-primary">Mackinnons Travels</p>
-          <p>#186 Vauxhall Steet, Colombo 02,</p>
-          <p>Sri Lanka.</p>
-          <p className="mt-3">+94 11 799 100</p>
-          <p className="mt-3">online@mackinnonstravels.com</p>
+          <p className="text-2xl font-bold mb-3 font-roboto text-primary">Mackinnons Travels</p>
+          <p className="text-lg font-normal mb-3 font-roboto text-primary">#186 Vauxhall Steet, Colombo 02,</p>
+          <p className="text-lg font-normal mb-3 font-roboto text-primary">Sri Lanka.</p>
+          <p className="text-lg font-normal mb-3 font-roboto text-primary">+94 11 799 100</p>
+          <p className="text-lg font-normal mb-3 font-roboto text-primary">online@mackinnonstravels.com</p>
         </div>
 
-        <div>
-          <h3 className="font-semibold mb-2">Discover</h3>
+        <div className="ml-20">
+          <h3 className="font-roboto text-sm mb-2">Discover</h3>
           <ul className="space-y-1">
-            <li><a href="#" className="hover:underline">Mackinnons Home</a></li>
-            <li><a href="#" className="hover:underline">Blog Home</a></li>
-            <li><a href="#" className="hover:underline">Categories</a></li>
+            <li><a href="#" className="text-lg font-roboto">Mackinnons Home</a></li>
+            <li><a href="#" className="text-lg font-roboto">Blog Home</a></li>
+            <li><a href="#" className="text-lg font-roboto">Categories</a></li>
           </ul>
         </div>
     <div>
-  <h3 className="text-xs text-gray-500 mb-2">
+  <h3 className="text-sm font-roboto tracking-wide text-[#927B64] mb-8">
     Sign up for special offers, news updates
   </h3>
-  <div className="flex items-center border boder-[#fdfaf6] rounded-full overflow-hidden ">
+  <div className="flex items-center border boder-[#fdfaf6] rounded-full overflow-hidden font-roboto ">
     <input
       type="email"
       placeholder="Your Email Address"
@@ -99,14 +99,15 @@ export default function Footer() {
       
     <br></br>
 
-      <div className="border-t border-gray-200 mt-10 py-4 text-xs text-center flex flex-col md:flex-row justify-between items-center px-4">
+      <div className="border-t font-roboto border-gray-200 mt-10 py-4 text-sm text-center flex flex-col md:flex-row justify-between items-center px-20">
         <p>© 2024 Mackinnons Travel. All rights reserved.</p>
         <div className="space-x-4">
-          <a href="#" className="hover:underline">Terms & Conditions</a>
-          <a href="#" className="hover:underline">Privacy Policy</a>
-          <a href="#" className="hover:underline">Sitemap</a>
+          <a href="https://www.emarketingeye.com/" >Terms & Conditions</a>
+          <a href="#" >Privacy Policy</a>
+          <a href="#" >Sitemap</a>
         </div>
-        <p>Website Designed & Developed by eMarketingEye</p>
+        <a href="https://www.emarketingeye.com/" >Website Designed & Developed by eMarketingEye</a>
+
       </div>
     </footer>
   )
