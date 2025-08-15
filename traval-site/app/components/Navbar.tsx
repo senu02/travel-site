@@ -1,66 +1,93 @@
 'use client';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 80) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="flex items-center justify-between px-4 sm:px-6 py-6 w-full relative bg-white">
-      <div 
-        className="h-[10px] w-full absolute top-0 left-0 z-20" 
-        style={{ background: 'linear-gradient(to right, #002D6A, #C41230)' }} 
-      />
-      
-      <nav className="flex items-center justify-between gap-4 sm:gap-8 text-primary text-[18px] w-full mt-6 relative z-10">
-        <div className="flex items-center gap-4 sm:gap-8">
-          <div className="flex justify-center items-center">
-            <Image 
-              src="/images/john.png" 
-              alt="john Logo"
-              width={100} 
-              height={100}
-              className="w-[80px] sm:w-[100px]" 
-            />
-          </div>
-          
-          <div className="hidden md:flex gap-4 sm:gap-8">
-            <Link 
-              href="#" 
-              className={`hover:text-black font-roboto font-bold ${pathname === '#' ? 'text-[#002D6A]' : ''}`}
-            >
-              Travel Packages
-            </Link>
-            
-            <Link 
-              href="/" 
-              className={`hover:text-black font-roboto font-bold ${pathname === '/' ? 'text-[#002D6A]' : ''}`}
-            >
-              Blog Home
-            </Link>
-            
-            <Link 
-              href="/categories" 
-              className={`hover:text-black font-roboto font-bold ${pathname === '/categories' ? 'text-[#002D6A]' : ''}`}
-            >
-              Categories
-            </Link>
-          </div>
-        </div>
-
-        <div className="absolute left-1/2 transform -translate-x-1/2  sm:block">
-          <Image
-            src="/images/logo.png"
-            alt="Logo" 
-            width={260} 
-            height={280}
-            className="w-[180px] sm:w-[220px] md:w-[260px]"
+    <>
+      <header
+        className={`transition-all duration-300 z-30 ${
+          scrolled ? 'translate-y-[-100%]' : 'translate-y-0'
+        }`}
+      >
+        <div className="flex items-center justify-between px-4 sm:px-6 py-6 w-full relative bg-white shadow-sm">
+          <div
+            className="h-[10px] w-full absolute top-0 left-0 z-20"
+            style={{
+              background: 'linear-gradient(to right, #002D6A, #C41230)',
+            }}
           />
-        </div>
+          <nav className="flex items-center justify-between gap-4 sm:gap-8 text-primary text-[18px] w-full mt-6 relative z-10">
 
-        <div className="flex items-center ml-auto">
-          <svg 
+            <div className="flex items-center gap-4 sm:gap-8">
+              <div className="flex justify-center items-center">
+                <Image
+                  src="/images/john.png"
+                  alt="john Logo"
+                  width={100}
+                  height={100}
+                  className="w-[80px] sm:w-[100px]"
+                />
+              </div>
+
+              <div className="hidden md:flex gap-4 sm:gap-8">
+                <Link
+                  href="#"
+                  className={`hover:text-black font-roboto font-bold ${
+                    pathname === '#' ? 'text-[#002D6A]' : ''
+                  }`}
+                >
+                  Travel Packages
+                </Link>
+                <Link
+                  href="/"
+                  className={`hover:text-black font-roboto font-bold ${
+                    pathname === '/' ? 'text-[#002D6A]' : ''
+                  }`}
+                >
+                  Blog Home
+                </Link>
+                <Link
+                  href="/categories"
+                  className={`hover:text-black font-roboto font-bold ${
+                    pathname === '/categories' ? 'text-[#002D6A]' : ''
+                  }`}
+                >
+                  Categories
+                </Link>
+              </div>
+            </div>
+
+            <div className="absolute left-1/2 transform -translate-x-1/2 hidden sm:block">
+              <Image
+                src="/images/logo.png"
+                alt="Logo"
+                width={260}
+                height={280}
+                className="w-[180px] sm:w-[220px] md:w-[260px]"
+              />
+            </div>
+
+            <div className="flex items-center ml-auto">
+ <svg 
             width="240" 
             height="48" 
             viewBox="0 0 240 48" 
@@ -79,9 +106,69 @@ export default function Navbar() {
             <path d="M144.282 14C143.022 14 142 15.022 142 16.2816C142 17.5411 143.022 18.5845 144.282 18.5845C145.541 18.5845 146.563 17.5411 146.563 16.2816C146.562 15.022 145.54 14 144.282 14Z" fill="#927B64"/>
             <circle cx="216" cy="24" r="23.5" stroke="#927B64"/>
             <path d="M223.991 18.6701C222.885 18.6701 221.864 18.3037 221.045 17.6856C220.105 16.9771 219.43 15.9377 219.191 14.7397C219.132 14.4437 219.101 14.1383 219.098 13.8253H215.938L215.934 27.1868C215.934 28.451 215.111 29.5229 213.97 29.8999C213.639 30.0093 213.281 30.0612 212.909 30.0407C212.433 30.0146 211.988 29.8712 211.601 29.6395C210.777 29.1467 210.218 28.2527 210.203 27.23C210.179 25.6315 211.471 24.3284 213.068 24.3284C213.384 24.3284 213.687 24.3798 213.97 24.4733V21.2655C213.671 21.2212 213.367 21.1981 213.059 21.1981C211.311 21.1981 209.676 21.9249 208.507 23.2341C207.623 24.2235 207.093 25.4858 207.012 26.8094C206.905 28.5483 207.541 30.2012 208.775 31.4207C208.956 31.5998 209.146 31.7659 209.345 31.9192C210.403 32.7334 211.697 33.1747 213.059 33.1747C213.367 33.1747 213.671 33.152 213.97 33.1077C215.243 32.9192 216.417 32.3367 217.343 31.4207C218.482 30.2955 219.111 28.8015 219.118 27.2114L219.101 20.1501C219.645 20.5691 220.238 20.9158 220.876 21.1849C221.867 21.6031 222.918 21.8151 224 21.8147V18.6694L223.991 18.6701Z" fill="#927B64"/>
-          </svg>
+          </svg>            </div>
+          </nav>
         </div>
-      </nav>
-    </header>
+      </header>
+
+      {/* New Header on Scroll */}
+      <div
+  className={`fixed top-0 left-0 w-full bg-[#fdfaf6] shadow-md z-40 transition-transform duration-300 ${
+    scrolled ? 'translate-y-0' : '-translate-y-full'
+  }`}
+>
+  <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3 text-primary relative">
+    <div className="flex items-center gap-4 sm:gap-8">
+    <div className="flex items-center">
+      <Image
+        src="/images/john.png"
+        alt="John Logo"
+        width={50}
+        height={50}
+        className="w-[50px]"
+      />
+    </div>
+      <Link
+        href="#"
+        className={`hover:text-black font-roboto font-bold ${
+          pathname === '#' ? 'text-[#002D6A]' : ''
+        }`}
+      >
+        Travel Packages
+      </Link>
+      <Link
+        href="/"
+        className={`hover:text-black font-roboto font-bold ${
+          pathname === '/' ? 'text-[#002D6A]' : ''
+        }`}
+      >
+        Blog Home
+      </Link>
+      <Link
+        href="/categories"
+        className={`hover:text-black font-roboto font-bold ${
+          pathname === '/categories' ? 'text-[#002D6A]' : ''
+        }`}
+      >
+        Categories
+      </Link>
+    </div>
+
+    {/* Center logo */}
+    <div className="absolute left-1/2 -translate-x-1/2">
+      <Image
+        src="/images/logo.png"
+        alt="Center Logo"
+        width={120}
+        height={120}
+        className="w-[100px] sm:w-[120px]"
+      />
+    </div>
+
+   
+  </div>
+</div>
+
+    </>
   );
 }
