@@ -33,129 +33,117 @@ export default function Home() {
         <HeroSection />
       </section>
 
-      <div className="bg-white px-4 sm:px-6 lg:px-8 py-6">
-        <section className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-12 font-antonio uppercase justify-center">
-          <div className="lg:w-[544px] flex-shrink-0">
-            <div className="relative rounded-3xl overflow-hidden shadow-lg h-[600px] lg:h-[892px] w-full mx-auto">
-              <Image
-                src="/images/category1.png"
-                alt="Travel destination"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
-              <div className="absolute bottom-0 inset-x-0 h-1/3 bg-gradient-to-t from-black/40 to-transparent"></div>
+      <section className="max-w-7xl mx-auto px-6 py-20 mt-20 flex flex-col lg:flex-row gap-12 font-antonio uppercase items-center justify-center">
+        {/* LEFT FEATURED CARD */}
+        <div className="lg:w-[644px] flex-shrink-0">
+          <div className="relative rounded-[30px] overflow-hidden shadow-lg h-[600px] lg:h-[892px] w-full flex flex-col justify-between">
+            {/* Background Image */}
+            <Image
+              src="/images/category1.png"
+              alt="Travel destination"
+              fill
+              className="object-cover -z-10"
+            />
 
-              <div className="absolute top-4 left-4 text-white text-sm font-roboto font-semibold tracking-widest z-10">
+            {/* Top gradient + category */}
+            <div className="inset-0 h-1/6 bg-gradient-to-b from-black/40 to-transparent p-5">
+              <p className="text-white text-sm font-roboto font-semibold tracking-widest">
                 CATEGORY 1 • CATEGORY 2
-              </div>
+              </p>
+            </div>
 
-              <div className="absolute bottom-4 left-4 right-14 text-white z-10">
+            {/* Bottom content (date + title + arrow) */}
+            <div className="inset-0 h-2/6 bg-gradient-to-t from-black/40 to-transparent p-4 flex items-end justify-between">
+              <div className="text-white">
                 <p className="text-sm mb-1 font-roboto">30 OCT 2024</p>
-                <p className="text-xl lg:text-2xl font-antonio leading-7 lg:leading-9 font-light">
+                <p className="text-xl lg:text-2xl font-antonio leading-8  font-light max-w-[80%]">
                   LOREM IPSUM DOLOR SIT AMET CONSECTETUR UT ET TINCIDUNT
                   MOLESTIE SAPIEN
                 </p>
               </div>
-
-              <div className="absolute bottom-4 right-4 z-10">
+              <button className="bg-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-[#927B64] transition-colors">
                 <svg
-                  className="bg-white rounded-full w-9 h-9 p-2 hover:bg-[#927B64] transition-colors"
                   width="13"
                   height="15"
                   viewBox="0 0 13 15"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  className="fill-[#927B64] hover:fill-white transition-colors"
                 >
-                  <path
-                    d="M12.064 8.09602C12.4545 7.7055 12.4545 7.07233 12.064 6.68181L5.69999 0.31785C5.30947 -0.0726743 4.6763 -0.0726744 4.28578 0.31785C3.89525 0.708374 3.89525 1.34154 4.28578 1.73206L9.94263 7.38892L4.28578 13.0458C3.89525 13.4363 3.89525 14.0695 4.28578 14.46C4.6763 14.8505 5.30947 14.8505 5.69999 14.46L12.064 8.09602ZM0.644531 7.38892L0.644531 8.38892L11.3568 8.38892L11.3568 7.38892L11.3568 6.38892L0.644531 6.38892L0.644531 7.38892Z"
-                    fill="#927B64"
-                    className="hover:fill-white"
-                  />
+                  <path d="M12.064 8.09602C12.4545 7.7055 12.4545 7.07233 12.064 6.68181L5.69999 0.31785C5.30947 -0.0726743 4.6763 -0.0726744 4.28578 0.31785C3.89525 0.708374 3.89525 1.34154 4.28578 1.73206L9.94263 7.38892L4.28578 13.0458C3.89525 13.4363 3.89525 14.0695 4.28578 14.46C4.6763 14.8505 5.30947 14.8505 5.69999 14.46L12.064 8.09602ZM0.644531 7.38892L0.644531 8.38892L11.3568 8.38892L11.3568 7.38892L11.3568 6.38892L0.644531 6.38892L0.644531 7.38892Z" />
                 </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT SIDE CARDS */}
+        <div className="flex-1 flex flex-col items-center lg:items-start">
+          {/* Section Title */}
+          <div className="mb-10 text-center lg:text-left">
+            <p className="text-sm lg:text-lg font-medium text-[#927B64] font-roboto flex items-center justify-center lg:justify-start tracking-widest">
+              <span className="w-[60px] lg:w-[100px] h-0.5 bg-[#C41230] mr-2"></span>
+              DREAM. EXPLORE. DISCOVER
+            </p>
+            <h2 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl  font-antonio text-[#927B64] mt-6 leading-tight tracking-wide">
+              LATEST TRAVEL STORIES
+            </h2>
+          </div>
+
+          {/* Small Cards */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
+            {/* Card 1 */}
+            <div className="w-full sm:w-[460px]">
+              <div className="relative rounded-[30px] overflow-hidden shadow-md h-[300px] sm:h-[460px] w-full">
+                <Image
+                  src="/images/category2.png"
+                  alt="Christmas destinations"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
+                <div className="absolute top-4 left-4 text-white text-sm font-semibold font-roboto tracking-widest">
+                  CATEGORY 1
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#F1C40F]"></div>
+              </div>
+              <div className="text-left mt-4">
+                <p className="text-xs sm:text-sm text-[#927B64] font-roboto font-bold mb-1">
+                  30 OCT 2024
+                </p>
+                <p className="text-lg sm:text-xl lg:text-2xl font-semibold font-antonio text-[#927B64] leading-7 lg:leading-8">
+                  7 BEST PLACES IN ASIA TO CELEBRATE CHRISTMAS
+                </p>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="w-full sm:w-[460px]">
+              <div className="relative rounded-[30px] overflow-hidden shadow-md h-[300px] sm:h-[460px] w-full">
+                <Image
+                  src="/images/category3.jpg"
+                  alt="Japanese ryokans"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
+                <div className="absolute top-4 left-4 text-white text-sm font-semibold font-roboto tracking-widest">
+                  CATEGORY 1
+                </div>
+                <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#FF0000]"></div>
+              </div>
+              <div className="text-left mt-4">
+                <p className="text-xs sm:text-sm text-[#927B64] font-roboto font-bold mb-1">
+                  28 JULY 2024
+                </p>
+                <p className="text-lg sm:text-xl lg:text-2xl font-semibold font-antonio text-[#927B64] leading-7 lg:leading-8">
+                  6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
+                </p>
               </div>
             </div>
           </div>
-
-          <div className="flex-1 flex flex-col justify-start">
-            <div className="mb-6 lg:mb-8 text-center lg:text-left">
-              <p className="text-sm lg:text-lg font-medium text-[#927B64] font-roboto flex items-center justify-center lg:justify-start tracking-widest">
-                <span className="w-[60px] lg:w-[100px] h-0.5 bg-[#C41230] mr-2"></span>
-                DREAM. EXPLORE. DISCOVER
-              </p>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-medium font-antonio text-[#927B64] mt-2 leading-[1.2]">
-                LATEST TRAVEL STORIES
-              </h2>
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-6 justify-center lg:justify-start">
-              <div className="w-full sm:w-[calc(50%-12px)] mx-auto lg:mx-0">
-                <div className="relative rounded-3xl overflow-hidden shadow-md h-[300px] sm:h-[380px] w-full">
-                  <Image
-                    src="/images/category2.png"
-                    alt="Christmas destinations"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
-                  <div className="absolute top-4 left-4 text-white text-sm font-semibold font-roboto tracking-widest">
-                    CATEGORY 1
-                  </div>
-                  <div className="absolute bottom-4 right-4 z-10">
-                    <svg
-                      className="bg-white rounded-full w-9 h-9 p-2 hover:bg-[#927B64] transition-colors"
-                      width="13"
-                      height="15"
-                      viewBox="0 0 13 15"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M12.064 8.09602C12.4545 7.7055 12.4545 7.07233 12.064 6.68181L5.69999 0.31785C5.30947 -0.0726743 4.6763 -0.0726744 4.28578 0.31785C3.89525 0.708374 3.89525 1.34154 4.28578 1.73206L9.94263 7.38892L4.28578 13.0458C3.89525 13.4363 3.89525 14.0695 4.28578 14.46C4.6763 14.8505 5.30947 14.8505 5.69999 14.46L12.064 8.09602ZM0.644531 7.38892L0.644531 8.38892L11.3568 8.38892L11.3568 7.38892L11.3568 6.38892L0.644531 6.38892L0.644531 7.38892Z"
-                        fill="#927B64"
-                        className="hover:fill-white"
-                      />
-                    </svg>
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#F1C40F]"></div>
-                </div>
-                <div className="text-left mt-4">
-                  <p className="text-xs sm:text-sm text-[#927B64] font-roboto font-bold mb-1">
-                    30 OCT 2024
-                  </p>
-                  <p className="text-lg sm:text-xl lg:text-2xl font-semibold font-antonio text-[#927B64] leading-6 sm:leading-7 lg:leading-8">
-                    7 BEST PLACES IN ASIA TO CELEBRATE CHRISTMAS
-                  </p>
-                </div>
-              </div>
-
-              <div className="w-full sm:w-[calc(50%-12px)] mx-auto lg:mx-0">
-                <div className="relative rounded-3xl overflow-hidden shadow-md h-[300px] sm:h-[380px] w-full">
-                  <Image
-                    src="/images/category3.jpg"
-                    alt="Japanese ryokans"
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
-                  <div className="absolute top-4 left-4 text-white text-sm font-semibold font-roboto tracking-widest">
-                    CATEGORY 1
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#ff0000]"></div>
-                </div>
-                <div className="text-left mt-4">
-                  <p className="text-xs sm:text-sm text-[#927B64] font-roboto font-bold mb-1">
-                    28 JULY 2024
-                  </p>
-                  <p className="text-lg sm:text-xl lg:text-2xl font-semibold font-antonio text-[#927B64] leading-6 sm:leading-7 lg:leading-8">
-                    6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
+        </div>
+      </section>
 
       <div className="relative">
         <section className="py-8 md:py-10 px-4 md:px-6 mt-12 md:mt-20 relative z-10">
@@ -172,7 +160,7 @@ export default function Home() {
           </div>
 
           <div className="mx-[10%] mt-20">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               <div className="flex flex-col group mb-4">
                 <Link href="/blog" className="block">
                   <div className="relative rounded-3xl overflow-hidden shadow-md w-full aspect-[3/2] mb-2 cursor-pointer">
