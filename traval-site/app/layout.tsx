@@ -15,15 +15,14 @@ const geistMono = Geist_Mono({
 const antonio = Antonio({
   variable: "--font-antonio",
   subsets: ["latin"],
-  weight: ["300", "700"], 
+  weight: ["200", "300", "400", "500", "600", "700"],
 });
 
 const roboto = Roboto({
   variable: "--font-roboto",
   subsets: ["latin"],
-  weight: ["300", "700"], 
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
 });
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -38,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-      className={`${geistSans.variable} ${geistMono.variable} ${antonio.variable} ${roboto.variable}`}
+        className={`${geistSans.variable} ${geistMono.variable} ${antonio.variable} ${roboto.variable}`}
       >
         {children}
       </body>

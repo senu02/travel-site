@@ -3,9 +3,9 @@ import Image from "next/image";
 export default function HeroSection() {
   return (
     <section className="relative  bg-white">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 items-end">
-        <div className="flex flex-col md:flex-row items-end gap-8">
-          <div className="relative w-2/3 h-[350px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-6 items-end">
+        <div className="flex flex-col md:flex-row items-end gap-6">
+          <div className="relative w-3/6 h-[350px]">
             <Image
               src="/images/bg.png"
               alt="Travel"
@@ -16,13 +16,13 @@ export default function HeroSection() {
 
           <div className="space-y-6 ml-4 mb-4 pb-30">
             <div className="flex items-center">
-              <span className="w-[100px] h-0.5 bg-[#C41230] mr-2"></span>
-              <p className="text-lg uppercase font-medium tracking-widest font-roboto text-[#927B64]">
+              <span className="w-[100px] h-[2px] bg-[#C41230] mr-2"></span>
+              <p className="text-lg uppercase font-bold tracking-widest font-roboto text-[#927B64]">
                 Mackinnons Travels Blog
               </p>
             </div>
 
-            <h1 className="text-5xl md:text-8xl font-antonio font-medium uppercase text-[#927B64] leading-tight">
+            <h1 className="text-8xl  font-antonio font-medium uppercase text-[#927B64] leading-tight ">
               Adventure Awaits
               <br />
               Around the World
@@ -39,7 +39,7 @@ export default function HeroSection() {
         <div className="flex justify-end items-end h-full">
           <video
             src="/images/bgvideo.mp4"
-            className="rounded-bl-2xl rounded-l-2xl h-[750px] w-[900px] object-cover"
+            className="rounded-bl-2xl rounded-l-2xl h-[750px] w-[800px] object-cover"
             autoPlay
             loop
             muted

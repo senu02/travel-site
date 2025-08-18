@@ -33,42 +33,46 @@ export default function Home() {
         <HeroSection />
       </section>
 
-      <section className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 mt-12 lg:mt-20 flex flex-col lg:flex-row gap-8 lg:gap-12 font-antonio items-center justify-center">
-        <div className="w-full lg:w-1/2 xl:w-[644px] flex-shrink-0">
-          <div className="relative rounded-2xl lg:rounded-[30px] overflow-hidden shadow-lg h-[400px] sm:h-[500px] lg:h-[700px] xl:h-[892px] w-full flex flex-col justify-between">
+      <section className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 mt-12 lg:mt-20 flex flex-col lg:flex-row gap-10 lg:gap-12 font-antonio items-center justify-center">
+        <div className="w-[644px] flex-shrink-0">
+          <div className="relative rounded-2xl  overflow-hidden shadow-lg h-[892px] w-full flex flex-col justify-between">
             <Image
               src="/images/category1.png"
               alt="Travel destination"
               fill
               className="object-cover -z-10"
             />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 to-transparent h-2/6 z-0"></div>
 
             <div className="absolute top-4 left-4">
-              <span className="bg-white/30 text-white text-xs sm:text-sm px-3 py-1 rounded-md font-roboto tracking-widest">
+              <span className=" text-xs sm:text-sm px-3 py-1 font-semibold rounded-md font-roboto tracking-widest">
                 CATEGORY 1 • CATEGORY 2
               </span>
             </div>
 
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-5 flex items-end justify-between">
               <div className="text-white">
-                <p className="text-xs sm:text-sm mb-1 font-roboto">
+                <p className="text-sm font-bold font-roboto mb-2">
                   30 OCT 2024
                 </p>
-                <p className="text-lg sm:text-xl lg:text-2xl font-antonio leading-snug max-w-[85%]">
+                <p className="text-[32px]  font-normal font-antonio ">
                   LOREM IPSUM DOLOR SIT AMET CONSECTETUR UT ET TINCIDUNT
                   MOLESTIE SAPIEN
                 </p>
               </div>
-              <button className="border border-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-[#927B64] transition-colors">
+              <button>
                 <svg
-                  width="13"
-                  height="15"
-                  viewBox="0 0 13 15"
-                  fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="fill-white"
+                  width="40"
+                  height="41"
+                  viewBox="0 0 40 41"
+                  fill="none"
                 >
-                  <path d="M12.064 8.09602C12.4545 7.7055 12.4545 7.07233 12.064 6.68181L5.69999 0.31785C5.30947 -0.0726743 4.6763 -0.0726744 4.28578 0.31785C3.89525 0.708374 3.89525 1.34154 4.28578 1.73206L9.94263 7.38892L4.28578 13.0458C3.89525 13.4363 3.89525 14.0695 4.28578 14.46C4.6763 14.8505 5.30947 14.8505 5.69999 14.46L12.064 8.09602ZM0.644531 7.38892L0.644531 8.38892L11.3568 8.38892L11.3568 7.38892L11.3568 6.38892L0.644531 6.38892L0.644531 7.38892Z" />
+                  <circle cx="20" cy="20.3889" r="20" fill="white" />
+                  <path
+                    d="M26.064 21.096C26.4545 20.7055 26.4545 20.0723 26.064 19.6818L19.7 13.3178C19.3095 12.9273 18.6763 12.9273 18.2858 13.3178C17.8953 13.7084 17.8953 14.3415 18.2858 14.7321L23.9426 20.3889L18.2858 26.0458C17.8953 26.4363 17.8953 27.0695 18.2858 27.46C18.6763 27.8505 19.3095 27.8505 19.7 27.46L26.064 21.096ZM14.6445 20.3889L14.6445 21.3889L25.3568 21.3889L25.3568 20.3889L25.3568 19.3889L14.6445 19.3889L14.6445 20.3889Z"
+                    fill="#927B64"
+                  />
                 </svg>
               </button>
             </div>
@@ -76,56 +80,60 @@ export default function Home() {
         </div>
 
         <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start">
-          <div className="mb-6 lg:mb-10 text-center lg:text-left">
+          <div className=" lg:mb-10 text-center lg:text-left">
             <p className="text-xs sm:text-sm lg:text-base font-roboto text-[#927B64] font-bold tracking-widest flex items-center justify-center lg:justify-start">
-              <span className="w-10 lg:w-14 h-0.5 bg-[#C41230] mr-2"></span>
+              <span className="w-[120px] h-[2px] bg-[#C41230] mr-6"></span>
               DREAM. EXPLORE. DISCOVER
             </p>
-            <h2 className="text-7xl font-bold font-antonio text-[#927B64] mt-4 lg:mt-6 leading-tight tracking-wide">
+            <h2 className="text-8xl font-normal font-antonio text-[#927B64] mt-4 mb-8 lg:mt-6 leading-tight tracking-normal">
               LATEST TRAVEL STORIES
             </h2>
           </div>
 
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-8">
             <div>
-              <div className="relative rounded-2xl overflow-hidden shadow-md h-[250px] sm:h-[300px] lg:h-[350px]">
+              <div className="relative rounded-2xl overflow-hidden shadow-md h-[459px] ">
                 <Image
-                  src="/images/category2.png"
+                  src="/images/categoryy2.png"
                   alt="Christmas destinations"
                   fill
                   className="object-cover"
                 />
-                <div className="absolute top-3 left-3 text-white text-xs sm:text-sm font-roboto tracking-widest">
+                <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
+
+                <div className="absolute top-6 left-8 text-white text-sm font-roboto tracking-widest font-semibold leading-[calc(20/1920*100vw)] ">
                   CATEGORY 1
                 </div>
               </div>
-              <div className="mt-3">
+              <div className=" text-left px-4 mt-8">
                 <p className="text-xs text-[#927B64] font-bold font-roboto mb-1">
                   30 OCT 2024
                 </p>
-                <p className="text-base sm:text-lg lg:text-xl font-antonio font-bold text-[#927B64] leading-snug">
+                <p className="text-[32px]  font-antonio font-normal text-[#927B64] leading-snug">
                   7 BEST PLACES IN ASIA TO CELEBRATE CHRISTMAS
                 </p>
               </div>
             </div>
 
             <div>
-              <div className="relative rounded-2xl overflow-hidden shadow-md h-[250px] sm:h-[300px] lg:h-[350px]">
+              <div className="relative rounded-2xl overflow-hidden shadow-md h-[459px] ">
                 <Image
-                  src="/images/category3.jpg"
+                  src="/images/category3.png"
                   alt="Japanese ryokans"
                   fill
                   className="object-cover"
                 />
-                <div className="absolute top-3 left-3 text-white text-xs sm:text-sm font-roboto tracking-widest">
+                <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
+
+                <div className="absolute top-6 left-8 text-white text-xs sm:text-sm font-bold font-roboto tracking-widest">
                   CATEGORY 1
                 </div>
               </div>
-              <div className="mt-3">
+              <div className=" text-left px-4 mt-8">
                 <p className="text-xs text-[#927B64] font-bold font-roboto mb-1">
                   28 JULY 2024
                 </p>
-                <p className="text-base sm:text-lg lg:text-xl font-antonio text-[#927B64] font-bold ">
+                <p className="text-[32px]  font-antonio text-[#927B64] font-normal ">
                   6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
                 </p>
               </div>
@@ -138,7 +146,7 @@ export default function Home() {
         <section className="py-8 md:py-10 px-4 md:px-6 mt-12 md:mt-20 relative z-10">
           <div className="flex flex-col items-center text-center mb-8 md:mb-12">
             <div className="flex items-center mb-2 md:mb-4">
-              <span className="w-6 md:w-8 h-0.5 bg-red-500 mr-2"></span>
+              <span className="w-[120px] h-[2px] bg-red-500 mr-2"></span>
               <p className="text-sm md:text-lg font-roboto text-[#6d563b] uppercase font-bold tracking-widest">
                 INSIGHT AND IDEAS
               </p>
@@ -335,9 +343,11 @@ export default function Home() {
           <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-white to-transparent"></div>
         </div>
         <div className="relative z-10">
-          <button className="px-8 py-3 mb-6 text-base border-2 border-[#6d563b] rounded-full font-roboto font-bold uppercase hover:bg-[#D0C7B8] hover:text-[#6d563b] text-[#6d563b] transition-colors">
-            VIEW ALL BLOGS
-          </button>
+          <Link href="/categories" className="block">
+            <button className="px-8 py-3 mb-6 text-base border-[1px] border-[#6d563b] rounded-full font-roboto font-bold uppercase hover:bg-[#D0C7B8] hover:text-[#6d563b] text-[#6d563b] transition-colors cursor-pointer">
+              VIEW ALL BLOGS
+            </button>
+          </Link>
 
           <section className="flex justify-center mb-10 mt-10">
             <svg
@@ -369,15 +379,15 @@ export default function Home() {
               />
             </svg>
           </section>
-          <h3 className="text-5xl font-antonio font-normal uppercase mb-8 mt-8 text-primary">
+          <h3 className="text-[55px] font-antonio font-normal uppercase mb-8 mt-8 text-primary">
             CATEGORIES
           </h3>
 
-          <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-4  mx-auto mb-15">
             {[1, 2, 3, 4, 5].map((num) => (
               <button
                 key={num}
-                className="bg-[#F5F4F1] text-base text-[#927B64] rounded-full font-roboto font-semibold px-6 py-2 uppercase hover:bg-[#D0C7B8] transition-colors"
+                className="bg-[#F5F4F1] text-base text-[#927B64] rounded-full font-roboto font-semibold px-6 py-2 uppercase hover:bg-[#D0C7B8] transition-colors cursor-pointer"
               >
                 CATEGORY {num}
               </button>

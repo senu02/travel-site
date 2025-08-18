@@ -110,37 +110,38 @@ export default function Footer() {
         <div>
           <h3 className="text-sm font-roboto text-primary">Contact Info</h3>
           <br></br>
-          <p className="text-2xl font-bold mb-3 font-roboto text-primary">
+          <p className="text-2xl font-bold mb-6 font-roboto text-primary">
             Mackinnons Travels
           </p>
-          <p className="text-lg font-normal mb-3 font-roboto text-primary">
+          <p className="text-lg font-normal mb-1 font-roboto text-primary">
             #186 Vauxhall Steet, Colombo 02,
           </p>
-          <p className="text-lg font-normal mb-3 font-roboto text-primary">
+
+          <p className="text-lg font-normal mb-6 font-roboto text-primary">
             Sri Lanka.
           </p>
           <a
             href="tel:+94 11 799 100"
-            className="text-lg font-normal mb-3 font-roboto text-primary hover:font-bold hover:text-[#927B64] "
+            className="text-lg font-normal font-roboto  text-primary hover:font-bold hover:text-[#927B64]"
           >
             +9411799100
           </a>
           <br></br>
           <a
             href="mailto:online@mackinnonstravels.com"
-            className="text-lg font-normal mb-3 font-roboto text-primary hover:font-bold hover:text-[#927B64]"
+            className="text-lg font-normal  font-roboto text-primary hover:font-bold hover:text-[#927B64]"
           >
             online@mackinnonstravels.com
           </a>
         </div>
 
         <div className="ml-20">
-          <h3 className="font-roboto text-sm mb-2">Discover</h3>
-          <ul className="space-y-1">
+          <h3 className="font-roboto text-sm mb-6">Discover</h3>
+          <ul className="space-y-3">
             <li>
               <a
                 href="#"
-                className="text-lg font-roboto hover:font-bold hover:text-[#927B64]"
+                className="text-lg mb-6 font-roboto hover:font-bold hover:text-[#927B64]"
               >
                 Mackinnons Home
               </a>
@@ -148,7 +149,7 @@ export default function Footer() {
             <li>
               <a
                 href="#"
-                className="text-lg font-roboto hover:font-bold hover:text-[#927B64]"
+                className="text-lg font-roboto hover:font-bold mb-6 hover:text-[#927B64]"
               >
                 Blog Home
               </a>
@@ -284,7 +285,6 @@ export default function Footer() {
             href="https://www.emarketingeye.com/"
             className="hover:font-bold hover:text:[#927B64]"
           >
-            {" "}
             eMarketingEye
           </a>
         </p>

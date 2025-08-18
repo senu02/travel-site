@@ -18,7 +18,7 @@ export default function CategoriesPage() {
             </h2>
           </div>
 
-          <h1 className="text-8xl font-antonio font-medium  text-[#927B64] uppercase"> 
+          <h1 className="text-8xl font-antonio font-medium  text-[#927B64] uppercase">
             DIVE INTO A WORLD OF
             <br />
             INSPIRATION

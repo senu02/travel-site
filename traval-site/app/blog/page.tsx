@@ -115,13 +115,13 @@ export default function BlogPage() {
               suscipit urna lobortis aliquam dignissim. Nisl magnis gravida
               ligula duis sit sit. Euismod arcu at tellus duis metus ut velit
               elementum. Fermentum id eget turpis mattis. Nulla amet massa lacus
-              sed. Leo ac amet diam purus ullamcorper.{" "}
+              sed. Leo ac amet diam purus ullamcorper.
             </li>
             <li>
               Ultrices convallis lectus nisl accumsan. Orci consequat adipiscing
               iaculis scelerisque vulputate tellus nascetur sed. Lacus morbi
               elit lorem adipiscing adipiscing nisi iaculis pharetra leo.
-              Gravida quam purus malesuada magna nec nec elementum.{" "}
+              Gravida quam purus malesuada magna nec nec elementum.
             </li>
           </ul>
         </div>
@@ -246,7 +246,7 @@ export default function BlogPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
                 <div className="absolute top-4 left-4 text-white text-xs sm:text-sm tracking-wider font-roboto font-semibold z-10 leading-6 uppercase">
-                  Air ticket{" "}
+                  Air ticket
                 </div>
                 <div className="absolute bottom-4 right-4 z-10"></div>
                 <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#F1C40F] rounded-t-full"></div>
@@ -281,7 +281,7 @@ export default function BlogPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
                 <div className="absolute top-4 left-4 text-white text-xs sm:text-sm tracking-wider font-semibold z-10 leading-6 uppercase">
-                  Air ticket{" "}
+                  Air ticket
                 </div>
                 <div className="absolute bottom-4 right-4 z-10"></div>
                 <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#c50000] rounded-t-full"></div>
@@ -317,14 +317,14 @@ export default function BlogPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
                 <div className="absolute top-4 left-4 text-white text-xs sm:text-sm tracking-wider font-semibold z-10 leading-6 uppercase">
-                  Air ticket{" "}
+                  Air ticket
                 </div>
                 <div className="absolute bottom-4 right-4 z-10"></div>
                 <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#23a000] rounded-t-full"></div>
               </div>
               <div className="p-4">
                 <h1 className="font-bold font-roboto text-primary mb-2 sm:mb-4 text-sm sm:text-base uppercase">
-                  09 Sep 2024 - 11 OCT 2024{" "}
+                  09 Sep 2024 - 11 OCT 2024
                 </h1>
                 <h3 className="font-normal font-antonio text-2xl sm:text-3xl md:text-4xl text-primary mb-2 uppercase leading-tight">
                   Colombo - MALE
@@ -352,7 +352,7 @@ export default function BlogPage() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
                 <div className="absolute top-4 left-4 text-white text-xs sm:text-sm tracking-wider font-semibold z-10 leading-6 uppercase">
-                  Air ticket{" "}
+                  Air ticket
                 </div>
                 <div className="absolute bottom-4 right-4 z-10"></div>
                 <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#620090] rounded-t-full"></div>

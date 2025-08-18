@@ -1,11 +1,9 @@
 @import "tailwindcss";
 
-
 :root {
   --background: #ffffff;
   --foreground: #ffffff;
-  --text-primary: #927B64;
-  
+  --text-primary: #927b64;
 }
 
 @theme inline {
@@ -16,7 +14,6 @@
   --font-antonio: var(--font-antonio);
   --font-roboto: var(--font-roboto);
   --color-primary: var(--primary);
-  
 }
 
 @media (prefers-color-scheme: dark) {
@@ -33,11 +30,10 @@
 .text-line {
   color: var(--text-line);
 }
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
   font-family: var(--font-antonio);
-  
 }
-
