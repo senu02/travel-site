@@ -34,10 +34,8 @@ export default function Home() {
       </section>
 
       <section className="w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 mt-12 lg:mt-20 flex flex-col lg:flex-row gap-8 lg:gap-12 font-antonio items-center justify-center">
-        {/* LEFT FEATURED CARD */}
         <div className="w-full lg:w-1/2 xl:w-[644px] flex-shrink-0">
           <div className="relative rounded-2xl lg:rounded-[30px] overflow-hidden shadow-lg h-[400px] sm:h-[500px] lg:h-[700px] xl:h-[892px] w-full flex flex-col justify-between">
-            {/* Background Image */}
             <Image
               src="/images/category1.png"
               alt="Travel destination"
@@ -45,14 +43,12 @@ export default function Home() {
               className="object-cover -z-10"
             />
 
-            {/* Category pill */}
             <div className="absolute top-4 left-4">
               <span className="bg-white/30 text-white text-xs sm:text-sm px-3 py-1 rounded-md font-roboto tracking-widest">
                 CATEGORY 1 • CATEGORY 2
               </span>
             </div>
 
-            {/* Bottom content */}
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/50 to-transparent p-5 flex items-end justify-between">
               <div className="text-white">
                 <p className="text-xs sm:text-sm mb-1 font-roboto">
@@ -79,9 +75,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* RIGHT SIDE */}
         <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start">
-          {/* Section Title */}
           <div className="mb-6 lg:mb-10 text-center lg:text-left">
             <p className="text-xs sm:text-sm lg:text-base font-roboto text-[#927B64] font-bold tracking-widest flex items-center justify-center lg:justify-start">
               <span className="w-10 lg:w-14 h-0.5 bg-[#C41230] mr-2"></span>
@@ -92,9 +86,7 @@ export default function Home() {
             </h2>
           </div>
 
-          {/* Small Cards */}
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {/* Card 1 */}
             <div>
               <div className="relative rounded-2xl overflow-hidden shadow-md h-[250px] sm:h-[300px] lg:h-[350px]">
                 <Image
@@ -117,7 +109,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Card 2 */}
             <div>
               <div className="relative rounded-2xl overflow-hidden shadow-md h-[250px] sm:h-[300px] lg:h-[350px]">
                 <Image

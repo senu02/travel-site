@@ -7,24 +7,24 @@ export default function CategoriesPage() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
-      <hr className="border-t-2 border-[#B9AB9661] w-full mb-10" />
+      <hr className="border-t-2 border-[#B9AB9661] w-full mb-20" />
 
-      <div className="min-h-screen bg-white">
+      <div className=" bg-white">
         <header className="text-center py-10 ">
           <div className="flex items-center justify-center mb-6">
             <span className="w-[120px] h-0.5 bg-[#C41230] mr-2"></span>
-            <h2 className="text-lg text-primary font-roboto font-medium tracking-wide uppercase leading-none">
+            <h2 className="text-lg text-[#927B64] font-roboto font-bold  uppercase tracking-widest">
               DREAM. EXPLORE. DISCOVER
             </h2>
           </div>
 
-          <h1 className="text-8xl font-antonio font-medium  text-[#927B64] uppercase">
+          <h1 className="text-8xl font-antonio font-medium  text-[#927B64] uppercase"> 
             DIVE INTO A WORLD OF
             <br />
             INSPIRATION
           </h1>
 
-          <p className="mt-10 text-xl font-roboto font-extralight text-[#434343] tracking-normal leading-10 ml-75 mr-75">
+          <p className="mt-10 text-xl font-roboto font-extralight text-[#434343] tracking-normal leading-[calc(40/1920*100vw)] ml-75 mr-75">
             Mackinnons Travels Dive into a world of inspiration, insights, and
             ideas. Whether you're here to explore, learn, or simply unwind, our
             blog brings stories that resonate and topics that spark curiosity.
@@ -56,7 +56,7 @@ export default function CategoriesPage() {
 
         <div className="mx-[10%] mt-20">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="flex flex-col mb-4 group">
+            <div className="flex flex-col mb-2 group">
               <Link href="/blog" className="block">
                 <div className="relative rounded-3xl overflow-hidden shadow-md w-full aspect-[3/2] mb-4 cursor-pointer">
                   <Image
@@ -81,13 +81,13 @@ export default function CategoriesPage() {
                 <span className="text-sm text-[#927B64] font-bold font-roboto uppercase block mb-2 mt-10">
                   09 AUG 2024
                 </span>
-                <h3 className="text-3xl font-normal mb-20 text-[#927B64] font-antonio uppercase">
+                <h3 className="text-3xl font-normal mb-8 text-[#927B64] font-antonio uppercase">
                   6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
                 </h3>
               </div>
             </div>
 
-            <div className="flex flex-col group mb-10">
+            <div className="flex flex-col group mb-8">
               <Link href="/blog" className="block">
                 <div className="relative rounded-3xl overflow-hidden shadow-md w-full aspect-[3/2] mb-4">
                   <Image
@@ -107,13 +107,13 @@ export default function CategoriesPage() {
                 <span className="text-sm text-[#927B64] font-bold font-roboto uppercase block mb-2 mt-10">
                   09 AUG 2024
                 </span>
-                <h3 className="text-3xl font-normal mb-20 text-[#927B64] font-antonio uppercase ">
+                <h3 className="text-3xl font-normal mb-8 text-[#927B64] font-antonio uppercase ">
                   7 best places in Asia to celebrate Christmas
                 </h3>
               </div>
             </div>
 
-            <div className="flex flex-col group mb-10">
+            <div className="flex flex-col group mb-8">
               <Link href="/blog" className="block">
                 <div className="relative rounded-3xl overflow-hidden shadow-md w-full aspect-[3/2] mb-4">
                   <Image
@@ -133,13 +133,13 @@ export default function CategoriesPage() {
                 <span className="text-sm text-[#927B64] font-bold font-roboto uppercase block mb-2 mt-10">
                   09 AUG 2024
                 </span>
-                <h3 className="text-3xl font-normal mb-20 text-[#927B64] font-antonio uppercase ">
+                <h3 className="text-3xl font-normal mb-8 text-[#927B64] font-antonio uppercase ">
                   6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
                 </h3>
               </div>
             </div>
 
-            <div className="flex flex-col group mb-10">
+            <div className="flex flex-col group mb-8">
               <Link href="/blog" className="block">
                 <div className="relative rounded-3xl overflow-hidden shadow-md w-full aspect-[3/2] mb-4">
                   <Image
@@ -159,13 +159,13 @@ export default function CategoriesPage() {
                 <span className="text-sm text-[#927B64] font-bold font-roboto uppercase block mb-2 mt-10">
                   09 AUG 2024
                 </span>
-                <h3 className="text-3xl font-normal mb-20 text-[#927B64] font-antonio uppercase ">
+                <h3 className="text-3xl font-normal mb-8 text-[#927B64] font-antonio uppercase ">
                   7 best places in Asia to celebrate Christmas
                 </h3>
               </div>
             </div>
 
-            <div className="flex flex-col group mb-10">
+            <div className="flex flex-col group mb-8">
               <Link href="/blog" className="block">
                 <div className="relative rounded-3xl overflow-hidden shadow-md w-full aspect-[3/2] mb-4 cursor-pointer">
                   <Image
@@ -185,13 +185,13 @@ export default function CategoriesPage() {
                 <span className="text-sm text-[#927B64] font-bold font-roboto uppercase block mb-2 mt-10">
                   09 AUG 2024
                 </span>
-                <h3 className="text-3xl font-normal mb-20 text-[#927B64] font-antonio uppercase ">
+                <h3 className="text-3xl font-normal mb-8 text-[#927B64] font-antonio uppercase ">
                   6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
                 </h3>
               </div>
             </div>
 
-            <div className="flex flex-col group mb-10">
+            <div className="flex flex-col group mb-8">
               <Link href="/blog" className="block">
                 <div className="relative rounded-3xl overflow-hidden shadow-md w-full aspect-[3/2] mb-4">
                   <Image
@@ -211,13 +211,13 @@ export default function CategoriesPage() {
                 <span className="text-sm text-[#927B64] font-bold font-roboto uppercase block mb-2 mt-10">
                   09 AUG 2024
                 </span>
-                <h3 className="text-3xl font-normal mb-20 text-[#927B64] font-antonio uppercase ">
+                <h3 className="text-3xl font-normal mb-8 text-[#927B64] font-antonio uppercase ">
                   7 best places in Asia to celebrate Christmas
                 </h3>
               </div>
             </div>
 
-            <div className="flex flex-col group mb-10">
+            <div className="flex flex-col group mb-8">
               <Link href="/blog" className="block">
                 <div className="relative rounded-3xl overflow-hidden shadow-md w-full aspect-[3/2] mb-4">
                   <Image
@@ -237,13 +237,13 @@ export default function CategoriesPage() {
                 <span className="text-sm text-[#927B64] font-bold font-roboto uppercase block mb-2 mt-10">
                   09 AUG 2024
                 </span>
-                <h3 className="text-3xl font-normal mb-20 text-[#927B64] font-antonio uppercase ">
+                <h3 className="text-3xl font-normal mb-8 text-[#927B64] font-antonio uppercase ">
                   6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
                 </h3>
               </div>
             </div>
 
-            <div className="flex flex-col group mb-10">
+            <div className="flex flex-col group mb-8">
               <Link href="/blog" className="block">
                 <div className="relative rounded-3xl overflow-hidden shadow-md w-full aspect-[3/2] mb-4">
                   <Image
@@ -263,8 +263,8 @@ export default function CategoriesPage() {
                 <span className="text-sm text-[#927B64] font-bold font-roboto uppercase block mb-2 mt-10">
                   09 AUG 2024
                 </span>
-                <h3 className="text-3xl font-normal mb-20 text-[#927B64] font-antonio uppercase ">
-                  7 best places in Asia to celebrate Christmas{" "}
+                <h3 className="text-3xl font-normal mb-8 text-[#927B64] font-antonio uppercase ">
+                  7 best places in Asia to celebrate Christmas
                 </h3>
               </div>
             </div>

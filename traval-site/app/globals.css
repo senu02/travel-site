@@ -16,6 +16,7 @@
   --font-antonio: var(--font-antonio);
   --font-roboto: var(--font-roboto);
   --color-primary: var(--primary);
+  
 }
 
 @media (prefers-color-scheme: dark) {
