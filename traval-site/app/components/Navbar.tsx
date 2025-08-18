@@ -24,20 +24,20 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={` transition-all duration-300 z-30 ${
+        className={`z-30 transition-all duration-300 ${
           scrolled ? "translate-y-[-100%]" : "translate-y-0"
         }`}
       >
-        <div className=" flex items-center justify-between px-4 sm:px-6 py-6 w-full relative bg-white shadow-sm">
+        <div className="relative flex w-full items-center justify-between bg-white px-4 py-6 shadow-sm sm:px-6">
           <div
-            className="h-[10px] w-full absolute top-0 left-0 z-20"
+            className="absolute top-0 left-0 z-20 h-[10px] w-full"
             style={{
               background: "linear-gradient(to right, #002D6A, #C41230)",
             }}
           />
-          <nav className="flex items-center justify-between w-full mt-4 relative z-10 ml-10 mr-10">
-            <div className="flex items-center gap-4 sm:gap-8 flex-1 text-primary">
-              <div className="flex justify-center items-center">
+          <nav className="relative z-10 mt-4 mr-10 ml-10 flex w-full items-center justify-between">
+            <div className="text-primary flex flex-1 items-center gap-4 sm:gap-8">
+              <div className="flex items-center justify-center">
                 <Image
                   src="/images/john.png"
                   alt="john Logo"
@@ -47,10 +47,10 @@ export default function Navbar() {
                 />
               </div>
 
-              <div className="hidden md:flex gap-4 sm:gap-8">
+              <div className="hidden gap-4 sm:gap-8 md:flex">
                 <Link
                   href="#"
-                  className={`hover:text-black font-roboto font-bold ${
+                  className={`font-roboto font-bold hover:text-black ${
                     pathname === "#" ? "text-[#002D6A]" : ""
                   }`}
                 >
@@ -58,7 +58,7 @@ export default function Navbar() {
                 </Link>
                 <Link
                   href="/"
-                  className={`hover:text-black font-roboto font-bold ${
+                  className={`font-roboto font-bold hover:text-black ${
                     pathname === "/" ? "text-[#002D6A]" : ""
                   }`}
                 >
@@ -66,7 +66,7 @@ export default function Navbar() {
                 </Link>
                 <Link
                   href="/categories"
-                  className={`hover:text-black font-roboto font-bold ${
+                  className={`font-roboto font-bold hover:text-black ${
                     pathname === "/categories" ? "text-[#002D6A]" : ""
                   }`}
                 >
@@ -75,8 +75,8 @@ export default function Navbar() {
               </div>
             </div>
 
-            <div className="flex-1 flex justify-center">
-              <div className="hidden sm:block mx-auto">
+            <div className="flex flex-1 justify-center">
+              <div className="mx-auto hidden sm:block">
                 <Image
                   src="/images/logo.png"
                   alt="Logo"
@@ -87,14 +87,14 @@ export default function Navbar() {
               </div>
             </div>
 
-            <div className="flex-1 flex justify-end">
-              <div className="hidden sm:flex items-center">
+            <div className="flex flex-1 justify-end">
+              <div className="hidden items-center sm:flex">
                 <svg
                   width="240"
                   height="48"
                   viewBox="0 0 240 48"
                   fill="none"
-                  className="w-[160px] sm:w-[200px] md:w-[240px] h-auto"
+                  className="h-auto w-[160px] sm:w-[200px] md:w-[240px]"
                 >
                   <circle cx="88" cy="24" r="24" fill="#927B64" />
                   <path
@@ -140,14 +140,14 @@ export default function Navbar() {
       </header>
 
       <div
-        className={`fixed top-0 left-0 w-full bg-white shadow-md z-40 transition-transform duration-300 ${
+        className={`fixed top-0 left-0 z-40 w-full bg-white shadow-md transition-transform duration-300 ${
           scrolled ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <div className="flex items-center justify-between px-4 sm:px-6 py-3 w-full relative">
-          <nav className="flex items-center justify-between w-full relative z-10 ml-10 mr-10">
-            <div className="flex items-center gap-4 sm:gap-6 flex-1 text-primary">
-              <div className="flex justify-center items-center">
+        <div className="relative flex w-full items-center justify-between px-4 py-3 sm:px-6">
+          <nav className="relative z-10 mr-10 ml-10 flex w-full items-center justify-between">
+            <div className="text-primary flex flex-1 items-center gap-4 sm:gap-6">
+              <div className="flex items-center justify-center">
                 <Image
                   src="/images/john.png"
                   alt="john Logo"
@@ -156,10 +156,10 @@ export default function Navbar() {
                   className="w-[60px] sm:w-[80px]"
                 />
               </div>
-              <div className="hidden md:flex gap-4 sm:gap-6">
+              <div className="hidden gap-4 sm:gap-6 md:flex">
                 <Link
                   href="#"
-                  className={`hover:text-black font-roboto font-bold text-sm ${
+                  className={`font-roboto text-sm font-bold hover:text-black ${
                     pathname === "#" ? "text-[#002D6A]" : ""
                   }`}
                 >
@@ -167,7 +167,7 @@ export default function Navbar() {
                 </Link>
                 <Link
                   href="/"
-                  className={`hover:text-black font-roboto font-bold text-sm ${
+                  className={`font-roboto text-sm font-bold hover:text-black ${
                     pathname === "/" ? "text-[#002D6A]" : ""
                   }`}
                 >
@@ -175,7 +175,7 @@ export default function Navbar() {
                 </Link>
                 <Link
                   href="/categories"
-                  className={`hover:text-black font-roboto font-bold text-sm ${
+                  className={`font-roboto text-sm font-bold hover:text-black ${
                     pathname === "/categories" ? "text-[#002D6A]" : ""
                   }`}
                 >
@@ -183,8 +183,8 @@ export default function Navbar() {
                 </Link>
               </div>
             </div>
-            <div className="flex-1 flex justify-center">
-              <div className="hidden sm:block mx-auto">
+            <div className="flex flex-1 justify-center">
+              <div className="mx-auto hidden sm:block">
                 <Image
                   src="/images/logo.png"
                   alt="Logo"
@@ -194,9 +194,9 @@ export default function Navbar() {
                 />
               </div>
             </div>
-            <div className="flex-1 flex justify-end cursor-pointer">
-              <div className="hidden sm:flex items-center">
-                <div className="flex space-x-4 ">
+            <div className="flex flex-1 cursor-pointer justify-end">
+              <div className="hidden items-center sm:flex">
+                <div className="flex space-x-4">
                   <svg
                     width="240"
                     height="48"
