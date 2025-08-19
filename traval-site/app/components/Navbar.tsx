@@ -7,6 +7,7 @@ import { usePathname } from "next/navigation";
 export default function Navbar() {
   const pathname = usePathname();
   const [showFixedNav, setShowFixedNav] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,12 +17,53 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent body scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
+
   const NavContent = ({ isFixed = false }) => (
     <nav
       className={`relative z-10 flex w-full items-center justify-between ${isFixed ? "py-2" : "py-6"} mr-10 ml-10`}
     >
+      {/* Mobile menu button (visible only on mobile) */}
+      <div className="flex items-center md:hidden">
+        <button
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          className="text-primary focus:outline-none"
+        >
+          <svg
+            className="h-8 w-8"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d={
+                isMobileMenuOpen
+                  ? "M6 18L18 6M6 6l12 12"
+                  : "M4 6h16M4 12h16M4 18h16"
+              }
+            ></path>
+          </svg>
+        </button>
+      </div>
+
+      {/* John Logo (hidden on mobile) */}
       <div className="text-primary flex flex-1 items-center gap-4 sm:gap-6">
-        <div className="flex items-center justify-center">
+        <div className="hidden items-center justify-center md:flex">
           <Image
             src="/images/john.png"
             alt="john Logo"
@@ -55,8 +97,9 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Mackinnons Logo */}
       <div className="flex flex-1 justify-center">
-        <div className="mx-auto hidden sm:block">
+        <div className="mx-auto">
           <Image
             src="/images/logo.png"
             alt="Logo"
@@ -68,7 +111,7 @@ export default function Navbar() {
       </div>
 
       <div className="flex flex-1 items-center justify-end gap-4">
-        <div className="flex cursor-pointer gap-3">
+        <div className="hidden cursor-pointer gap-3 md:flex">
           <svg
             width="240"
             height="48"
@@ -135,7 +178,7 @@ export default function Navbar() {
             >
               <circle cx="216" cy="24" r="23.5" stroke="#927B64" />
               <path
-                d="M223.991 18.67C222.885 18.67 221.864 18.3036 221.045 17.6856C220.105 16.977 219.43 15.9376 219.191 14.7397C219.132 14.4437 219.101 14.1382 219.098 13.8252H215.938L215.934 27.1867C215.934 28.4509 215.111 29.5229 213.97 29.8999C213.639 30.0092 213.281 30.0611 212.909 30.0407C212.433 30.0145 211.988 29.8711 211.601 29.6394C210.777 29.1466 210.218 28.2526 210.203 27.2299C210.179 25.6315 211.471 24.3283 213.068 24.3283C213.384 24.3283 213.687 24.3798 213.97 24.4733V21.2654C213.671 21.2212 213.367 21.1981 213.059 21.1981C211.311 21.1981 209.676 21.9248 208.507 23.234C207.623 24.2234 207.093 25.4857 207.012 26.8094C206.905 28.5482 207.541 30.2011 208.775 31.4207C208.956 31.5997 209.146 31.7659 209.345 31.9192C210.403 32.7333 211.697 33.1747 213.059 33.1747C213.367 33.1747 213.671 33.152 213.97 33.1077C215.243 32.9192 216.417 32.3367 217.343 31.4207C218.482 30.2954 219.111 28.8014 219.118 27.2113L219.101 20.15C219.645 20.569 220.238 20.9157 220.876 21.1848C221.867 21.6031 222.918 21.815 224 21.8146V18.6693L223.991 18.67Z"
+                d="M223.991 18.67C222.885 18.67 221.864 18.3036 221.045 17.6856C220.105 16.977 219.430 15.9376 219.191 14.7397C219.132 14.4437 219.101 14.1382 219.098 13.8252H215.938L215.934 27.1867C215.934 28.4509 215.111 29.5229 213.970 29.8999C213.639 30.0092 213.281 30.0611 212.909 30.0407C212.433 30.0145 211.988 29.8711 211.601 29.6394C210.777 29.1466 210.218 28.2526 210.203 27.2299C210.179 25.6315 211.471 24.3283 213.068 24.3283C213.384 24.3283 213.687 24.3798 213.970 24.4733V21.2654C213.671 21.2212 213.367 21.1981 213.059 21.1981C211.311 21.1981 209.676 21.9248 208.507 23.234C207.623 24.2234 207.093 25.4857 207.012 26.8094C206.905 28.5482 207.541 30.2011 208.775 31.4207C208.956 31.5997 209.146 31.7659 209.345 31.9192C210.403 32.7333 211.697 33.1747 213.059 33.1747C213.367 33.1747 213.671 33.152 213.970 33.1077C215.243 32.9192 216.417 32.3367 217.343 31.4207C218.482 30.2954 219.111 28.8014 219.118 27.2113L219.101 20.15C219.645 20.569 220.238 20.9157 220.876 21.1848C221.867 21.6031 222.918 21.815 224 21.8146V18.6693L223.991 18.67Z"
                 fill="#927B64"
               />
             </a>
@@ -156,6 +199,136 @@ export default function Navbar() {
             }}
           />
           <NavContent />
+        </div>
+
+        {/* Full-page mobile menu overlay */}
+        <div
+          className={`fixed inset-0 z-50 md:hidden ${isMobileMenuOpen ? "block" : "hidden"}`}
+        >
+          {/* Semi-transparent backdrop */}
+          <div
+            className="bg-opacity-50 absolute inset-0 bg-black"
+            onClick={() => setIsMobileMenuOpen(false)}
+          ></div>
+
+          {/* Menu content */}
+          <div className="absolute top-0 left-0 w-full bg-white shadow-lg">
+            <div className="flex items-center justify-between border-b p-4">
+              <button
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-primary focus:outline-none"
+              >
+                <svg
+                  className="h-8 w-8"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  ></path>
+                </svg>
+              </button>
+              <div className="flex-1 text-center">
+                <Image
+                  src="/images/logo.png"
+                  alt="Logo"
+                  width={120}
+                  height={40}
+                  className="mx-auto"
+                />
+              </div>
+              <div className="w-8"></div> {/* Spacer for balance */}
+            </div>
+
+            <div className="text-primary flex h-[calc(100vh-80px)] flex-col items-center overflow-y-auto px-4 py-8">
+              <Link
+                href="#"
+                className={`font-roboto w-full py-4 text-center text-xl font-bold hover:text-black ${pathname === "#" ? "text-[#002D6A]" : ""}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Travel Packages
+              </Link>
+              <Link
+                href="/"
+                className={`font-roboto w-full py-4 text-center text-xl font-bold hover:text-black ${pathname === "/" ? "text-[#002D6A]" : ""}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Blog Home
+              </Link>
+              <Link
+                href="/categories"
+                className={`font-roboto w-full py-4 text-center text-xl font-bold hover:text-black ${pathname === "/categories" ? "text-[#002D6A]" : ""}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Categories
+              </Link>
+
+              {/* Social icons at the bottom of the menu */}
+              <div className="mt-auto flex justify-center space-x-8 pt-8 pb-8">
+                <a
+                  href="https://www.instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#927B64] hover:text-[#002D6A]"
+                >
+                  <svg
+                    className="h-8 w-8"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#927B64] hover:text-[#002D6A]"
+                >
+                  <svg
+                    className="h-8 w-8"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#927B64] hover:text-[#002D6A]"
+                >
+                  <svg
+                    className="h-8 w-8"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.tiktok.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#927B64] hover:text-[#002D6A]"
+                >
+                  <svg
+                    className="h-8 w-8"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </header>
 

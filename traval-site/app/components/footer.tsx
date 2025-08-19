@@ -42,16 +42,17 @@ export default function Footer() {
           <img
             src="/images/logo.png"
             alt="Mackinnons"
-            className="mx-auto h-[80px] w-[200px] sm:mx-0 md:h-[99px] md:w-[280px]"
+            className="mx-auto h-[60px] w-[150px] sm:mx-0 md:h-[80px] md:w-[200px] lg:h-[99px] lg:w-[280px]"
           />
           <div className="flex justify-center space-x-4 sm:justify-start">
             <div className="flex cursor-pointer gap-3">
               <svg
-                width="240"
-                height="48"
+                width="180"
+                height="36"
                 viewBox="0 0 240 48"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-auto sm:h-8 md:h-9"
               >
                 <a
                   href="https://www.instagram.com"
@@ -175,11 +176,11 @@ export default function Footer() {
         </div>
 
         {/* Column 4: Signup */}
-        <div>
-          <h3 className="font-roboto mb-6 text-sm tracking-wide text-[#927B64]">
+        <div className="flex flex-col items-center sm:items-start">
+          <h3 className="font-roboto mb-6 text-center text-sm tracking-wide text-[#927B64] sm:text-left">
             Sign up for special offers, news updates
           </h3>
-          <div className="boder-[#fdfaf6] font-roboto flex w-80 items-center overflow-hidden rounded-full border">
+          <div className="boder-[#fdfaf6] font-roboto flex w-full max-w-80 items-center overflow-hidden rounded-full border">
             <input
               type="email"
               placeholder="Your Email Address"
@@ -191,6 +192,7 @@ export default function Footer() {
               viewBox="0 0 49 48"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              className="h-10 w-10 sm:h-12 sm:w-12"
             >
               <rect
                 width="48.0956"

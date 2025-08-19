@@ -34,8 +34,9 @@ export default function Home() {
       </section>
 
       <section className="font-antonio mx-auto mt-12 flex w-full flex-col items-center justify-center gap-10 px-4 py-12 sm:px-6 lg:mt-20 lg:flex-row lg:gap-12 lg:px-8 lg:py-20">
-        <div className="w-[644px] flex-shrink-0">
-          <div className="relative flex h-[892px] w-full flex-col justify-between overflow-hidden rounded-2xl shadow-lg">
+        {/* Main featured card */}
+        <div className="w-full max-w-[644px] flex-shrink-0">
+          <div className="relative flex h-[400px] w-full flex-col justify-between overflow-hidden rounded-2xl shadow-lg sm:h-[500px] md:h-[600px] lg:h-[892px]">
             <Image
               src="/images/category1.png"
               alt="Travel destination"
@@ -44,29 +45,30 @@ export default function Home() {
             />
             <div className="absolute inset-0 z-0 h-2/6 bg-gradient-to-b from-black/30 to-transparent"></div>
 
-            <div className="absolute top-4 left-4">
-              <span className="font-roboto rounded-md px-3 py-1 text-xs font-semibold tracking-widest sm:text-sm">
+            <div className="absolute top-4 left-4 z-10">
+              <span className="font-roboto  px-3 py-1 text-xs font-semibold tracking-widest text-white sm:text-sm">
                 CATEGORY 1 • CATEGORY 2
               </span>
             </div>
 
-            <div className="absolute right-0 bottom-0 left-0 flex items-end justify-between bg-gradient-to-t from-black/50 to-transparent p-5">
-              <div className="text-white">
+            <div className="absolute right-0 bottom-0 left-0 z-10 flex items-end justify-between bg-gradient-to-t from-black/50 to-transparent p-5">
+              <div className="pr-4 text-white">
                 <p className="font-roboto mb-2 text-sm font-bold">
                   30 OCT 2024
                 </p>
-                <p className="font-antonio text-[32px] font-normal">
+                <p className="font-antonio text-xl font-normal sm:text-2xl md:text-[32px]">
                   LOREM IPSUM DOLOR SIT AMET CONSECTETUR UT ET TINCIDUNT
                   MOLESTIE SAPIEN
                 </p>
               </div>
-              <button>
+              <button className="flex-shrink-0">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="40"
                   height="41"
                   viewBox="0 0 40 41"
                   fill="none"
+                  className="h-8 w-8 md:h-10 md:w-10"
                 >
                   <circle cx="20" cy="20.3889" r="20" fill="white" />
                   <path
@@ -79,20 +81,22 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Side content */}
         <div className="flex w-full flex-col items-center lg:w-1/2 lg:items-start">
           <div className="text-center lg:mb-10 lg:text-left">
-            <p className="font-roboto lg:text-normal flex items-center justify-center text-sm leading-loose font-bold tracking-widest text-[#927B64] sm:text-sm lg:justify-start">
+            <p className="font-roboto flex items-center justify-center text-sm font-bold tracking-widest text-[#927B64] lg:justify-start">
               <span className="mr-2 h-[0.5px] w-10 bg-[#C41230] sm:w-28 md:h-[2px] md:w-20"></span>
               DREAM. EXPLORE. DISCOVER
             </p>
-            <h2 className="font-antonio mt-4 mb-8 text-3xl leading-tight font-normal tracking-normal text-[#927B64] md:text-8xl lg:mt-6">
+            <h2 className="font-antonio mt-4 mb-8 text-2xl font-normal tracking-normal text-[#927B64] sm:text-3xl md:text-4xl lg:mt-6 lg:text-5xl xl:text-6xl 2xl:text-8xl">
               LATEST TRAVEL STORIES
             </h2>
           </div>
 
           <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2">
+            {/* Card 1 */}
             <div>
-              <div className="relative h-[459px] overflow-hidden rounded-2xl shadow-md">
+              <div className="relative h-[300px] overflow-hidden rounded-2xl shadow-md sm:h-[350px] md:h-[400px] lg:h-[459px]">
                 <Image
                   src="/images/categoryy2.png"
                   alt="Christmas destinations"
@@ -101,22 +105,23 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
 
-                <div className="font-roboto absolute top-6 left-8 text-sm leading-[calc(20/1920*100vw)] font-semibold tracking-widest text-white">
+                <div className="font-roboto absolute top-6 left-8 z-10 text-sm font-semibold tracking-widest text-white">
                   CATEGORY 1
                 </div>
               </div>
-              <div className="mt-8 px-4 text-left">
-                <p className="font-roboto mb-1 text-xs font-bold text-[#927B64] md:text-xs">
+              <div className="mt-6 px-2 text-left md:px-4">
+                <p className="font-roboto mb-1 text-xs font-bold text-[#927B64]">
                   30 OCT 2024
                 </p>
-                <p className="font-antonio text-lg leading-snug font-normal text-[#927B64] md:text-[32px]">
+                <p className="font-antonio text-base font-normal text-[#927B64] sm:text-lg md:text-xl lg:text-2xl">
                   7 BEST PLACES IN ASIA TO CELEBRATE CHRISTMAS
                 </p>
               </div>
             </div>
 
+            {/* Card 2 */}
             <div>
-              <div className="relative h-[459px] overflow-hidden rounded-2xl shadow-md">
+              <div className="relative h-[300px] overflow-hidden rounded-2xl shadow-md sm:h-[350px] md:h-[400px] lg:h-[459px]">
                 <Image
                   src="/images/category3.png"
                   alt="Japanese ryokans"
@@ -125,15 +130,15 @@ export default function Home() {
                 />
                 <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
 
-                <div className="font-roboto absolute top-6 left-8 text-xs font-bold tracking-widest text-white sm:text-sm">
+                <div className="font-roboto absolute top-6 left-8 z-10 text-sm font-bold tracking-widest text-white">
                   CATEGORY 1
                 </div>
               </div>
-              <div className="mt-8 px-4 text-left">
-                <p className="font-roboto mb-1 text-xs font-bold text-[#927B64] md:text-xs">
+              <div className="mt-6 px-2 text-left md:px-4">
+                <p className="font-roboto mb-1 text-xs font-bold text-[#927B64]">
                   28 JULY 2024
                 </p>
-                <p className="font-antonio text-lg font-normal text-[#927B64] md:text-[32px]">
+                <p className="font-antonio text-base font-normal text-[#927B64] sm:text-lg md:text-xl lg:text-2xl">
                   6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
                 </p>
               </div>
@@ -141,7 +146,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       <div className="relative">
         <section className="relative z-10 mt-12 px-4 py-8 md:mt-20 md:px-6 md:py-10">
           <div className="mb-8 flex flex-col items-center text-center md:mb-12">
