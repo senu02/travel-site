@@ -1,12 +1,12 @@
 export default function Footer() {
   return (
     <footer className="bg-[#fdfaf6] text-[#836e5d]">
-      <div className="w-full flex items-center justify-center ">
+      <div className="flex w-full items-center justify-center">
         <div
           className="flex-grow border-t"
           style={{ borderTop: "1px solid #B9AB9661" }}
         ></div>
-        <span className="mx-4 flex-shrink-0 flex items-center justify-center">
+        <span className="mx-4 flex flex-shrink-0 items-center justify-center">
           <svg
             width="54"
             height="25"
@@ -25,14 +25,14 @@ export default function Footer() {
           style={{ borderTop: "1px solid #B9AB9661" }}
         ></div>
       </div>
-      <div className="px-20 py-10 grid grid-cols-1 md:grid-cols-4 gap-8 mt-20">
+      <div className="grid grid-cols-1 gap-8 px-20 py-10 pt-40 md:grid-cols-4">
         <div className="space-y-4">
           <img
             src="/images/logo.png"
             alt="Mackinnons"
             className="h-[99px] w-[280px]"
           />
-          <div className="flex space-x-4 ">
+          <div className="flex space-x-4">
             <svg
               width="240"
               height="48"
@@ -108,40 +108,38 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm font-roboto text-primary">Contact Info</h3>
+          <h3 className="font-roboto text-primary text-sm">Contact Info</h3>
           <br></br>
-          <p className="text-2xl font-bold mb-6 font-roboto text-primary">
+          <p className="font-roboto text-primary mb-6 text-2xl font-bold">
             Mackinnons Travels
           </p>
-          <p className="text-lg font-normal mb-1 font-roboto text-primary">
+          <p className="font-roboto text-primary mb-1 text-lg font-normal">
             #186 Vauxhall Steet, Colombo 02,
           </p>
-
-          <p className="text-lg font-normal mb-6 font-roboto text-primary">
+          <p className="font-roboto text-primary mb-6 text-lg font-normal">
             Sri Lanka.
           </p>
           <a
             href="tel:+94 11 799 100"
-            className="text-lg font-normal font-roboto  text-primary hover:font-bold hover:text-[#927B64]"
+            className="font-roboto text-primary mb-6 block text-lg font-normal hover:font-bold hover:text-[#927B64]"
           >
             +9411799100
           </a>
-          <br></br>
           <a
             href="mailto:online@mackinnonstravels.com"
-            className="text-lg font-normal  font-roboto text-primary hover:font-bold hover:text-[#927B64]"
+            className="font-roboto text-primary block text-lg font-normal hover:font-bold hover:text-[#927B64]"
           >
             online@mackinnonstravels.com
           </a>
         </div>
 
         <div className="ml-20">
-          <h3 className="font-roboto text-sm mb-6">Discover</h3>
+          <h3 className="font-roboto mb-6 text-sm">Discover</h3>
           <ul className="space-y-3">
             <li>
               <a
                 href="#"
-                className="text-lg mb-6 font-roboto hover:font-bold hover:text-[#927B64]"
+                className="font-roboto mb-6 text-lg hover:font-bold hover:text-[#927B64]"
               >
                 Mackinnons Home
               </a>
@@ -149,7 +147,7 @@ export default function Footer() {
             <li>
               <a
                 href="#"
-                className="text-lg font-roboto hover:font-bold mb-6 hover:text-[#927B64]"
+                className="font-roboto mb-6 text-lg hover:font-bold hover:text-[#927B64]"
               >
                 Blog Home
               </a>
@@ -157,7 +155,7 @@ export default function Footer() {
             <li>
               <a
                 href="#"
-                className="text-lg font-roboto hover:font-bold hover:text-[#927B64]"
+                className="font-roboto text-lg hover:font-bold hover:text-[#927B64]"
               >
                 Categories
               </a>
@@ -165,14 +163,14 @@ export default function Footer() {
           </ul>
         </div>
         <div>
-          <h3 className="text-sm font-roboto tracking-wide text-[#927B64] mb-6">
+          <h3 className="font-roboto mb-6 text-sm tracking-wide text-[#927B64]">
             Sign up for special offers, news updates
           </h3>
-          <div className="flex items-center border boder-[#fdfaf6] rounded-full w-80 overflow-hidden font-roboto ">
+          <div className="boder-[#fdfaf6] font-roboto flex w-80 items-center overflow-hidden rounded-full border">
             <input
               type="email"
               placeholder="Your Email Address"
-              className="flex-1 px-4 py-2 text-sm bg-transparent text-[#836e5d] placeholder-[#836e5d] focus:outline-none"
+              className="flex-1 bg-transparent px-4 py-2 text-sm text-[#836e5d] placeholder-[#836e5d] focus:outline-none"
             />
             <svg
               width="49"
@@ -211,7 +209,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="fixed bottom-15 right-10 flex flex-col gap-3 z-50">
+      <div className="fixed right-10 bottom-15 z-50 flex flex-col gap-3">
         <svg
           width="46"
           height="111"
@@ -263,7 +261,7 @@ export default function Footer() {
 
       <br></br>
 
-      <div className="border-t font-roboto border-gray-200 mt-10 py-4 text-sm text-center flex flex-col md:flex-row justify-between items-center px-20">
+      <div className="font-roboto flex flex-col items-center justify-between border-t border-gray-200 px-20 py-4 pt-10 pb-10 text-center text-[13px] md:flex-row">
         <p>© 2024 Mackinnons Travel. All rights reserved.</p>
         <div className="space-x-4">
           <a
@@ -283,7 +281,7 @@ export default function Footer() {
           Website Designed & Developed by{" "}
           <a
             href="https://www.emarketingeye.com/"
-            className="hover:font-bold hover:text:[#927B64]"
+            className="hover:text:[#927B64] hover:font-bold"
           >
             eMarketingEye
           </a>

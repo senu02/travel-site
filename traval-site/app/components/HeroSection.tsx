@@ -2,33 +2,32 @@ import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="relative  bg-white">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-6 items-end">
-        <div className="flex flex-col md:flex-row items-end gap-6">
-          <div className="relative w-3/6 h-[350px]">
+    <section className="relative bg-white">
+      <div className="grid grid-cols-1 items-end gap-4 py-6 md:grid-cols-2">
+        <div className="flex flex-col items-end gap-6 md:flex-row">
+          <div className="relative h-[350px] w-3/6">
             <Image
               src="/images/bg.png"
               alt="Travel"
               fill
-              className="object-cover object-right rounded-ee-2xl rounded-r-2xl"
+              className="rounded-ee-2xl rounded-r-2xl object-cover object-right"
             />
           </div>
 
-          <div className="space-y-6 ml-4 mb-4 pb-30">
+          <div className="mb-4 ml-4 space-y-6 pb-50">
+            {" "}
             <div className="flex items-center">
-              <span className="w-[100px] h-[2px] bg-[#C41230] mr-2"></span>
-              <p className="text-lg uppercase font-bold tracking-widest font-roboto text-[#927B64]">
+              <span className="mr-2 h-[2px] w-[100px] bg-[#C41230]"></span>
+              <p className="font-roboto text-lg font-bold tracking-widest text-[#927B64] uppercase">
                 Mackinnons Travels Blog
               </p>
             </div>
-
-            <h1 className="text-8xl  font-antonio font-medium uppercase text-[#927B64] leading-tight ">
+            <h1 className="font-antonio text-8xl leading-tight font-medium text-[#927B64] uppercase">
               Adventure Awaits
               <br />
               Around the World
             </h1>
-
-            <p className="text-[#434343] font-roboto font-light text-xl">
+            <p className="font-roboto text-xl font-light text-[#434343]">
               Mackinnons Travels revolutionizes the way you book your travel by
               giving you the flexibility to tailor-make your own travel package
               using our comprehensive suite.
@@ -36,10 +35,10 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="flex justify-end items-end h-full">
+        <div className="flex h-full items-end justify-end">
           <video
             src="/images/bgvideo.mp4"
-            className="rounded-bl-2xl rounded-l-2xl h-[750px] w-[800px] object-cover"
+            className="h-[750px] w-[800px] rounded-l-2xl rounded-bl-2xl object-cover"
             autoPlay
             loop
             muted
@@ -48,7 +47,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="flex justify-center mt-10">
+      <div className="mt-10 flex justify-center">
         <svg
           width="1441"
           height="15"

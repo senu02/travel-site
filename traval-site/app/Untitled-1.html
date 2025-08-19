@@ -1,16 +1,117 @@
-<html>
-    <head>
+"use client";
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-    </head>
-    <body>
-        <header>
+export default function Navbar() {
+  const pathname = usePathname();
+  const [showFixedNav, setShowFixedNav] = useState(false);
 
-        </header>
-        <section>
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowFixedNav(window.scrollY > window.innerHeight);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-        </section>
-        <footer>
+  const NavContent = ({ isFixed = false }) => (
+    <nav
+      className={`relative z-10 flex w-full items-center justify-between ${isFixed ? "py-2" : "py-6"} mr-10 ml-10`}
+    >
+      <div className="text-primary flex flex-1 items-center gap-4 sm:gap-6">
+        <div className="flex items-center justify-center">
+          <Image
+            src="/images/john.png"
+            alt="john Logo"
+            width={isFixed ? 60 : 100}
+            height={isFixed ? 60 : 100}
+            className={`w-[${isFixed ? "60px" : "80px"}] sm:w-[${isFixed ? "80px" : "100px"}]`}
+          />
+        </div>
 
-        </footer>
-    </body>
-</html>
+        <div
+          className={`hidden gap-4 sm:gap-6 md:flex ${isFixed ? "text-sm" : ""}`}
+        >
+          <Link
+            href="#"
+            className={`font-roboto font-bold hover:text-black ${pathname === "#" ? "text-[#002D6A]" : ""}`}
+          >
+            Travel Packages
+          </Link>
+          <Link
+            href="/"
+            className={`font-roboto font-bold hover:text-black ${pathname === "/" ? "text-[#002D6A]" : ""}`}
+          >
+            Blog Home
+          </Link>
+          <Link
+            href="/categories"
+            className={`font-roboto font-bold hover:text-black ${pathname === "/categories" ? "text-[#002D6A]" : ""}`}
+          >
+            Categories
+          </Link>
+        </div>
+      </div>
+
+      <div className="flex flex-1 justify-center">
+        <div className="mx-auto hidden sm:block">
+          <Image
+            src="/images/logo.png"
+            alt="Logo"
+            width={isFixed ? 150 : 260}
+            height={isFixed ? 160 : 280}
+            className={`w-[${isFixed ? "150px" : "180px"}] sm:w-[${isFixed ? "180px" : "220px"}] md:w-[${isFixed ? "200px" : "260px"}]`}
+          />
+        </div>
+      </div>
+
+      <div className="flex flex-1 items-center justify-end gap-4">
+        {/* Social Icons */}
+        <div className="flex gap-3">
+          <a href="#" className="text-gray-700 hover:text-black">
+            FB
+          </a>
+          <a href="#" className="text-gray-700 hover:text-black">
+            TW
+          </a>
+          <a href="#" className="text-gray-700 hover:text-black">
+            IG
+          </a>
+        </div>
+
+        {/* Optional SVG or other elements */}
+        <div className="hidden sm:flex">
+          {/* Your existing SVG can go here */}
+        </div>
+      </div>
+    </nav>
+  );
+
+  return (
+    <>
+      {/* Main top navbar */}
+      <header className="z-30">
+        <div className="relative flex w-full items-center justify-between bg-white px-4 py-6 shadow-sm sm:px-6">
+          <div
+            className="absolute top-0 left-0 z-20 h-[10px] w-full"
+            style={{
+              background: "linear-gradient(to right, #002D6A, #C41230)",
+            }}
+          />
+          <NavContent />
+        </div>
+      </header>
+
+      {/* Fixed reduced navbar */}
+      <div
+        className={`fixed top-0 left-0 z-40 w-full bg-white shadow-md transition-transform duration-500 ${showFixedNav ? "translate-y-0" : "-translate-y-full"}`}
+      >
+        <div className="px-4 sm:px-6">
+          <NavContent isFixed={true} />
+        </div>
+      </div>
+    </>
+  );
+}
