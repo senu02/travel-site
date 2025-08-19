@@ -8,19 +8,19 @@ export default function BlogPage() {
     <div className="min-h-screen">
       <Navbar />
 
-      <hr className="border-t-2 border-[#B9AB9661] w-full mb-10" />
+      <hr className="mb-10 w-full border-t-2 border-[#B9AB9661]" />
 
       <section className="flex flex-col items-center px-4">
-        <div className="mb-8 mt-10 flex flex-col items-start w-full max-w-6xl px-4">
-          <p className="text-sm font-roboto font-bold text-[#927B64] tracking-widest leading-7 mb-1">
+        <div className="mt-10 mb-8 flex w-full max-w-6xl flex-col items-start px-4">
+          <p className="font-roboto mb-1 text-sm leading-7 font-bold tracking-widest text-[#927B64]">
             09 OCT 2024
           </p>
-          <h2 className="text-3xl md:text-5xl font-normal text-[#927B64] font-antonio uppercase mt-2">
+          <h2 className="font-antonio mt-2 text-3xl font-normal text-[#927B64] uppercase md:text-5xl">
             6 best ryokans in Japan to rejuvenate yourself
           </h2>
         </div>
 
-        <div className="relative rounded-2xl overflow-hidden shadow-md w-full max-w-6xl h-[300px] md:h-[500px] lg:h-[693px] mb-10 mx-4">
+        <div className="relative mx-4 mb-10 h-[300px] w-full max-w-6xl overflow-hidden rounded-2xl shadow-md md:h-[500px] lg:h-[693px]">
           <Image
             src="/images/blog1.jpg"
             alt="Travel 2"
@@ -28,15 +28,15 @@ export default function BlogPage() {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
-          <div className="absolute top-6 left-6 text-white text-xs md:text-sm tracking-wider font-roboto font-semibold z-10 leading-6 uppercase">
+          <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
+          <div className="font-roboto absolute top-6 left-6 z-10 text-xs leading-6 font-semibold tracking-wider text-white uppercase md:text-sm">
             Category 1 . Category 2 . Category 3
           </div>
-          <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#E74C3C]"></div>
+          <div className="absolute right-0 bottom-0 left-0 h-2 bg-[#E74C3C]"></div>
         </div>
 
-        <div className="w-full max-w-6xl px-4 md:px-2 mt-6">
-          <p className="text-[#434343] text-base md:text-xl font-roboto font-light mb-8 leading-normal md:leading-[1.8]">
+        <div className="mt-6 w-full max-w-6xl px-4 md:px-2">
+          <p className="font-roboto mb-8 text-base leading-normal font-light text-[#434343] md:text-xl md:leading-[1.8]">
             Mackinnons Travels Dive into a world of inspiration, insights, and
             ideas. Whether you're here to explore, learn, or simply unwind, our
             blog brings stories that resonate and topics that spark curiosity.
@@ -56,7 +56,7 @@ export default function BlogPage() {
             nec elementum.
           </p>
 
-          <p className="text-[#434343] text-base md:text-xl font-roboto font-light mb-8 leading-normal md:leading-[1.8]">
+          <p className="font-roboto mb-8 text-base leading-normal font-light text-[#434343] md:text-xl md:leading-[1.8]">
             Quam eu enim ac mauris ipsum tincidunt. Amet gravida placerat lectus
             risus at urna condimentum nisi vestibulum. Orci suspendisse lobortis
             eu pulvinar suscipit eu mi donec. Sagittis mattis risus libero odio.
@@ -72,37 +72,37 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="flex justify-center mt-10 md:mt-20 mb-5 px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 w-full max-w-6xl">
-          <div className="flex flex-col group mb-5">
+      <section className="mt-10 mb-5 flex justify-center px-4 md:mt-20">
+        <div className="grid w-full max-w-6xl grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
+          <div className="group mb-5 flex flex-col">
             <div className="relative h-[200px] sm:h-[250px] md:h-[300px] lg:h-[349px]">
               <Image
                 src="/images/1.jpg"
                 alt="Travel 2"
                 fill
-                className="object-cover rounded-3xl"
+                className="rounded-3xl object-cover"
               />
-              <div className="absolute -bottom-2 rounded-b-3xl left-0 right-0 h-1/2 bg-[#F1C40F] -z-1"></div>
+              <div className="absolute right-0 -bottom-2 left-0 -z-1 h-1/2 rounded-b-3xl bg-[#F1C40F]"></div>
             </div>
           </div>
 
-          <div className="flex flex-col group mb-5">
+          <div className="group mb-5 flex flex-col">
             <div className="relative h-[200px] sm:h-[250px] md:h-[300px] lg:h-[349px]">
               <Image
                 src="/images/2.jpg"
                 alt="Travel 2"
                 fill
-                className="object-cover rounded-3xl"
+                className="rounded-3xl object-cover"
               />
-              <div className="absolute -bottom-2 rounded-b-3xl left-0 right-0 h-1/2 bg-[#E74C3C] -z-1"></div>
+              <div className="absolute right-0 -bottom-2 left-0 -z-1 h-1/2 rounded-b-3xl bg-[#E74C3C]"></div>
             </div>
           </div>
         </div>
       </section>
 
       <section>
-        <div className="flex justify-center items-center mb-10 px-4">
-          <ul className="list-disc pl-6 space-y-6 text-[#434343] text-base md:text-xl font-roboto font-light mb-8 leading-normal md:leading-[1.8] w-full max-w-6xl">
+        <div className="mb-10 flex items-center justify-center px-4">
+          <ul className="font-roboto mb-8 w-full max-w-6xl list-disc space-y-6 pl-6 text-base leading-normal font-light text-[#434343] md:text-xl md:leading-[1.8]">
             <li>
               Lorem ipsum dolor sit amet consectetur. Ipsum pretium nisl
               condimentum scelerisque faucibus porta pellentesque scelerisque
@@ -128,9 +128,9 @@ export default function BlogPage() {
       </section>
 
       <section className="flex flex-col items-center px-4">
-        <div className="mb-8 flex flex-col items-start w-full max-w-6xl">
-          <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
-            <p className="text-center font-roboto text-base md:text-xl font-normal justify-center text-primary">
+        <div className="mb-8 flex w-full max-w-6xl flex-col items-start">
+          <div className="flex flex-col items-start gap-4 md:flex-row md:items-center">
+            <p className="font-roboto text-primary justify-center text-center text-base font-normal md:text-xl">
               Share
             </p>
 
@@ -194,7 +194,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="flex justify-center mb-10 mt-10 px-4">
+      <section className="mt-10 mb-10 flex justify-center px-4">
         <svg
           width="100%"
           height="15"
@@ -227,150 +227,150 @@ export default function BlogPage() {
       </section>
 
       <section className="flex flex-col items-center px-4">
-        <div className="mb-8 flex flex-col items-center w-full max-w-6xl">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-normal text-[#927B64] font-antonio uppercase mt-8 tracking-tight leading-tight mb-6"></h2>
+        <div className="mb-8 flex w-full max-w-6xl flex-col items-center">
+          <h2 className="font-antonio mt-8 mb-6 text-4xl leading-tight font-normal tracking-tight text-[#927B64] uppercase sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"></h2>
         </div>
       </section>
 
-      <section className="justify-center items-center mb-10 mt-6 px-4">
-        <div className="max-w-7xl mx-auto px-0 md:px-4 py-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
-            <div className="border border-[#CECECE] rounded-3xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="w-full h-60 sm:h-72 md:h-80 relative rounded-3xl rounded-b-3xl overflow-hidden">
+      <section className="mt-6 mb-10 items-center justify-center px-4">
+        <div className="mx-auto max-w-7xl px-0 py-8 md:px-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4">
+            <div className="overflow-hidden rounded-3xl border border-[#CECECE] shadow-md transition-shadow hover:shadow-lg">
+              <div className="relative h-60 w-full overflow-hidden rounded-3xl rounded-b-3xl sm:h-72 md:h-80">
                 <Image
                   src="/images/package1.png"
                   alt="Thailand"
                   fill
-                  className="object-cover rounded-b-3xl"
+                  className="rounded-b-3xl object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
-                <div className="absolute top-4 left-4 text-white text-xs sm:text-sm tracking-wider font-roboto font-semibold z-10 leading-6 uppercase">
+                <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
+                <div className="font-roboto absolute top-4 left-4 z-10 text-xs leading-6 font-semibold tracking-wider text-white uppercase sm:text-sm">
                   Air ticket
                 </div>
-                <div className="absolute bottom-4 right-4 z-10"></div>
-                <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#F1C40F] rounded-t-full"></div>
+                <div className="absolute right-4 bottom-4 z-10"></div>
+                <div className="absolute right-0 bottom-0 left-0 h-2 rounded-t-full bg-[#F1C40F]"></div>
               </div>
               <div className="p-4">
-                <h1 className="font-bold font-roboto text-primary mb-2 sm:mb-4 text-sm sm:text-base uppercase">
+                <h1 className="font-roboto text-primary mb-2 text-sm font-bold uppercase sm:mb-4 sm:text-base">
                   Asia
                 </h1>
-                <h3 className="font-normal font-antonio text-2xl sm:text-3xl md:text-4xl text-primary mb-2 uppercase leading-tight">
+                <h3 className="font-antonio text-primary mb-2 text-2xl leading-tight font-normal uppercase sm:text-3xl md:text-4xl">
                   THAILAND
                 </h3>
-                <p className="text-primary font-roboto font-normal tracking-wider text-xs sm:text-sm mt-4 sm:mt-10">
+                <p className="text-primary font-roboto mt-4 text-xs font-normal tracking-wider sm:mt-10 sm:text-sm">
                   04 Nights | P/P
                 </p>
-                <p className="text-xl sm:text-2xl font-roboto font-bold text-[#002D6A] mb-2 sm:mb-4">
+                <p className="font-roboto mb-2 text-xl font-bold text-[#002D6A] sm:mb-4 sm:text-2xl">
                   LKR 710,000
                 </p>
-                <button className="py-2 px-4 rounded-full uppercase font-semibold font-roboto text-xs sm:text-sm transition-colors bg-[#002D6A] text-[#ffffff] border border-transparent hover:border-[#927B64] hover:bg-[#ffffff] hover:text-[#927B64]">
+                <button className="font-roboto rounded-full border border-transparent bg-[#002D6A] px-4 py-2 text-xs font-semibold text-[#ffffff] uppercase transition-colors hover:border-[#927B64] hover:bg-[#ffffff] hover:text-[#927B64] sm:text-sm">
                   BOOK NOW
                 </button>
               </div>
             </div>
 
-            <div className="border border-[#CECECE] rounded-3xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="w-full h-60 sm:h-72 md:h-80 relative rounded-3xl rounded-b-3xl overflow-hidden">
+            <div className="overflow-hidden rounded-3xl border border-[#CECECE] shadow-md transition-shadow hover:shadow-lg">
+              <div className="relative h-60 w-full overflow-hidden rounded-3xl rounded-b-3xl sm:h-72 md:h-80">
                 <Image
                   src="/images/package2.png"
                   alt="Thailand"
                   fill
-                  className="object-cover rounded-b-3xl"
+                  className="rounded-b-3xl object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
-                <div className="absolute top-4 left-4 text-white text-xs sm:text-sm tracking-wider font-semibold z-10 leading-6 uppercase">
+                <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
+                <div className="absolute top-4 left-4 z-10 text-xs leading-6 font-semibold tracking-wider text-white uppercase sm:text-sm">
                   Air ticket
                 </div>
-                <div className="absolute bottom-4 right-4 z-10"></div>
-                <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#c50000] rounded-t-full"></div>
+                <div className="absolute right-4 bottom-4 z-10"></div>
+                <div className="absolute right-0 bottom-0 left-0 h-2 rounded-t-full bg-[#c50000]"></div>
               </div>
 
               <div className="p-4">
-                <h1 className="font-bold font-roboto text-primary mb-2 sm:mb-4 text-sm sm:text-base uppercase">
+                <h1 className="font-roboto text-primary mb-2 text-sm font-bold uppercase sm:mb-4 sm:text-base">
                   Asia
                 </h1>
-                <h3 className="font-normal font-antonio text-2xl sm:text-3xl md:text-4xl text-primary mb-2 uppercase leading-tight">
+                <h3 className="font-antonio text-primary mb-2 text-2xl leading-tight font-normal uppercase sm:text-3xl md:text-4xl">
                   THAILAND
                 </h3>
-                <p className="text-primary font-roboto font-normal tracking-wider text-xs sm:text-sm mt-4 sm:mt-10">
+                <p className="text-primary font-roboto mt-4 text-xs font-normal tracking-wider sm:mt-10 sm:text-sm">
                   02 Nights | P/P
                 </p>
-                <p className="text-xl sm:text-2xl font-roboto font-bold text-[#002D6A] mb-2 sm:mb-4">
+                <p className="font-roboto mb-2 text-xl font-bold text-[#002D6A] sm:mb-4 sm:text-2xl">
                   LKR 350,000
                 </p>
-                <button className="py-2 px-4 rounded-full uppercase font-semibold font-roboto text-xs sm:text-sm transition-colors bg-[#002D6A] text-[#ffffff] border border-transparent hover:border-[#927B64] hover:bg-[#ffffff] hover:text-[#927B64]">
+                <button className="font-roboto rounded-full border border-transparent bg-[#002D6A] px-4 py-2 text-xs font-semibold text-[#ffffff] uppercase transition-colors hover:border-[#927B64] hover:bg-[#ffffff] hover:text-[#927B64] sm:text-sm">
                   BOOK NOW
                 </button>
               </div>
             </div>
 
-            <div className="border border-[#CECECE] rounded-3xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="w-full h-60 sm:h-72 md:h-80 relative rounded-3xl rounded-b-3xl overflow-hidden">
+            <div className="overflow-hidden rounded-3xl border border-[#CECECE] shadow-md transition-shadow hover:shadow-lg">
+              <div className="relative h-60 w-full overflow-hidden rounded-3xl rounded-b-3xl sm:h-72 md:h-80">
                 <Image
                   src="/images/package3.png"
                   alt="Thailand"
                   fill
-                  className="object-cover rounded-b-3xl"
+                  className="rounded-b-3xl object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
-                <div className="absolute top-4 left-4 text-white text-xs sm:text-sm tracking-wider font-semibold z-10 leading-6 uppercase">
+                <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
+                <div className="absolute top-4 left-4 z-10 text-xs leading-6 font-semibold tracking-wider text-white uppercase sm:text-sm">
                   Air ticket
                 </div>
-                <div className="absolute bottom-4 right-4 z-10"></div>
-                <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#23a000] rounded-t-full"></div>
+                <div className="absolute right-4 bottom-4 z-10"></div>
+                <div className="absolute right-0 bottom-0 left-0 h-2 rounded-t-full bg-[#23a000]"></div>
               </div>
               <div className="p-4">
-                <h1 className="font-bold font-roboto text-primary mb-2 sm:mb-4 text-sm sm:text-base uppercase">
+                <h1 className="font-roboto text-primary mb-2 text-sm font-bold uppercase sm:mb-4 sm:text-base">
                   09 Sep 2024 - 11 OCT 2024
                 </h1>
-                <h3 className="font-normal font-antonio text-2xl sm:text-3xl md:text-4xl text-primary mb-2 uppercase leading-tight">
+                <h3 className="font-antonio text-primary mb-2 text-2xl leading-tight font-normal uppercase sm:text-3xl md:text-4xl">
                   Colombo - MALE
                 </h3>
-                <p className="text-primary font-roboto font-normal tracking-wider text-xs sm:text-sm mt-4 sm:mt-10">
+                <p className="text-primary font-roboto mt-4 text-xs font-normal tracking-wider sm:mt-10 sm:text-sm">
                   Round-trip | Business
                 </p>
-                <p className="text-xl sm:text-2xl font-roboto font-bold text-[#002D6A] mb-2 sm:mb-4">
+                <p className="font-roboto mb-2 text-xl font-bold text-[#002D6A] sm:mb-4 sm:text-2xl">
                   LKR 90,000
                 </p>
-                <button className="py-2 px-4 rounded-full uppercase font-semibold font-roboto text-xs sm:text-sm transition-colors bg-[#002D6A] text-[#ffffff] border border-transparent hover:border-[#927B64] hover:bg-[#ffffff] hover:text-[#927B64]">
+                <button className="font-roboto rounded-full border border-transparent bg-[#002D6A] px-4 py-2 text-xs font-semibold text-[#ffffff] uppercase transition-colors hover:border-[#927B64] hover:bg-[#ffffff] hover:text-[#927B64] sm:text-sm">
                   BOOK NOW
                 </button>
               </div>
             </div>
 
-            <div className="border border-[#CECECE] rounded-3xl shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="w-full h-60 sm:h-72 md:h-80 relative rounded-3xl rounded-b-3xl overflow-hidden">
+            <div className="overflow-hidden rounded-3xl border border-[#CECECE] shadow-md transition-shadow hover:shadow-lg">
+              <div className="relative h-60 w-full overflow-hidden rounded-3xl rounded-b-3xl sm:h-72 md:h-80">
                 <Image
                   src="/images/package4.png"
                   alt="Thailand"
                   fill
-                  className="object-cover rounded-b-3xl"
+                  className="rounded-b-3xl object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
-                <div className="absolute top-4 left-4 text-white text-xs sm:text-sm tracking-wider font-semibold z-10 leading-6 uppercase">
+                <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
+                <div className="absolute top-4 left-4 z-10 text-xs leading-6 font-semibold tracking-wider text-white uppercase sm:text-sm">
                   Air ticket
                 </div>
-                <div className="absolute bottom-4 right-4 z-10"></div>
-                <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#620090] rounded-t-full"></div>
+                <div className="absolute right-4 bottom-4 z-10"></div>
+                <div className="absolute right-0 bottom-0 left-0 h-2 rounded-t-full bg-[#620090]"></div>
               </div>
               <div className="p-4">
-                <h1 className="font-bold font-roboto text-primary mb-2 sm:mb-4 text-sm sm:text-base uppercase">
+                <h1 className="font-roboto text-primary mb-2 text-sm font-bold uppercase sm:mb-4 sm:text-base">
                   Asia
                 </h1>
-                <h3 className="font-normal font-antonio text-2xl sm:text-3xl md:text-4xl text-primary mb-2 uppercase leading-tight">
+                <h3 className="font-antonio text-primary mb-2 text-2xl leading-tight font-normal uppercase sm:text-3xl md:text-4xl">
                   THAILAND
                 </h3>
-                <p className="text-primary font-roboto font-normal tracking-wider text-xs sm:text-sm mt-4 sm:mt-10">
+                <p className="text-primary font-roboto mt-4 text-xs font-normal tracking-wider sm:mt-10 sm:text-sm">
                   04 Nights | P/P
                 </p>
-                <p className="text-xl sm:text-2xl font-roboto font-bold text-[#002D6A] mb-2 sm:mb-4">
+                <p className="font-roboto mb-2 text-xl font-bold text-[#002D6A] sm:mb-4 sm:text-2xl">
                   LKR 520,000
                 </p>
-                <button className="py-2 px-4 rounded-full uppercase font-semibold font-roboto text-xs sm:text-sm transition-colors bg-[#002D6A] text-[#ffffff] border border-transparent hover:border-[#927B64] hover:bg-[#ffffff] hover:text-[#927B64]">
+                <button className="font-roboto rounded-full border border-transparent bg-[#002D6A] px-4 py-2 text-xs font-semibold text-[#ffffff] uppercase transition-colors hover:border-[#927B64] hover:bg-[#ffffff] hover:text-[#927B64] sm:text-sm">
                   BOOK NOW
                 </button>
               </div>
@@ -379,7 +379,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="flex justify-center mb-10 mt-10 px-4">
+      <section className="mt-10 mb-10 flex justify-center px-4">
         <svg
           width="100%"
           height="15"
@@ -411,7 +411,7 @@ export default function BlogPage() {
         </svg>
       </section>
 
-      <section className="relative py-16 px-6 overflow-hidden w-full">
+      <section className="relative w-full overflow-hidden px-6 py-16">
         <div className="absolute inset-0">
           <Image
             src="/images/bg4.png"
@@ -421,37 +421,32 @@ export default function BlogPage() {
             priority
           />
           <div className="absolute inset-0 bg-white/90"></div>
-          <div className="absolute top-0 left-0 right-0 h-40 bg-gradient-to-b from-white to-transparent"></div>
+          <div className="absolute top-0 right-0 left-0 h-40 bg-gradient-to-b from-white to-transparent"></div>
         </div>
 
-        <div className="relative z-10 max-w-6xl mx-auto px-4">
-          <div className="flex flex-col items-start text-center mb-12">
-            <div className="flex flex-col md:flex-row items-center justify-between w-full mb-4 gap-4">
+        <div className="relative z-10 mx-auto max-w-6xl px-4">
+          <div className="mb-12 flex flex-col items-start text-center">
+            <div className="mb-4 flex w-full flex-col items-center justify-between gap-4 md:flex-row">
               <div className="flex items-center">
-                <span className="w-8 h-0.5 bg-red-500 mr-2"></span>
-                <p className="text-sm md:text-lg font-roboto text-[#927B64] uppercase font-medium tracking-widest">
+                <span className="mr-2 h-0.5 w-8 bg-red-500"></span>
+                <p className="font-roboto text-sm font-medium tracking-widest text-[#927B64] uppercase md:text-lg">
                   INSIGHT AND IDEAS
                 </p>
               </div>
-              <button
-                className="px-4 sm:px-6 md:px-8 py-2 sm:py-3 font-roboto font-semibold border-2 border-[#927B64] rounded-full text-sm sm:text-base md:text-lg tracking-wider uppercase 
-                  text-[#927B64] bg-transparent
-                  hover:bg-[#6d563b] hover:text-[#ffffff] hover:border-[#6d563b] 
-                  transition-colors duration-200"
-              >
+              <button className="font-roboto rounded-full border-2 border-[#927B64] bg-transparent px-4 py-2 text-sm font-semibold tracking-wider text-[#927B64] uppercase transition-colors duration-200 hover:border-[#6d563b] hover:bg-[#6d563b] hover:text-[#ffffff] sm:px-6 sm:py-3 sm:text-base md:px-8 md:text-lg">
                 VIEW ALL BLOGS
               </button>
             </div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-antonio text-[#927B64] font-normal uppercase mb-4">
+            <h2 className="font-antonio mb-4 text-4xl font-normal text-[#927B64] uppercase sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
               OTHER STORIES
             </h2>
           </div>
 
-          <div className="flex justify-center mt-10 md:mt-20 mb-5">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 w-full">
-              <div className="flex flex-col group mb-4">
+          <div className="mt-10 mb-5 flex justify-center md:mt-20">
+            <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
+              <div className="group mb-4 flex flex-col">
                 <Link href="/blog" className="block">
-                  <div className="relative rounded-3xl overflow-hidden shadow-md w-full aspect-[3/2] mb-4 cursor-pointer">
+                  <div className="relative mb-4 aspect-[3/2] w-full cursor-pointer overflow-hidden rounded-3xl shadow-md">
                     <Image
                       src="/images/story3.png"
                       alt="Travel 2"
@@ -459,26 +454,26 @@ export default function BlogPage() {
                       className="object-cover"
                       priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
-                    <div className="absolute top-4 sm:top-6 left-4 sm:left-8 text-white text-xs sm:text-sm font-roboto tracking-widest font-semibold leading-tight">
+                    <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
+                    <div className="font-roboto absolute top-4 left-4 text-xs leading-tight font-semibold tracking-widest text-white sm:top-6 sm:left-8 sm:text-sm">
                       CATEGORY 1
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#F1C40F]"></div>
+                    <div className="absolute right-0 bottom-0 left-0 h-2 bg-[#F1C40F]"></div>
                   </div>
                 </Link>
                 <div className="text-left">
-                  <span className="text-xs sm:text-sm text-[#927B64] font-bold font-roboto uppercase block mb-2 mt-4 sm:mt-10">
+                  <span className="font-roboto mt-4 mb-2 block text-xs font-bold text-[#927B64] uppercase sm:mt-10 sm:text-sm">
                     09 AUG 2024
                   </span>
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-normal mb-10 sm:mb-20 text-[#927B64] font-antonio uppercase group-hover:text-red-500 transition-colors">
+                  <h3 className="font-antonio mb-10 text-xl font-normal text-[#927B64] uppercase sm:mb-20 sm:text-2xl md:text-3xl">
                     6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
                   </h3>
                 </div>
               </div>
 
-              <div className="flex flex-col group mb-4">
+              <div className="group mb-4 flex flex-col">
                 <Link href="/blog" className="block">
-                  <div className="relative rounded-3xl overflow-hidden shadow-md w-full aspect-[3/2] mb-4 cursor-pointer">
+                  <div className="relative mb-4 aspect-[3/2] w-full cursor-pointer overflow-hidden rounded-3xl shadow-md">
                     <Image
                       src="/images/story4.png"
                       alt="Travel 2"
@@ -486,18 +481,18 @@ export default function BlogPage() {
                       className="object-cover"
                       priority
                     />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/40 to-transparent h-1/3 z-0"></div>
-                    <div className="absolute top-4 sm:top-6 left-4 sm:left-8 text-white text-xs sm:text-sm font-roboto tracking-widest font-semibold leading-tight">
+                    <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
+                    <div className="font-roboto absolute top-4 left-4 text-xs leading-tight font-semibold tracking-widest text-white sm:top-6 sm:left-8 sm:text-sm">
                       CATEGORY 1 . CATEGORY 2
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#F1C40F]"></div>
+                    <div className="absolute right-0 bottom-0 left-0 h-2 bg-[#F1C40F]"></div>
                   </div>
                 </Link>
                 <div className="text-left">
-                  <span className="text-xs sm:text-sm text-[#927B64] font-bold font-roboto uppercase block mb-2 mt-4 sm:mt-10">
+                  <span className="font-roboto mt-4 mb-2 block text-xs font-bold text-[#927B64] uppercase sm:mt-10 sm:text-sm">
                     09 AUG 2024
                   </span>
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-normal mb-10 sm:mb-20 text-[#927B64] font-antonio uppercase group-hover:text-red-500 transition-colors">
+                  <h3 className="font-antonio mb-10 text-xl font-normal text-[#927B64] uppercase sm:mb-20 sm:text-2xl md:text-3xl">
                     7 best places in Asia to celebrate Christmas
                   </h3>
                 </div>

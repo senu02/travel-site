@@ -32,7 +32,7 @@ export default function Footer() {
             alt="Mackinnons"
             className="h-[99px] w-[280px]"
           />
-          <div className="flex space-x-4">
+          <div className="flex cursor-pointer space-x-4">
             <svg
               width="240"
               height="48"
