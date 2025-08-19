@@ -146,7 +146,7 @@ export default function Home() {
         <section className="relative z-10 mt-12 px-4 py-8 md:mt-20 md:px-6 md:py-10">
           <div className="mb-8 flex flex-col items-center text-center md:mb-12">
             <div className="mb-2 flex items-center md:mb-4">
-              <span className="mr-2 h-[2px] w-[120px] bg-red-500"></span>
+              <span className="mr-2 h-[1px] w-[50px] bg-red-500 md:h-[2px] md:w-[120px]"></span>
               <p className="font-roboto text-sm font-bold tracking-widest text-[#6d563b] uppercase md:text-lg">
                 INSIGHT AND IDEAS
               </p>
@@ -156,12 +156,11 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="mx-[10%] mt-20">
+          <div className="mx-[10%] mt-[30px] md:mt-20">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
               <div className="group mb-4 flex flex-col">
                 <Link href="/blog" className="block">
                   <div className="relative mb-2 aspect-[3/2] w-full cursor-pointer overflow-hidden rounded-3xl">
-                    {/* Image container */}
                     <div className="relative h-[calc(100%-10px)] overflow-hidden rounded-t-3xl">
                       <Image
                         src="/images/story1.png"
@@ -171,21 +170,19 @@ export default function Home() {
                       />
                       <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
 
-                      <div className="font-roboto absolute top-6 left-8 z-10 text-sm leading-[calc(20/1920*100vw)] font-semibold tracking-widest text-white">
+                      <div className="font-roboto absolute top-6 left-8 z-10 text-xs font-semibold tracking-widest text-white md:text-sm md:leading-loose">
                         CATEGORY 1
                       </div>
                     </div>
-
-                    {/* Yellow bottom shape */}
                     <div className="rounded-b-6xl absolute right-0 -bottom-2 left-0 -z-10 h-[20px] bg-[#F1C40F]"></div>
                   </div>
                 </Link>
 
                 <div className="text-left">
-                  <span className="font-roboto mt-6 mb-2 block text-sm font-bold text-[#927B64] uppercase">
+                  <span className="font-roboto mt-4 block text-xs font-bold text-[#927B64] uppercase md:mt-6 md:mb-2 md:text-sm">
                     09 AUG 2024
                   </span>
-                  <h3 className="font-antonio mb-6 text-3xl font-normal text-[#927B64] uppercase">
+                  <h3 className="font-antonio text-lg font-normal text-[#927B64] uppercase md:mb-6 md:text-3xl">
                     6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
                   </h3>
                 </div>
@@ -201,17 +198,17 @@ export default function Home() {
                       className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
                     />
                     <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
-                    <div className="font-roboto absolute top-6 left-8 text-sm leading-[calc(20/1920*100vw)] font-semibold tracking-widest text-white">
+                    <div className="font-roboto absolute top-6 left-8 z-10 text-xs font-semibold tracking-widest text-white md:text-sm md:leading-loose">
                       CATEGORY 1
                     </div>
                     <div className="absolute right-0 bottom-0 left-0 h-2 bg-[#ff0000]"></div>
                   </div>
                 </Link>
                 <div className="text-left">
-                  <span className="font-roboto mt-6 mb-2 block text-sm font-bold text-[#927B64] uppercase">
+                  <span className="font-roboto mt-4 block text-xs font-bold text-[#927B64] uppercase md:mt-6 md:mb-2 md:text-sm">
                     09 AUG 2024
                   </span>
-                  <h3 className="font-antonio mb-6 text-3xl font-normal text-[#927B64] uppercase">
+                  <h3 className="font-antonio text-lg font-normal text-[#927B64] uppercase md:mb-6 md:text-3xl">
                     7 best places in Asia to celebrate Christmas
                   </h3>
                 </div>
@@ -227,7 +224,7 @@ export default function Home() {
                     />
                     <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
 
-                    <div className="font-roboto absolute top-6 left-8 text-sm leading-[calc(20/1920*100vw)] font-semibold tracking-widest text-white">
+                    <div className="font-roboto absolute top-6 left-8 z-10 text-xs font-semibold tracking-widest text-white md:text-sm md:leading-loose">
                       CATEGORY 1
                     </div>
 
@@ -236,10 +233,10 @@ export default function Home() {
                 </Link>
 
                 <div className="text-left">
-                  <span className="font-roboto mt-6 mb-2 block text-sm font-bold text-[#927B64] uppercase">
+                  <span className="font-roboto mt-4 block text-xs font-bold text-[#927B64] uppercase md:mt-6 md:mb-2 md:text-sm">
                     09 AUG 2024
                   </span>
-                  <h3 className="font-antonio mb-6 text-3xl font-normal text-[#927B64] uppercase">
+                  <h3 className="font-antonio text-lg font-normal text-[#927B64] uppercase md:mb-6 md:text-3xl">
                     6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
                   </h3>
                 </div>
@@ -256,7 +253,7 @@ export default function Home() {
                     />
                     <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
 
-                    <div className="font-roboto absolute top-6 left-8 text-sm leading-[calc(20/1920*100vw)] font-semibold tracking-widest text-white">
+                    <div className="font-roboto absolute top-6 left-8 z-10 text-xs font-semibold tracking-widest text-white md:text-sm md:leading-loose">
                       CATEGORY 1
                     </div>
 
@@ -265,15 +262,15 @@ export default function Home() {
                 </Link>
 
                 <div className="text-left">
-                  <span className="font-roboto mt-6 mb-2 block text-sm font-bold text-[#927B64] uppercase">
+                  <span className="font-roboto mt-4 block text-xs font-bold text-[#927B64] uppercase md:mt-6 md:mb-2 md:text-sm">
                     09 AUG 2024
                   </span>
-                  <h3 className="font-antonio mb-6 text-3xl font-normal text-[#927B64] uppercase">
+                  <h3 className="font-antonio text-lg font-normal text-[#927B64] uppercase md:mb-6 md:text-3xl">
                     6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
                   </h3>
                 </div>
               </div>
-              <div className="group mb-4 flex flex-col">
+              <div className="group mb-2 flex flex-col md:mb-4">
                 <Link href="/blog" className="block">
                   <div className="relative mb-2 aspect-[3/2] w-full cursor-pointer overflow-hidden rounded-3xl shadow-md">
                     <Image
@@ -284,7 +281,7 @@ export default function Home() {
                     />
                     <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
 
-                    <div className="font-roboto absolute top-6 left-8 text-sm leading-[calc(20/1920*100vw)] font-semibold tracking-widest text-white">
+                    <div className="font-roboto absolute top-6 left-8 z-10 text-xs font-semibold tracking-widest text-white md:text-sm md:leading-loose">
                       CATEGORY 1
                     </div>
 
@@ -293,10 +290,10 @@ export default function Home() {
                 </Link>
 
                 <div className="text-left">
-                  <span className="font-roboto mt-6 mb-2 block text-sm font-bold text-[#927B64] uppercase">
+                  <span className="font-roboto mt-4 block text-xs font-bold text-[#927B64] uppercase md:mt-6 md:mb-2 md:text-sm">
                     09 AUG 2024
                   </span>
-                  <h3 className="font-antonio mb-6 text-3xl font-normal text-[#927B64] uppercase">
+                  <h3 className="font-antonio text-lg font-normal text-[#927B64] uppercase md:mb-6 md:text-3xl">
                     6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
                   </h3>
                 </div>
@@ -313,7 +310,7 @@ export default function Home() {
                     />
                     <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
 
-                    <div className="font-roboto absolute top-6 left-8 text-sm leading-[calc(20/1920*100vw)] font-semibold tracking-widest text-white">
+                    <div className="font-roboto absolute top-6 left-8 z-10 text-xs font-semibold tracking-widest text-white md:text-sm md:leading-loose">
                       CATEGORY 1
                     </div>
 
@@ -322,10 +319,10 @@ export default function Home() {
                 </Link>
 
                 <div className="text-left">
-                  <span className="font-roboto mt-6 mb-2 block text-sm font-bold text-[#927B64] uppercase">
+                  <span className="font-roboto mt-4 block text-xs font-bold text-[#927B64] uppercase md:mt-6 md:mb-2 md:text-sm">
                     09 AUG 2024
                   </span>
-                  <h3 className="font-antonio mb-6 text-3xl font-normal text-[#927B64] uppercase">
+                  <h3 className="font-antonio text-lg font-normal text-[#927B64] uppercase md:mb-6 md:text-3xl">
                     6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
                   </h3>
                 </div>
@@ -348,7 +345,7 @@ export default function Home() {
         </div>
         <div className="relative z-10">
           <Link href="/categories" className="block">
-            <button className="font-roboto mb-6 cursor-pointer rounded-full border-[1px] border-[#6d563b] px-8 py-3 text-base font-bold text-[#6d563b] uppercase transition-colors hover:bg-[#D0C7B8] hover:text-[#6d563b]">
+            <button className="font-roboto cursor-pointer rounded-full border-[1px] border-[#6d563b] px-8 py-3 text-sm font-bold text-[#6d563b] uppercase transition-colors hover:bg-[#D0C7B8] hover:text-[#6d563b] md:mb-6 md:text-base">
               VIEW ALL BLOGS
             </button>
           </Link>
@@ -383,15 +380,15 @@ export default function Home() {
               />
             </svg>
           </section>
-          <h3 className="font-antonio text-primary mt-8 mb-8 text-[55px] font-normal uppercase">
+          <h3 className="font-antonio text-primary mt-8 mb-8 text-3xl font-normal uppercase md:text-[55px]">
             CATEGORIES
           </h3>
 
-          <div className="mx-auto mb-15 flex flex-wrap justify-center gap-4">
+          <div className="mx-auto mb-[30px] flex flex-wrap justify-center gap-4 md:mb-15">
             {[1, 2, 3, 4, 5].map((num) => (
               <button
                 key={num}
-                className="font-roboto cursor-pointer rounded-full bg-[#F5F4F1] px-6 py-2 text-base font-semibold text-[#927B64] uppercase transition-colors hover:bg-[#D0C7B8]"
+                className="font-roboto cursor-pointer rounded-full bg-[#F5F4F1] px-6 py-2 text-sm font-semibold text-[#927B64] uppercase transition-colors hover:bg-[#D0C7B8] md:text-base"
               >
                 CATEGORY {num}
               </button>

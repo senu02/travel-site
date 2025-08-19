@@ -11,16 +11,16 @@ export default function BlogPage() {
       <hr className="mb-10 w-full border-t-2 border-[#B9AB9661]" />
 
       <section className="flex flex-col items-center px-4">
-        <div className="mt-10 mb-8 flex w-full max-w-6xl flex-col items-start px-4">
-          <p className="font-roboto mb-1 text-sm leading-7 font-bold tracking-widest text-[#927B64]">
+        <div className="mb-[30px] flex w-full max-w-6xl flex-col items-start px-4 md:mt-10 md:mb-8">
+          <p className="font-roboto text-xs leading-7 font-bold tracking-widest text-[#927B64] md:mb-1 md:text-lg">
             09 OCT 2024
           </p>
-          <h2 className="font-antonio mt-2 text-3xl font-normal text-[#927B64] uppercase md:text-5xl">
+          <h2 className="font-antonio mt-1 text-2xl font-normal text-[#927B64] uppercase md:text-5xl">
             6 best ryokans in Japan to rejuvenate yourself
           </h2>
         </div>
 
-        <div className="relative mx-4 mb-10 h-[300px] w-full max-w-6xl overflow-hidden rounded-2xl shadow-md md:h-[500px] lg:h-[693px]">
+        <div className="relative mx-4 mb-[30px] h-[300px] w-full max-w-6xl overflow-hidden rounded-2xl shadow-md md:mb-10 md:h-[500px] lg:h-[693px]">
           <Image
             src="/images/blog1.jpg"
             alt="Travel 2"
@@ -29,14 +29,14 @@ export default function BlogPage() {
             priority
           />
           <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
-          <div className="font-roboto absolute top-6 left-6 z-10 text-xs leading-6 font-semibold tracking-wider text-white uppercase md:text-sm">
+          <div className="font-roboto absolute top-6 left-6 z-10 text-[10px] leading-loose font-semibold tracking-wider text-white uppercase md:text-sm">
             Category 1 . Category 2 . Category 3
           </div>
           <div className="absolute right-0 bottom-0 left-0 h-2 bg-[#E74C3C]"></div>
         </div>
 
-        <div className="mt-6 w-full max-w-6xl px-4 md:px-2">
-          <p className="font-roboto mb-8 text-base leading-normal font-light text-[#434343] md:text-xl md:leading-[1.8]">
+        <div className="w-full max-w-6xl px-2 md:mt-6 md:px-2">
+          <p className="font-roboto mb-[30px] text-sm leading-normal font-light text-[#434343] md:text-xl md:leading-loose">
             Mackinnons Travels Dive into a world of inspiration, insights, and
             ideas. Whether you're here to explore, learn, or simply unwind, our
             blog brings stories that resonate and topics that spark curiosity.
@@ -56,7 +56,7 @@ export default function BlogPage() {
             nec elementum.
           </p>
 
-          <p className="font-roboto mb-8 text-base leading-normal font-light text-[#434343] md:text-xl md:leading-[1.8]">
+          <p className="font-roboto mb-[30px] text-sm leading-normal font-light text-[#434343] md:text-xl md:leading-loose">
             Quam eu enim ac mauris ipsum tincidunt. Amet gravida placerat lectus
             risus at urna condimentum nisi vestibulum. Orci suspendisse lobortis
             eu pulvinar suscipit eu mi donec. Sagittis mattis risus libero odio.
@@ -72,7 +72,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="mt-10 mb-5 flex justify-center px-4 md:mt-20">
+      <section className="mb-[30px] flex justify-center px-4 md:mt-10">
         <div className="grid w-full max-w-6xl grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
           <div className="group mb-5 flex flex-col">
             <div className="relative h-[200px] sm:h-[250px] md:h-[300px] lg:h-[349px]">
@@ -101,8 +101,8 @@ export default function BlogPage() {
       </section>
 
       <section>
-        <div className="mb-10 flex items-center justify-center px-4">
-          <ul className="font-roboto mb-8 w-full max-w-6xl list-disc space-y-6 pl-6 text-base leading-normal font-light text-[#434343] md:text-xl md:leading-[1.8]">
+        <div className="mb-[30px] flex items-center justify-center px-4">
+          <ul className="font-roboto mb-8 w-full max-w-6xl list-disc space-y-6 pl-6 text-sm font-light text-[#434343] md:text-xl md:leading-loose">
             <li>
               Lorem ipsum dolor sit amet consectetur. Ipsum pretium nisl
               condimentum scelerisque faucibus porta pellentesque scelerisque
@@ -128,7 +128,7 @@ export default function BlogPage() {
       </section>
 
       <section className="flex flex-col items-center px-4">
-        <div className="mb-8 flex w-full max-w-6xl flex-col items-start">
+        <div className="flex w-full max-w-6xl flex-col items-start">
           <div className="flex flex-col items-start gap-4 md:flex-row md:items-center">
             <p className="font-roboto text-primary justify-center text-center text-base font-normal md:text-xl">
               Share
@@ -194,7 +194,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="mt-10 mb-10 flex justify-center px-4">
+      <section className="mt-[30px] mb-10 flex justify-center px-4">
         <svg
           width="100%"
           height="15"
@@ -232,10 +232,10 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="mt-6 mb-10 items-center justify-center px-4">
+      <section className="mt-6 mb-[30px] items-center justify-center px-4 md:mb-10">
         <div className="mx-auto max-w-7xl px-0 py-8 md:px-4">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-4">
-            <div className="overflow-hidden rounded-3xl border border-[#CECECE] shadow-md transition-shadow hover:shadow-lg">
+          <div className="grid grid-cols-1 gap-[30px] sm:grid-cols-2 md:gap-6 lg:grid-cols-4">
+            <div className="overflow-hidden rounded-3xl border border-[#CECECE]">
               <div className="relative h-60 w-full overflow-hidden rounded-3xl rounded-b-3xl sm:h-72 md:h-80">
                 <Image
                   src="/images/package1.png"
@@ -270,7 +270,7 @@ export default function BlogPage() {
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-3xl border border-[#CECECE] shadow-md transition-shadow hover:shadow-lg">
+            <div className="overflow-hidden rounded-3xl border border-[#CECECE]">
               <div className="relative h-60 w-full overflow-hidden rounded-3xl rounded-b-3xl sm:h-72 md:h-80">
                 <Image
                   src="/images/package2.png"
@@ -306,7 +306,7 @@ export default function BlogPage() {
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-3xl border border-[#CECECE] shadow-md transition-shadow hover:shadow-lg">
+            <div className="overflow-hidden rounded-3xl border border-[#CECECE]">
               <div className="relative h-60 w-full overflow-hidden rounded-3xl rounded-b-3xl sm:h-72 md:h-80">
                 <Image
                   src="/images/package3.png"
@@ -341,7 +341,7 @@ export default function BlogPage() {
               </div>
             </div>
 
-            <div className="overflow-hidden rounded-3xl border border-[#CECECE] shadow-md transition-shadow hover:shadow-lg">
+            <div className="overflow-hidden rounded-3xl border border-[#CECECE]">
               <div className="relative h-60 w-full overflow-hidden rounded-3xl rounded-b-3xl sm:h-72 md:h-80">
                 <Image
                   src="/images/package4.png"
@@ -425,28 +425,28 @@ export default function BlogPage() {
         </div>
 
         <div className="relative z-10 mx-auto max-w-6xl px-4">
-          <div className="mb-12 flex flex-col items-start text-center">
-            <div className="mb-4 flex w-full flex-col items-center justify-between gap-4 md:flex-row">
-              <div className="flex items-center">
-                <span className="mr-2 h-0.5 w-8 bg-red-500"></span>
-                <p className="font-roboto text-sm font-medium tracking-widest text-[#927B64] uppercase md:text-lg">
+          <div className="mb-[30px] flex flex-col text-center md:mb-12">
+            <div className="flex w-full flex-col items-center justify-between gap-4 md:flex-row">
+              <div className="mb-[10px] flex items-center">
+                <span className="mr-2 h-0.5 w-[40px] bg-red-500 md:w-[120px]"></span>
+                <p className="font-roboto text-xs font-medium tracking-widest text-[#927B64] uppercase md:text-lg">
                   INSIGHT AND IDEAS
                 </p>
               </div>
-              <button className="font-roboto rounded-full border-2 border-[#927B64] bg-transparent px-4 py-2 text-sm font-semibold tracking-wider text-[#927B64] uppercase transition-colors duration-200 hover:border-[#6d563b] hover:bg-[#6d563b] hover:text-[#ffffff] sm:px-6 sm:py-3 sm:text-base md:px-8 md:text-lg">
+              <button className="font-roboto hidden rounded-full border-[1px] border-[#927B64] bg-transparent px-4 py-2 text-sm font-semibold tracking-wider text-[#927B64] uppercase transition-colors duration-200 hover:border-[#6d563b] hover:bg-[#6d563b] hover:text-[#ffffff] md:inline-block md:px-8 md:text-lg">
                 VIEW ALL BLOGS
               </button>
             </div>
-            <h2 className="font-antonio mb-4 text-4xl font-normal text-[#927B64] uppercase sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
+            <h2 className="font-antonio text-3xl font-normal text-[#927B64] uppercase sm:text-5xl md:items-start md:text-6xl lg:text-7xl xl:text-8xl">
               OTHER STORIES
             </h2>
           </div>
 
-          <div className="mt-10 mb-5 flex justify-center md:mt-20">
+          <div className="flex justify-center md:mt-20">
             <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
-              <div className="group mb-4 flex flex-col">
+              <div className="group flex flex-col md:mb-4">
                 <Link href="/blog" className="block">
-                  <div className="relative mb-4 aspect-[3/2] w-full cursor-pointer overflow-hidden rounded-3xl shadow-md">
+                  <div className="relative aspect-[3/2] w-full cursor-pointer overflow-hidden rounded-3xl shadow-md md:mb-4">
                     <Image
                       src="/images/story3.png"
                       alt="Travel 2"
@@ -462,10 +462,10 @@ export default function BlogPage() {
                   </div>
                 </Link>
                 <div className="text-left">
-                  <span className="font-roboto mt-4 mb-2 block text-xs font-bold text-[#927B64] uppercase sm:mt-10 sm:text-sm">
+                  <span className="font-roboto mt-[10px] block text-xs font-bold text-[#927B64] uppercase sm:mt-10 sm:text-sm md:mt-4 md:mb-2">
                     09 AUG 2024
                   </span>
-                  <h3 className="font-antonio mb-10 text-xl font-normal text-[#927B64] uppercase sm:mb-20 sm:text-2xl md:text-3xl">
+                  <h3 className="font-antonio mt-[4px] mb-[30px] text-xl font-normal text-[#927B64] uppercase sm:mb-20 sm:text-2xl md:mb-10 md:text-3xl">
                     6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
                   </h3>
                 </div>
@@ -489,14 +489,17 @@ export default function BlogPage() {
                   </div>
                 </Link>
                 <div className="text-left">
-                  <span className="font-roboto mt-4 mb-2 block text-xs font-bold text-[#927B64] uppercase sm:mt-10 sm:text-sm">
+                  <span className="font-roboto mt-[10px] block text-xs font-bold text-[#927B64] uppercase sm:mt-10 sm:text-sm md:mt-4 md:mb-2">
                     09 AUG 2024
                   </span>
-                  <h3 className="font-antonio mb-10 text-xl font-normal text-[#927B64] uppercase sm:mb-20 sm:text-2xl md:text-3xl">
+                  <h3 className="font-antonio text-xl font-normal text-[#927B64] uppercase sm:mb-20 sm:text-2xl md:mb-8 md:text-3xl">
                     7 best places in Asia to celebrate Christmas
                   </h3>
                 </div>
               </div>
+              <button className="font-roboto w-3/6 items-center rounded-full border border-[#927B64] bg-transparent px-3 py-1.5 text-xs font-semibold tracking-wide text-[#927B64] uppercase transition-colors duration-200 hover:border-[#6d563b] hover:bg-[#6d563b] hover:text-white md:hidden">
+                VIEW ALL BLOGS
+              </button>
             </div>
           </div>
         </div>

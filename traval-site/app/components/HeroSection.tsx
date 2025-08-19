@@ -3,31 +3,32 @@ import Image from "next/image";
 export default function HeroSection() {
   return (
     <section className="relative bg-white">
-      <div className="grid grid-cols-1 items-end gap-4 py-6 md:grid-cols-2">
-        <div className="flex flex-col items-end gap-6 md:flex-row">
-          <div className="relative h-[350px] w-3/6">
+      <div className="grid grid-cols-1 items-end gap-8 py-6 md:grid-cols-2">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end">
+          <div className="relative h-48 w-full sm:h-72 md:h-[350px] md:w-3/6">
             <Image
               src="/images/bg.png"
               alt="Travel"
               fill
-              className="rounded-ee-2xl rounded-r-2xl object-cover object-right"
+              className="object-cover object-right md:rounded-ee-2xl md:rounded-r-2xl"
             />
           </div>
 
-          <div className="mb-4 ml-4 space-y-6 pb-50">
-            {" "}
-            <div className="flex items-center">
-              <span className="mr-2 h-[2px] w-[100px] bg-[#C41230]"></span>
-              <p className="font-roboto text-lg font-bold tracking-widest text-[#927B64] uppercase">
+          <div className="mt-4 space-y-6 md:ml-4 md:pb-50">
+            <div className="flex items-center justify-center md:justify-start">
+              <span className="mr-2 md:h-[2px] h-[0.5px] w-15 md:w-20 bg-[#C41230] sm:w-28"></span>
+              <p className="font-roboto text-center text-sm font-bold tracking-widest text-[#927B64] uppercase sm:text-base md:text-left md:text-lg">
                 Mackinnons Travels Blog
               </p>
             </div>
-            <h1 className="font-antonio text-8xl leading-tight font-medium text-[#927B64] uppercase">
+
+            <h1 className="font-antonio text-center text-4xl leading-tight font-medium text-[#927B64] uppercase sm:text-5xl md:text-left md:text-7xl lg:text-8xl">
               Adventure Awaits
               <br />
               Around the World
             </h1>
-            <p className="font-roboto text-xl font-light text-[#434343]">
+
+            <p className="font-roboto text-center text-base font-light text-[#434343] sm:text-lg md:text-left md:text-xl">
               Mackinnons Travels revolutionizes the way you book your travel by
               giving you the flexibility to tailor-make your own travel package
               using our comprehensive suite.
@@ -35,10 +36,10 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="flex h-full items-end justify-end">
+        <div className="flex justify-center md:justify-end">
           <video
             src="/images/bgvideo.mp4"
-            className="h-[750px] w-[800px] rounded-l-2xl rounded-bl-2xl object-cover"
+            className="h-56 w-full object-cover sm:h-80 md:h-[600px] md:w-[500px] md:rounded-l-2xl md:rounded-bl-2xl lg:h-[750px] lg:w-[800px]"
             autoPlay
             loop
             muted
@@ -49,7 +50,7 @@ export default function HeroSection() {
 
       <div className="mt-10 flex justify-center">
         <svg
-          width="1441"
+          width="100%"
           height="15"
           viewBox="0 0 1441 15"
           fill="none"
