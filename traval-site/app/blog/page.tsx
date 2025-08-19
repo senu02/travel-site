@@ -465,7 +465,7 @@ export default function BlogPage() {
                   <span className="font-roboto mt-[10px] block text-xs font-bold text-[#927B64] uppercase sm:mt-10 sm:text-sm md:mt-4 md:mb-2">
                     09 AUG 2024
                   </span>
-                  <h3 className="font-antonio mt-[4px] mb-[30px] text-xl font-normal text-[#927B64] uppercase sm:mb-20 sm:text-2xl md:mb-10 md:text-3xl">
+                  <h3 className="font-antonio mt-[4px] mb-[20px] text-xl font-normal text-[#927B64] uppercase sm:mb-20 sm:text-2xl md:mb-10 md:text-3xl">
                     6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
                   </h3>
                 </div>
