@@ -222,7 +222,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
       <div className="font-roboto flex flex-col items-center justify-center space-y-4 border-t border-gray-200 px-6 py-6 text-center text-xs sm:px-10 md:flex-row md:justify-between md:space-y-0">
         <p>© 2024 Mackinnons Travel. All rights reserved.</p>
         <div className="space-x-4">

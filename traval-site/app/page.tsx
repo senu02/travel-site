@@ -81,11 +81,11 @@ export default function Home() {
 
         <div className="flex w-full flex-col items-center lg:w-1/2 lg:items-start">
           <div className="text-center lg:mb-10 lg:text-left">
-            <p className="font-roboto flex items-center justify-center text-xs font-bold tracking-widest text-[#927B64] sm:text-sm lg:justify-start lg:text-base">
-              <span className="mr-6 h-[2px] w-[120px] bg-[#C41230]"></span>
+            <p className="font-roboto lg:text-normal flex items-center justify-center text-sm leading-loose font-bold tracking-widest text-[#927B64] sm:text-sm lg:justify-start">
+              <span className="mr-2 h-[0.5px] w-10 bg-[#C41230] sm:w-28 md:h-[2px] md:w-20"></span>
               DREAM. EXPLORE. DISCOVER
             </p>
-            <h2 className="font-antonio mt-4 mb-8 text-8xl leading-tight font-normal tracking-normal text-[#927B64] lg:mt-6">
+            <h2 className="font-antonio mt-4 mb-8 text-3xl leading-tight font-normal tracking-normal text-[#927B64] md:text-8xl lg:mt-6">
               LATEST TRAVEL STORIES
             </h2>
           </div>
@@ -106,10 +106,10 @@ export default function Home() {
                 </div>
               </div>
               <div className="mt-8 px-4 text-left">
-                <p className="font-roboto mb-1 text-xs font-bold text-[#927B64]">
+                <p className="font-roboto mb-1 text-xs font-bold text-[#927B64] md:text-xs">
                   30 OCT 2024
                 </p>
-                <p className="font-antonio text-[32px] leading-snug font-normal text-[#927B64]">
+                <p className="font-antonio text-lg leading-snug font-normal text-[#927B64] md:text-[32px]">
                   7 BEST PLACES IN ASIA TO CELEBRATE CHRISTMAS
                 </p>
               </div>
@@ -130,10 +130,10 @@ export default function Home() {
                 </div>
               </div>
               <div className="mt-8 px-4 text-left">
-                <p className="font-roboto mb-1 text-xs font-bold text-[#927B64]">
+                <p className="font-roboto mb-1 text-xs font-bold text-[#927B64] md:text-xs">
                   28 JULY 2024
                 </p>
-                <p className="font-antonio text-[32px] font-normal text-[#927B64]">
+                <p className="font-antonio text-lg font-normal text-[#927B64] md:text-[32px]">
                   6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
                 </p>
               </div>
