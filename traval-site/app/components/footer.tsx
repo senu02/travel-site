@@ -21,12 +21,12 @@ export default function Footer() {
         <span className="h-[1px] flex-1 bg-[#B9AB9661] md:h-[1px] md:w-full"></span>
       </div>
 
-      <div className="grid grid-cols-1 gap-10 py-10 pt-20 md:grid-cols-4 md:px-20">
+      <div className="grid grid-cols-1 gap-4 py-6 pt-6 md:grid-cols-4 md:px-20 md:py-10 md:pt-20">
         <div className="space-y-2 text-center">
           <img
             src="/images/logo.png"
             alt="Mackinnons"
-            className="mx-auto h-[60px] w-[150px] md:h-[99px] lg:w-[280px]"
+            className="mx-auto h-[75px] w-[180px] md:h-[99px] md:w-[280px]"
           />
           <div className="hidden justify-center space-x-4 md:flex">
             <div className="flex cursor-pointer gap-3">
@@ -165,9 +165,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Column 4: Signup */}
         <div className="flex flex-col items-center sm:items-start">
-          {/* Social icons for desktop - hidden on mobile */}
           <div className="mb-6 justify-center space-x-4 md:hidden">
             <div className="flex cursor-pointer gap-3">
               <svg
@@ -176,7 +174,7 @@ export default function Footer() {
                 viewBox="0 0 240 48"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-auto sm:h-8 md:h-9"
+                className="h-8 w-auto sm:h-8 md:h-9"
               >
                 <a
                   href="https://www.instagram.com"

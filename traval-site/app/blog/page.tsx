@@ -5,6 +5,10 @@ import Navbar from "../components/Navbar";
 import Image from "next/image";
 import Footer from "../components/footer";
 import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
 
 export default function BlogPage() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -316,11 +320,11 @@ export default function BlogPage() {
       </div>
 
       <div className="mt-[30px] mb-[20px] flex flex-col text-center md:mb-12">
-        <div className="flex w-full flex-col items-center justify-between gap-4 md:flex-row"></div>
-        <h2 className="font-antonio text-3xl font-normal text-[#927B64] uppercase sm:text-5xl md:items-start md:text-6xl lg:text-7xl xl:text-8xl">
+        <h2 className="font-antonio text-3xl font-normal text-[#927B64] uppercase sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
           Travel Packages
         </h2>
       </div>
+
       <section className="mb-[30px] items-center justify-center px-4 md:mt-6 md:mb-10">
         <div className="mx-auto max-w-7xl px-0 py-8 md:px-4">
           <div className="grid grid-cols-1 gap-[30px] sm:grid-cols-2 md:gap-6 lg:grid-cols-4">

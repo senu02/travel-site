@@ -259,7 +259,7 @@ export default function Home() {
             </h2>
           </div>
 
-          <div className="mx-[10%] mt-[20px] md:mt-20">
+          <div className="mx-4 mt-[20px] md:mx-50 md:mt-20">
             {/* Mobile Swiper Slider */}
             <div className="md:hidden">
               <Swiper
@@ -315,7 +315,7 @@ export default function Home() {
               </Swiper>
             </div>
 
-            <div className="hidden grid-cols-1 gap-8 md:grid md:grid-cols-2">
+            <div className="hidden grid-cols-1 gap-15 md:grid md:grid-cols-2">
               <div className="group mb-2 flex flex-col">
                 <Link href="/blog" className="block">
                   <div className="relative mb-4 aspect-[3/2] w-full cursor-pointer overflow-hidden rounded-3xl shadow-md md:mb-4">
@@ -499,7 +499,7 @@ export default function Home() {
             </button>
           </Link>
 
-          <div className="mt-[20px] flex items-center justify-center gap-4 md:mt-20 md:pr-40 md:pl-40">
+          <div className="mx-4 mt-[20px] flex items-center justify-center gap-4 md:mt-20 md:pr-40 md:pl-40">
             <span className="h-[1px] flex-1 bg-[#B9AB9661] md:h-[1px] md:w-full"></span>
 
             <svg
