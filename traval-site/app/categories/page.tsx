@@ -12,19 +12,19 @@ export default function CategoriesPage() {
       <div className="bg-white">
         <header className="py-10 text-center">
           <div className="mb-6 flex items-center justify-center">
-            <span className="mr-2 h-0.25 w-[40px] bg-[#C41230] md:h-0.5 md:w-[120px]"></span>
-            <h2 className="font-roboto text-sm font-bold tracking-widest text-[#927B64] uppercase md:text-lg">
+            <span className="mr-2 h-[2px] w-6 bg-[#C41230] md:h-[2px] md:w-20"></span>
+            <h2 className="font-roboto text-xs font-bold tracking-widest text-[#927B64] uppercase md:text-lg">
               DREAM. EXPLORE. DISCOVER
             </h2>
           </div>
 
-          <h1 className="font-antonio text-3xl font-medium text-[#927B64] uppercase md:text-8xl md:leading-tight">
+          <h1 className="font-antonio text-4xl font-medium text-[#927B64] uppercase md:text-8xl md:leading-tight">
             DIVE INTO A WORLD OF
             <br />
             INSPIRATION
           </h1>
 
-          <p className="font-roboto mt-[30px] w-full px-4 text-base leading-relaxed font-light tracking-normal text-[#434343] md:mt-10 md:px-4 md:pr-100 md:pl-100 md:text-xl md:leading-loose">
+          <p className="font-roboto mt-[30px] w-full px-4 text-center text-sm leading-relaxed font-light tracking-normal text-[#434343] md:mt-10 md:px-4 md:pr-100 md:pl-100 md:text-xl md:leading-loose">
             Mackinnons Travels Dive into a world of inspiration, insights, and
             ideas. Whether you're here to explore, learn, or simply unwind, our
             blog brings stories that resonate and topics that spark curiosity.
@@ -35,10 +35,10 @@ export default function CategoriesPage() {
           </p>
         </header>
         <div className="mb-[30px] flex justify-center space-x-4 md:mb-10">
-          <button className="font-roboto text-primary rounded-full bg-[#F5F4F1] px-4 py-2 text-sm font-semibold transition-colors duration-300 hover:bg-[#002D6A] hover:text-white md:text-base">
+          <button className="font-roboto text-primary rounded-full bg-[#F5F4F1] px-4 py-2 text-xs font-semibold transition-colors duration-300 hover:bg-[#002D6A] hover:text-white md:text-base">
             Categories
           </button>
-          <button className="font-roboto text-primary rounded-full bg-[#F5F4F1] px-4 py-2 text-sm font-semibold transition-colors duration-300 hover:bg-[#002D6A] hover:text-white md:text-base">
+          <button className="font-roboto text-primary rounded-full bg-[#F5F4F1] px-4 py-2 text-xs font-semibold transition-colors duration-300 hover:bg-[#002D6A] hover:text-white md:text-base">
             Years
           </button>
         </div>

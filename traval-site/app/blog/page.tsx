@@ -1,9 +1,62 @@
+"use client";
+
+import { useState, useEffect, SetStateAction } from "react";
 import Navbar from "../components/Navbar";
 import Image from "next/image";
 import Footer from "../components/footer";
 import Link from "next/link";
 
 export default function BlogPage() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const sliderImages = [
+    { src: "/images/1.jpg", color: "#F1C40F" },
+    { src: "/images/2.jpg", color: "#E74C3C" },
+  ];
+
+  const minSwipeDistance = 50;
+
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      setCurrentSlide((prev) =>
+        prev === sliderImages.length - 1 ? 0 : prev + 1,
+      );
+    }
+
+    if (isRightSwipe) {
+      setCurrentSlide((prev) =>
+        prev === 0 ? sliderImages.length - 1 : prev - 1,
+      );
+    }
+  };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) =>
+        prev === sliderImages.length - 1 ? 0 : prev + 1,
+      );
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [sliderImages.length]);
+
   return (
     <div className="min-h-screen">
       <Navbar />
@@ -36,7 +89,7 @@ export default function BlogPage() {
         </div>
 
         <div className="w-full max-w-6xl px-2 md:mt-6 md:px-2">
-          <p className="font-roboto mb-[30px] text-sm leading-normal font-light text-[#434343] md:text-xl md:leading-loose">
+          <p className="font-roboto mb-[30px] text-justify text-sm leading-normal font-light text-[#434343] md:text-xl md:leading-loose">
             Mackinnons Travels Dive into a world of inspiration, insights, and
             ideas. Whether you're here to explore, learn, or simply unwind, our
             blog brings stories that resonate and topics that spark curiosity.
@@ -56,7 +109,7 @@ export default function BlogPage() {
             nec elementum.
           </p>
 
-          <p className="font-roboto mb-[30px] text-sm leading-normal font-light text-[#434343] md:text-xl md:leading-loose">
+          <p className="font-roboto mb-[30px] text-justify text-sm leading-normal font-light text-[#434343] md:text-xl md:leading-loose">
             Quam eu enim ac mauris ipsum tincidunt. Amet gravida placerat lectus
             risus at urna condimentum nisi vestibulum. Orci suspendisse lobortis
             eu pulvinar suscipit eu mi donec. Sagittis mattis risus libero odio.
@@ -72,8 +125,10 @@ export default function BlogPage() {
         </div>
       </section>
 
+      {/* Mobile Slider Section */}
       <section className="mb-[30px] flex justify-center px-4 md:mt-10">
-        <div className="grid w-full max-w-6xl grid-cols-1 gap-4 md:grid-cols-2 md:gap-8">
+        {/* Desktop view (unchanged) */}
+        <div className="hidden w-full max-w-6xl grid-cols-1 gap-4 md:grid md:grid-cols-2 md:gap-8">
           <div className="group mb-5 flex flex-col">
             <div className="relative h-[200px] sm:h-[250px] md:h-[300px] lg:h-[349px]">
               <Image
@@ -96,6 +151,52 @@ export default function BlogPage() {
               />
               <div className="absolute right-0 -bottom-2 left-0 -z-1 h-1/2 rounded-b-3xl bg-[#E74C3C]"></div>
             </div>
+          </div>
+        </div>
+
+        {/* Mobile slider */}
+        <div className="relative w-full max-w-md overflow-hidden md:hidden">
+          <div
+            className="flex transition-transform duration-300 ease-in-out"
+            style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            {sliderImages.map((image, index) => (
+              <div key={index} className="w-full flex-shrink-0 px-2">
+                <div className="group mb-5 flex flex-col">
+                  <div className="relative h-[200px] sm:h-[250px]">
+                    <Image
+                      src={image.src}
+                      alt={`Travel image ${index + 1}`}
+                      fill
+                      className="rounded-3xl object-cover"
+                    />
+                    <div
+                      className="absolute right-0 -bottom-2 left-0 -z-1 h-1/2 rounded-b-3xl"
+                      style={{ backgroundColor: image.color }}
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Slider indicators */}
+          <div className="mt-4 flex justify-center space-x-2">
+            {sliderImages.map((_, index) => (
+              <button
+                key={index}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === currentSlide
+                    ? "w-6 bg-[#927B64]"
+                    : "w-2 bg-[#B9AB96]"
+                }`}
+                onClick={() => setCurrentSlide(index)}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -168,7 +269,7 @@ export default function BlogPage() {
               <path
                 fillRule="evenodd"
                 clipRule="evenodd"
-                d="M105.608 13.7443C105.635 13.7578 105.676 13.7578 105.676 13.7578V13.7848C105.716 13.7848 105.797 13.7308 105.797 13.7308L107.253 12.2745C107.267 12.2605 107.281 12.2475 107.295 12.2349C107.333 12.1988 107.368 12.1662 107.388 12.1262C107.415 12.0722 107.429 12.0183 107.402 11.9643C107.375 11.9105 107.334 11.8565 107.28 11.8565C106.727 11.7351 106.228 11.4654 105.824 11.0609C105.352 10.6024 105.069 9.9955 105.001 9.3078C104.92 8.45832 105.217 7.62221 105.824 7.01544L109.64 3.19925C110.719 2.12048 112.607 2.12048 113.685 3.19925C114.225 3.75213 114.522 4.46681 114.522 5.23546C114.522 6.00409 114.225 6.73225 113.685 7.27165L111.946 8.99774C111.906 9.03809 111.892 9.10555 111.906 9.15951C112.067 9.73941 112.162 10.3462 112.162 10.953C112.162 11.2496 112.148 11.5058 112.108 11.7216C112.108 11.789 112.135 11.87 112.202 11.897C112.27 11.9373 112.351 11.9238 112.404 11.87L115.358 8.93028C117.394 6.88059 117.394 3.56334 115.358 1.52715C113.321 -0.509051 110.004 -0.509051 107.968 1.52715L104.152 5.34333C103.815 5.68045 103.545 6.04454 103.343 6.40862C103.338 6.41312 103.332 6.41761 103.326 6.4221C103.314 6.4311 103.302 6.44009 103.302 6.44908C102.466 7.94588 102.399 9.7529 103.14 11.2901C103.397 11.816 103.72 12.288 104.152 12.7195C104.57 13.1509 105.069 13.5016 105.608 13.7443ZM98.4342 18.4627C99.4591 19.4741 100.794 19.9865 102.129 19.9865L102.089 20C103.424 20 104.772 19.4876 105.783 18.4762L109.6 14.66C110.301 13.9588 110.786 13.0959 111.002 12.1384L111.083 11.5451C111.11 11.4103 111.11 11.2753 111.11 11.1406V11.0866V10.9652V10.6011C111.11 10.4662 111.096 10.3314 111.069 10.2235C111.056 10.0752 111.029 9.9539 111.002 9.83248C110.975 9.69769 110.935 9.54928 110.881 9.3875C110.651 8.61884 110.22 7.89067 109.613 7.28388C109.209 6.87934 108.71 6.52873 108.17 6.27252C108.116 6.23207 107.981 6.29949 107.981 6.29949L106.525 7.75587C106.485 7.79635 106.431 7.85019 106.39 7.93114C106.363 7.97162 106.363 8.02558 106.39 8.07943C106.417 8.13339 106.458 8.17387 106.512 8.17387C107.064 8.2818 107.563 8.55139 107.968 8.95601C108.507 9.5088 108.804 10.237 108.791 11.0326C108.777 11.5181 108.656 11.99 108.426 12.3945C108.372 12.489 108.305 12.5969 108.197 12.7182C108.143 12.7992 108.076 12.8935 107.968 13.0014L104.152 16.8176C103.612 17.3435 102.884 17.6402 102.129 17.6402C101.374 17.6402 100.632 17.3435 100.106 16.8176C99.5669 16.2647 99.2703 15.55 99.2703 14.7814C99.2703 14.0128 99.5669 13.2846 100.106 12.7452L101.846 11.0056C101.886 10.9517 101.9 10.8843 101.886 10.8304C101.617 9.99425 101.536 9.14477 101.657 8.29517C101.671 8.22783 101.63 8.14688 101.563 8.1199C101.509 8.07943 101.374 8.14688 101.374 8.14688L98.4342 11.0731C97.4364 12.0575 96.897 13.3789 96.897 14.768C96.897 16.1569 97.4498 17.4783 98.4342 18.4627Z"
+                d="M105.608 13.7443C105.635 13.7578 105.676 13.7578 105.676 13.7578V13.7848C105.716 13.7848 105.797 13.7308 105.797 13.7308L107.253 12.2745C107.267 12.2605 107.281 12.2475 107.295 12.2349C107.333 12.1988 107.368 12.1662 107.388 12.1262C107.415 12.0722 107.429 12.0183 107.402 11.9643C107.375 11.9105 107.334 11.8565 107.28 11.8565C106.727 11.7351 106.228 11.4654 105.824 11.0609C105.352 10.6024 105.069 9.9955 105.001 9.3078C104.92 8.45832 105.217 7.62221 105.824 7.01544L109.640 3.19925C110.719 2.12048 112.607 2.12048 113.685 3.19925C114.225 3.75213 114.522 4.46681 114.522 5.23546C114.522 6.00409 114.225 6.73225 113.685 7.27165L111.946 8.99774C111.906 9.03809 111.892 9.10555 111.906 9.15951C112.067 9.73941 112.162 10.3462 112.162 10.953C112.162 11.2496 112.148 11.5058 112.108 11.7216C112.108 11.789 112.135 11.87 112.202 11.897C112.27 11.9373 112.351 11.9238 112.404 11.87L115.358 8.93028C117.394 6.88059 117.394 3.56334 115.358 1.52715C113.321 -0.509051 110.004 -0.509051 107.968 1.52715L104.152 5.34333C103.815 5.68045 103.545 6.04454 103.343 6.40862C103.338 6.41312 103.332 6.41761 103.326 6.4221C103.314 6.4311 103.302 6.44009 103.302 6.44908C102.466 7.94588 102.399 9.7529 103.140 11.2901C103.397 11.816 103.72 12.288 104.152 12.7195C104.57 13.1509 105.069 13.5016 105.608 13.7443ZM98.4342 18.4627C99.4591 19.4741 100.794 19.9865 102.129 19.9865L102.089 20C103.424 20 104.772 19.4876 105.783 18.4762L109.600 14.66C110.301 13.9588 110.786 13.0959 111.002 12.1384L111.083 11.5451C111.11 11.4103 111.11 11.2753 111.11 11.1406V11.0866V10.9652V10.6011C111.11 10.4662 111.096 10.3314 111.069 10.2235C111.056 10.0752 111.029 9.95390 111.002 9.83248C110.975 9.69769 110.935 9.54928 110.881 9.38750C110.651 8.61884 110.22 7.89067 109.613 7.28388C109.209 6.87934 108.710 6.52873 108.170 6.27252C108.116 6.23207 107.981 6.29949 107.981 6.29949L106.525 7.75587C106.485 7.79635 106.431 7.85019 106.390 7.93114C106.363 7.97162 106.363 8.02558 106.390 8.07943C106.417 8.13339 106.458 8.17387 106.512 8.17387C107.064 8.28180 107.563 8.55139 107.968 8.95601C108.507 9.50880 108.804 10.237 108.791 11.0326C108.777 11.5181 108.656 11.99 108.426 12.3945C108.372 12.489 108.305 12.5969 108.197 12.7182C108.143 12.7992 108.076 12.8935 107.968 13.0014L104.152 16.8176C103.612 17.3435 102.884 17.6402 102.129 17.6402C101.374 17.6402 100.632 17.3435 100.106 16.8176C99.5669 16.2647 99.2703 15.55 99.2703 14.7814C99.2703 14.0128 99.5669 13.2846 100.106 12.7452L101.846 11.0056C101.886 10.9517 101.900 10.8843 101.886 10.8304C101.617 9.99425 101.536 9.14477 101.657 8.29517C101.671 8.22783 101.630 8.14688 101.563 8.11990C101.509 8.07943 101.374 8.14688 101.374 8.14688L98.4342 11.0731C97.4364 12.0575 96.897 13.3789 96.897 14.768C96.897 16.1569 97.4498 17.4783 98.4342 18.4627Z"
                 fill="#B9AB96"
               />
               <defs>
@@ -194,45 +295,33 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="mt-[30px] mb-10 flex justify-center px-4">
+      <div className="mt-[20px] flex items-center justify-center gap-4 pr-8 pl-8 md:mt-20 md:pr-40 md:pl-40">
+        <span className="h-[1px] flex-1 bg-[#B9AB9661] md:h-[1px] md:w-full"></span>
+
         <svg
-          width="100%"
-          height="15"
-          viewBox="0 0 1441 15"
+          width="53"
+          height="25"
+          viewBox="0 0 53 25"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="max-w-[1441px]"
+          className="h-6 w-6 md:h-10 md:w-10"
         >
-          <line
-            x1="749"
-            y1="8.5"
-            x2="1441"
-            y2="8.5"
-            stroke="#B9AB96"
-            strokeOpacity="0.38"
-          />
-          <line
-            x1="-4.37114e-08"
-            y1="8.5"
-            x2="692"
-            y2="8.49994"
-            stroke="#B9AB96"
-            strokeOpacity="0.38"
-          />
           <path
-            d="M725.068 10.0715C724.623 10.6244 724.169 11.1701 723.697 11.6998C723.577 11.835 723.487 11.9568 723.489 12.0725C723.491 12.215 723.61 12.349 723.746 12.4866C725.265 14.0308 727.036 15.0173 729.284 14.9735C732.537 14.9102 734.947 13.4536 736.318 10.5453C738.438 6.04522 735.381 0.712134 730.413 0.112937C727.459 -0.242683 725.112 0.804691 723.308 3.13206C722.665 3.96265 721.962 4.7494 721.296 5.56538C721.066 5.84792 720.928 5.88203 720.665 5.55685C719.773 4.45589 718.901 3.32935 717.909 2.32095C714.829 -0.804127 710.085 -0.759065 707.021 2.36966C704.458 4.9881 704.326 9.40047 706.662 12.2028C708.449 14.3451 710.747 15.2061 713.464 14.9589C715.449 14.7774 717.068 13.808 718.34 12.2783C718.459 12.1358 718.515 12.0384 718.369 11.8679C717.74 11.1311 717.124 10.3821 716.472 9.59899C715.985 10.3443 715.433 10.9472 714.703 11.3807C712.035 12.9616 708.072 11.0385 708.064 7.56757C708.056 4.63492 710.949 2.49998 713.774 3.25384C714.5 3.44749 715.084 3.88958 715.614 4.40717C717.042 5.80043 718.181 7.43604 719.481 8.93768C719.892 9.41265 720.293 9.89737 720.683 10.3906C720.91 10.678 721.068 10.6561 721.296 10.376C722.769 8.5711 724.281 6.79543 725.733 4.97349C727.095 3.26481 729.14 2.65221 731.131 3.43531C732.917 4.13924 734.058 6.06105 733.788 8.09369C733.555 9.85474 732.568 11.1323 730.86 11.7144C729.208 12.2783 727.709 11.846 726.403 10.728C726.188 10.5441 726.06 10.4101 725.816 10.1154C725.816 10.1154 725.48 9.6745 725.453 9.61969L725.067 10.0691L725.068 10.0715Z"
+            d="M19.7662 16.7859C20.503 17.7074 21.254 18.6168 22.0355 19.4997C22.2344 19.725 22.3826 19.928 22.3806 20.1208C22.3765 20.3583 22.1796 20.5816 21.9543 20.811C19.4394 23.3847 16.5084 25.0289 12.7878 24.9558C7.40271 24.8503 3.41416 22.4226 1.14484 17.5755C-2.36467 10.0754 2.69561 1.18689 10.9183 0.18823C15.8081 -0.404471 19.6931 1.34115 22.679 5.2201C23.7446 6.60442 24.9077 7.91567 26.0099 9.27563C26.3915 9.74654 26.6188 9.80338 27.0552 9.26142C28.5309 7.42649 29.9741 5.54892 31.6162 3.86825C36.715 -1.34021 44.5683 -1.26511 49.6387 3.94944C53.881 8.31351 54.1002 15.6675 50.2335 20.338C47.276 23.9084 43.4722 25.3435 38.9742 24.9315C35.6879 24.629 33.0086 23.0133 30.9037 20.4639C30.7068 20.2264 30.6134 20.064 30.855 19.7798C31.8963 18.5518 32.9152 17.3035 33.9951 15.9983C34.8009 17.2406 35.7143 18.2453 36.9241 18.9679C41.3389 21.6026 47.8992 18.3975 47.9134 12.6126C47.9256 7.72487 43.1373 4.16663 38.4606 5.42308C37.259 5.74581 36.2928 6.48263 35.4159 7.34529C33.0512 9.66738 31.1655 12.3934 29.014 14.8961C28.334 15.6878 27.6702 16.4956 27.0248 17.3177C26.6492 17.7967 26.3874 17.7602 26.0099 17.2933C23.5721 14.2852 21.0693 11.3257 18.6661 8.28915C16.4109 5.44134 13.0252 4.42036 9.73089 5.72552C6.77347 6.89874 4.88576 10.1018 5.33232 13.4895C5.71798 16.4246 7.35196 18.5538 10.1795 19.5241C12.9136 20.4639 15.394 19.7433 17.5558 17.8799C17.913 17.5734 18.1241 17.3502 18.528 16.859C18.528 16.859 19.0842 16.1242 19.1288 16.0328L19.7682 16.7818L19.7662 16.7859Z"
             fill="#B9AB96"
           />
         </svg>
-      </section>
 
-      <section className="flex flex-col items-center px-4">
-        <div className="mb-8 flex w-full max-w-6xl flex-col items-center">
-          <h2 className="font-antonio mt-8 mb-6 text-4xl leading-tight font-normal tracking-tight text-[#927B64] uppercase sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl"></h2>
-        </div>
-      </section>
+        <span className="h-[1px] flex-1 bg-[#B9AB9661] md:h-[1px] md:w-full"></span>
+      </div>
 
-      <section className="mt-6 mb-[30px] items-center justify-center px-4 md:mb-10">
+      <div className="mt-[30px] mb-[20px] flex flex-col text-center md:mb-12">
+        <div className="flex w-full flex-col items-center justify-between gap-4 md:flex-row"></div>
+        <h2 className="font-antonio text-3xl font-normal text-[#927B64] uppercase sm:text-5xl md:items-start md:text-6xl lg:text-7xl xl:text-8xl">
+          Travel Packages
+        </h2>
+      </div>
+      <section className="mb-[30px] items-center justify-center px-4 md:mt-6 md:mb-10">
         <div className="mx-auto max-w-7xl px-0 py-8 md:px-4">
           <div className="grid grid-cols-1 gap-[30px] sm:grid-cols-2 md:gap-6 lg:grid-cols-4">
             <div className="overflow-hidden rounded-3xl border border-[#CECECE]">
@@ -379,37 +468,25 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="mt-10 mb-10 flex justify-center px-4">
+      <div className="mt-[20px] flex items-center justify-center gap-4 pr-8 pl-8 md:mt-20 md:pr-40 md:pl-40">
+        <span className="h-[1px] flex-1 bg-[#B9AB9661] md:h-[1px] md:w-full"></span>
+
         <svg
-          width="100%"
-          height="15"
-          viewBox="0 0 1441 15"
+          width="53"
+          height="25"
+          viewBox="0 0 53 25"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="max-w-[1441px]"
+          className="h-6 w-6 md:h-10 md:w-10"
         >
-          <line
-            x1="749"
-            y1="8.5"
-            x2="1441"
-            y2="8.5"
-            stroke="#B9AB96"
-            strokeOpacity="0.38"
-          />
-          <line
-            x1="-4.37114e-08"
-            y1="8.5"
-            x2="692"
-            y2="8.49994"
-            stroke="#B9AB96"
-            strokeOpacity="0.38"
-          />
           <path
-            d="M725.068 10.0715C724.623 10.6244 724.169 11.1701 723.697 11.6998C723.577 11.835 723.487 11.9568 723.489 12.0725C723.491 12.215 723.61 12.349 723.746 12.4866C725.265 14.0308 727.036 15.0173 729.284 14.9735C732.537 14.9102 734.947 13.4536 736.318 10.5453C738.438 6.04522 735.381 0.712134 730.413 0.112937C727.459 -0.242683 725.112 0.804691 723.308 3.13206C722.665 3.96265 721.962 4.7494 721.296 5.56538C721.066 5.84792 720.928 5.88203 720.665 5.55685C719.773 4.45589 718.901 3.32935 717.909 2.32095C714.829 -0.804127 710.085 -0.759065 707.021 2.36966C704.458 4.9881 704.326 9.40047 706.662 12.2028C708.449 14.3451 710.747 15.2061 713.464 14.9589C715.449 14.7774 717.068 13.808 718.34 12.2783C718.459 12.1358 718.515 12.0384 718.369 11.8679C717.74 11.1311 717.124 10.3821 716.472 9.59899C715.985 10.3443 715.433 10.9472 714.703 11.3807C712.035 12.9616 708.072 11.0385 708.064 7.56757C708.056 4.63492 710.949 2.49998 713.774 3.25384C714.5 3.44749 715.084 3.88958 715.614 4.40717C717.042 5.80043 718.181 7.43604 719.481 8.93768C719.892 9.41265 720.293 9.89737 720.683 10.3906C720.91 10.678 721.068 10.6561 721.296 10.376C722.769 8.5711 724.281 6.79543 725.733 4.97349C727.095 3.26481 729.14 2.65221 731.131 3.43531C732.917 4.13924 734.058 6.06105 733.788 8.09369C733.555 9.85474 732.568 11.1323 730.86 11.7144C729.208 12.2783 727.709 11.846 726.403 10.728C726.188 10.5441 726.06 10.4101 725.816 10.1154C725.816 10.1154 725.48 9.6745 725.453 9.61969L725.067 10.0691L725.068 10.0715Z"
+            d="M19.7662 16.7859C20.503 17.7074 21.254 18.6168 22.0355 19.4997C22.2344 19.725 22.3826 19.928 22.3806 20.1208C22.3765 20.3583 22.1796 20.5816 21.9543 20.811C19.4394 23.3847 16.5084 25.0289 12.7878 24.9558C7.40271 24.8503 3.41416 22.4226 1.14484 17.5755C-2.36467 10.0754 2.69561 1.18689 10.9183 0.18823C15.8081 -0.404471 19.6931 1.34115 22.679 5.2201C23.7446 6.60442 24.9077 7.91567 26.0099 9.27563C26.3915 9.74654 26.6188 9.80338 27.0552 9.26142C28.5309 7.42649 29.9741 5.54892 31.6162 3.86825C36.715 -1.34021 44.5683 -1.26511 49.6387 3.94944C53.881 8.31351 54.1002 15.6675 50.2335 20.338C47.276 23.9084 43.4722 25.3435 38.9742 24.9315C35.6879 24.629 33.0086 23.0133 30.9037 20.4639C30.7068 20.2264 30.6134 20.064 30.855 19.7798C31.8963 18.5518 32.9152 17.3035 33.9951 15.9983C34.8009 17.2406 35.7143 18.2453 36.9241 18.9679C41.3389 21.6026 47.8992 18.3975 47.9134 12.6126C47.9256 7.72487 43.1373 4.16663 38.4606 5.42308C37.259 5.74581 36.2928 6.48263 35.4159 7.34529C33.0512 9.66738 31.1655 12.3934 29.014 14.8961C28.334 15.6878 27.6702 16.4956 27.0248 17.3177C26.6492 17.7967 26.3874 17.7602 26.0099 17.2933C23.5721 14.2852 21.0693 11.3257 18.6661 8.28915C16.4109 5.44134 13.0252 4.42036 9.73089 5.72552C6.77347 6.89874 4.88576 10.1018 5.33232 13.4895C5.71798 16.4246 7.35196 18.5538 10.1795 19.5241C12.9136 20.4639 15.394 19.7433 17.5558 17.8799C17.913 17.5734 18.1241 17.3502 18.528 16.859C18.528 16.859 19.0842 16.1242 19.1288 16.0328L19.7682 16.7818L19.7662 16.7859Z"
             fill="#B9AB96"
           />
         </svg>
-      </section>
+
+        <span className="h-[1px] flex-1 bg-[#B9AB9661] md:h-[1px] md:w-full"></span>
+      </div>
 
       <section className="relative w-full overflow-hidden px-6 py-16">
         <div className="absolute inset-0">
@@ -497,9 +574,11 @@ export default function BlogPage() {
                   </h3>
                 </div>
               </div>
-              <button className="font-roboto w-3/6 items-center rounded-full border border-[#927B64] bg-transparent px-3 py-1.5 text-xs font-semibold tracking-wide text-[#927B64] uppercase transition-colors duration-200 hover:border-[#6d563b] hover:bg-[#6d563b] hover:text-white md:hidden">
-                VIEW ALL BLOGS
-              </button>
+              <div className="mt-[10px] flex justify-center md:mt-6 md:hidden">
+                <button className="font-roboto w-fit rounded-full border border-[#927B64] bg-transparent px-3 py-1.5 text-xs font-semibold tracking-wide text-[#927B64] uppercase transition-colors duration-200 hover:border-[#6d563b] hover:bg-[#6d563b] hover:text-white">
+                  VIEW ALL BLOGS
+                </button>
+              </div>
             </div>
           </div>
         </div>
