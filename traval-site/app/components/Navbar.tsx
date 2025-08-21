@@ -31,9 +31,8 @@ export default function Navbar() {
 
   const NavContent = ({ isFixed = false }) => (
     <nav
-      className={`relative z-10 flex w-full items-center justify-between ${isFixed ? "py-2" : "py-6"} mr-4 ml-4`}
+      className={`relative z-10 flex w-full items-center justify-between ${isFixed ? "py-2" : "py-6"} pr-4 pl-4`}
     >
-      {/* Mobile menu button (visible only on mobile) */}
       <div className="flex items-center md:hidden">
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -368,7 +367,7 @@ export default function Navbar() {
       <div
         className={`fixed top-0 left-0 z-40 w-full bg-white shadow-md transition-transform duration-600 ${showFixedNav ? "translate-y-0" : "-translate-y-full"}`}
       >
-        <div className="mr-20 px-6 sm:px-6">
+        <div className="md:mr-auto md:px-6">
           <NavContent isFixed={true} />
         </div>
       </div>

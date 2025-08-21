@@ -11,7 +11,7 @@ export default function CategoriesPage() {
 
       <div className="bg-white">
         <header className="py-10 text-center">
-          <div className="mb-6 flex items-center justify-center">
+          <div className="mb-4 flex items-center justify-center">
             <span className="mr-2 h-[2px] w-6 bg-[#C41230] md:h-[2px] md:w-20"></span>
             <h2 className="font-roboto text-xs font-bold tracking-widest text-[#927B64] uppercase md:text-lg">
               DREAM. EXPLORE. DISCOVER

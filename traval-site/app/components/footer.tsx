@@ -1,24 +1,27 @@
 export default function Footer() {
   return (
-    <footer className="text-[#836e5d]">
-      <div className="flex items-center justify-center gap-4">
-        <span className="h-[1px] flex-1 bg-[#B9AB9661] md:h-[1px] md:w-full"></span>
-
-        <svg
-          width="53"
-          height="25"
-          viewBox="0 0 53 25"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="h-6 w-6 md:h-10 md:w-10"
-        >
-          <path
-            d="M19.7662 16.7859C20.503 17.7074 21.254 18.6168 22.0355 19.4997C22.2344 19.725 22.3826 19.928 22.3806 20.1208C22.3765 20.3583 22.1796 20.5816 21.9543 20.811C19.4394 23.3847 16.5084 25.0289 12.7878 24.9558C7.40271 24.8503 3.41416 22.4226 1.14484 17.5755C-2.36467 10.0754 2.69561 1.18689 10.9183 0.18823C15.8081 -0.404471 19.6931 1.34115 22.679 5.2201C23.7446 6.60442 24.9077 7.91567 26.0099 9.27563C26.3915 9.74654 26.6188 9.80338 27.0552 9.26142C28.5309 7.42649 29.9741 5.54892 31.6162 3.86825C36.715 -1.34021 44.5683 -1.26511 49.6387 3.94944C53.881 8.31351 54.1002 15.6675 50.2335 20.338C47.276 23.9084 43.4722 25.3435 38.9742 24.9315C35.6879 24.629 33.0086 23.0133 30.9037 20.4639C30.7068 20.2264 30.6134 20.064 30.855 19.7798C31.8963 18.5518 32.9152 17.3035 33.9951 15.9983C34.8009 17.2406 35.7143 18.2453 36.9241 18.9679C41.3389 21.6026 47.8992 18.3975 47.9134 12.6126C47.9256 7.72487 43.1373 4.16663 38.4606 5.42308C37.259 5.74581 36.2928 6.48263 35.4159 7.34529C33.0512 9.66738 31.1655 12.3934 29.014 14.8961C28.334 15.6878 27.6702 16.4956 27.0248 17.3177C26.6492 17.7967 26.3874 17.7602 26.0099 17.2933C23.5721 14.2852 21.0693 11.3257 18.6661 8.28915C16.4109 5.44134 13.0252 4.42036 9.73089 5.72552C6.77347 6.89874 4.88576 10.1018 5.33232 13.4895C5.71798 16.4246 7.35196 18.5538 10.1795 19.5241C12.9136 20.4639 15.394 19.7433 17.5558 17.8799C17.913 17.5734 18.1241 17.3502 18.528 16.859C18.528 16.859 19.0842 16.1242 19.1288 16.0328L19.7682 16.7818L19.7662 16.7859Z"
-            fill="#B9AB96"
-          />
-        </svg>
-
-        <span className="h-[1px] flex-1 bg-[#B9AB9661] md:h-[1px] md:w-full"></span>
+    <footer className="relative pt-10 text-[#836e5d]">
+      {/* Top border with centered SVG */}
+      <div className="absolute -top-3 right-0 left-0 flex items-center justify-center md:-top-5">
+        <div className="mx-auto flex w-full items-center">
+          <span className="h-[1px] flex-1 bg-[#B9AB9661]"></span>
+          <div className="relative">
+            <svg
+              width="53"
+              height="25"
+              viewBox="0 0 53 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-10 px-2 md:h-10 md:w-12"
+            >
+              <path
+                d="M19.7662 16.7859C20.503 17.7074 21.254 18.6168 22.0355 19.4997C22.2344 19.725 22.3826 19.928 22.3806 20.1208C22.3765 20.3583 22.1796 20.5816 21.9543 20.811C19.4394 23.3847 16.5084 25.0289 12.7878 24.9558C7.40271 24.8503 3.41416 22.4226 1.14484 17.5755C-2.36467 10.0754 2.69561 1.18689 10.9183 0.18823C15.8081 -0.404471 19.6931 1.34115 22.679 5.2201C23.7446 6.60442 24.9077 7.91567 26.0099 9.27563C26.3915 9.74654 26.6188 9.80338 27.0552 9.26142C28.5309 7.42649 29.9741 5.54892 31.6162 3.86825C36.715 -1.34021 44.5683 -1.26511 49.6387 3.94944C53.881 8.31351 54.1002 15.6675 50.2335 20.338C47.276 23.9084 43.4722 25.3435 38.9742 24.9315C35.6879 24.629 33.0086 23.0133 30.9037 20.4639C30.7068 20.2264 30.6134 20.064 30.855 19.7798C31.8963 18.5518 32.9152 17.3035 33.9951 15.9983C34.8009 17.2406 35.7143 18.2453 36.9241 18.9679C41.3389 21.6026 47.8992 18.3975 47.9134 12.6126C47.9256 7.72487 43.1373 4.16663 38.4606 5.42308C37.259 5.74581 36.2928 6.48263 35.4159 7.34529C33.0512 9.66738 31.1655 12.3934 29.014 14.8961C28.334 15.6878 27.6702 16.4956 27.0248 17.3177C26.6492 17.7967 26.3874 17.7602 26.0099 17.2933C23.5721 14.2852 21.0693 11.3257 18.6661 8.28915C16.4109 5.44134 13.0252 4.42036 9.73089 5.72552C6.77347 6.89874 4.88576 10.1018 5.33232 13.4895C5.71798 16.4246 7.35196 18.5538 10.1795 19.5241C12.9136 20.4639 15.394 19.7433 17.5558 17.8799C17.913 17.5734 18.1241 17.3502 18.528 16.859C18.528 16.859 19.0842 16.1242 19.1288 16.0328L19.7682 16.7818L19.7662 16.7859Z"
+                fill="#B9AB96"
+              />
+            </svg>
+          </div>
+          <span className="h-[1px] flex-1 bg-[#B9AB9661]"></span>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 gap-4 py-6 pt-6 md:grid-cols-4 md:px-20 md:py-10 md:pt-20">
@@ -106,7 +109,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Column 2: Contact Info */}
         <div className="font-roboto text-center md:text-left">
           <h3 className="font-roboto text-primary text-xs md:text-sm">
             Contact Info
@@ -246,11 +248,11 @@ export default function Footer() {
           <h3 className="font-roboto mb-6 text-center text-xs tracking-wide text-[#927B64] sm:text-left md:text-sm">
             Sign up for special offers, news updates
           </h3>
-          <div className="boder-[#fdfaf6] font-roboto flex w-full max-w-60 items-center overflow-hidden rounded-full border md:max-w-80">
+          <div className="boder-[#927B64] font-roboto flex w-full max-w-60 items-center overflow-hidden rounded-full border md:max-w-80">
             <input
               type="email"
               placeholder="Your Email Address"
-              className="flex-1 bg-transparent px-4 py-2 text-xs text-[#836e5d] placeholder-[#836e5d] focus:outline-none md:text-sm"
+              className="flex-1 bg-transparent px-4 py-2 text-xs text-[#927B64] placeholder-[#927B64] focus:outline-none md:text-sm"
             />
             <svg
               width="49"
@@ -265,7 +267,7 @@ export default function Footer() {
                 height="48"
                 rx="24"
                 transform="matrix(-1 0 0 1 48.9121 0)"
-                fill="#B9AB96"
+                fill="#927B64"
               />
               <g clip-path="url(#clip0_72_960)">
                 <path

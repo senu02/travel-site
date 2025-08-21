@@ -129,9 +129,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Mobile Slider Section */}
       <section className="mb-[30px] flex justify-center px-4 md:mt-10">
-        {/* Desktop view (unchanged) */}
         <div className="hidden w-full max-w-6xl grid-cols-1 gap-4 md:grid md:grid-cols-2 md:gap-8">
           <div className="group mb-5 flex flex-col">
             <div className="relative h-[200px] sm:h-[250px] md:h-[300px] lg:h-[349px]">

@@ -14,7 +14,7 @@ export default function HeroSection() {
             />
           </div>
 
-          <div className="mt-4 space-y-4 md:order-2 md:ml-4 md:pb-50">
+          <div className="mt-4 space-y-2 md:order-2 md:ml-4 md:pb-50">
             <div className="flex items-center justify-center md:justify-start">
               <span className="mr-2 h-[2px] w-6 bg-[#C41230] md:h-[2px] md:w-20"></span>
               <p className="font-roboto text-center text-xs font-bold tracking-widest text-[#927B64] uppercase md:text-left md:text-lg">
@@ -28,7 +28,7 @@ export default function HeroSection() {
               Around the World
             </h1>
 
-            <p className="font-roboto pr-4 pl-4 text-center text-sm font-light text-[#434343] md:text-left md:text-xl">
+            <p className="font-roboto mt-4 pr-4 pl-4 text-center text-sm font-light text-[#434343] md:text-left md:text-xl">
               Mackinnons Travels revolutionizes the way you book your travel by
               giving you the flexibility to tailor-make your own travel package
               using our comprehensive suite.
