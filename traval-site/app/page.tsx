@@ -260,7 +260,6 @@ export default function Home() {
           </div>
 
           <div className="mx-4 mt-[20px] md:mx-50 md:mt-20">
-            {/* Mobile Swiper Slider */}
             <div className="md:hidden">
               <Swiper
                 slidesPerView={1}

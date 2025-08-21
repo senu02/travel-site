@@ -69,10 +69,10 @@ export default function BlogPage() {
 
       <section className="flex flex-col items-center px-4">
         <div className="mb-[30px] flex w-full flex-col px-4 text-center md:mt-10 md:mb-8 md:max-w-6xl md:items-start">
-          <p className="font-roboto text-center text-xs leading-7 font-bold tracking-widest text-[#927B64] md:mb-1 md:text-lg">
+          <p className="font-roboto text-left text-xs leading-7 font-bold tracking-widest text-[#927B64] md:mb-1 md:text-lg">
             09 OCT 2024
           </p>
-          <h2 className="font-antonio mt-1 text-center text-2xl font-normal text-[#927B64] uppercase md:text-5xl">
+          <h2 className="font-antonio mt-1 text-left text-2xl font-normal text-[#927B64] uppercase md:text-5xl">
             6 best ryokans in Japan to rejuvenate yourself
           </h2>
         </div>
@@ -93,7 +93,7 @@ export default function BlogPage() {
         </div>
 
         <div className="w-full max-w-6xl px-2 md:mt-6 md:px-2">
-          <p className="font-roboto mb-[20px] text-center text-sm leading-normal font-light text-[#434343] md:text-xl md:leading-loose">
+          <p className="font-roboto mb-[20px] text-center text-sm leading-normal font-light text-[#434343] md:text-left md:text-xl md:leading-loose">
             Mackinnons Travels Dive into a world of inspiration, insights, and
             ideas. Whether you're here to explore, learn, or simply unwind, our
             blog brings stories that resonate and topics that spark curiosity.
@@ -113,7 +113,7 @@ export default function BlogPage() {
             nec elementum.
           </p>
 
-          <p className="font-roboto mb-[30px] text-center text-sm leading-normal font-light text-[#434343] md:text-xl md:leading-loose">
+          <p className="font-roboto mb-[30px] text-center text-sm leading-normal font-light text-[#434343] md:text-left md:text-xl md:leading-loose">
             Quam eu enim ac mauris ipsum tincidunt. Amet gravida placerat lectus
             risus at urna condimentum nisi vestibulum. Orci suspendisse lobortis
             eu pulvinar suscipit eu mi donec. Sagittis mattis risus libero odio.
@@ -518,7 +518,7 @@ export default function BlogPage() {
                 VIEW ALL BLOGS
               </button>
             </div>
-            <h2 className="font-antonio text-3xl font-normal text-[#927B64] uppercase sm:text-5xl md:items-start md:text-6xl lg:text-7xl xl:text-8xl">
+            <h2 className="font-antonio md:items-left text-3xl font-normal text-[#927B64] uppercase sm:text-5xl md:text-left md:text-6xl lg:text-7xl xl:text-8xl">
               OTHER STORIES
             </h2>
           </div>
@@ -542,7 +542,7 @@ export default function BlogPage() {
                     <div className="absolute right-0 bottom-0 left-0 h-2 bg-[#F1C40F]"></div>
                   </div>
                 </Link>
-                <div className="text-center">
+                <div className="text-left">
                   <span className="font-roboto mt-[10px] block text-xs font-bold text-[#927B64] uppercase sm:mt-10 sm:text-sm md:mt-4 md:mb-2">
                     09 AUG 2024
                   </span>
@@ -569,7 +569,7 @@ export default function BlogPage() {
                     <div className="absolute right-0 bottom-0 left-0 h-2 bg-[#F1C40F]"></div>
                   </div>
                 </Link>
-                <div className="text-center">
+                <div className="text-left">
                   <span className="font-roboto mt-[10px] block text-xs font-bold text-[#927B64] uppercase sm:mt-10 sm:text-sm md:mt-4 md:mb-2">
                     09 AUG 2024
                   </span>

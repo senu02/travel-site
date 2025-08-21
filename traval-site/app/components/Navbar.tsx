@@ -17,7 +17,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent body scrolling when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -61,7 +60,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* John Logo (hidden on mobile) */}
       <div className="text-primary flex flex-1 items-center gap-4 sm:gap-6">
         <div className="hidden items-center justify-center md:flex">
           <Image
@@ -97,7 +95,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mackinnons Logo */}
       <div className="flex flex-1 justify-center">
         <div className="mx-auto">
           <Image
@@ -201,18 +198,21 @@ export default function Navbar() {
           <NavContent />
         </div>
 
-        {/* Full-page mobile menu overlay */}
         <div
-          className={`fixed inset-0 z-50 md:hidden ${isMobileMenuOpen ? "block" : "hidden"}`}
+          className={`fixed inset-0 z-50 transition-opacity duration-600 md:hidden ${
+            isMobileMenuOpen ? "visible opacity-100" : "invisible opacity-0"
+          }`}
         >
-          {/* Semi-transparent backdrop */}
           <div
-            className="bg-opacity-50 absolute inset-0 bg-black"
+            className="absolute inset-0 bg-black/50"
             onClick={() => setIsMobileMenuOpen(false)}
           ></div>
 
-          {/* Menu content */}
-          <div className="absolute top-0 left-0 w-full bg-white shadow-lg">
+          <div
+            className={`absolute top-0 left-0 h-full w-full transform bg-white shadow-lg transition-transform duration-600 ${
+              isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+            }`}
+          >
             <div className="flex items-center justify-between border-b p-4">
               <button
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -223,7 +223,6 @@ export default function Navbar() {
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
                     strokeLinecap="round"
@@ -242,47 +241,53 @@ export default function Navbar() {
                   className="mx-auto"
                 />
               </div>
-              <div className="w-8"></div> {/* Spacer for balance */}
+              <div className="w-8"></div>
             </div>
 
-            <div className="text-primary flex h-[calc(100vh-80px)] flex-col items-center overflow-y-auto px-8 py-8 text-left">
+            <div className="text-primary flex h-[calc(100vh-80px)] flex-col space-y-6 px-8 py-8">
               <Link
                 href="#"
-                className={`font-roboto w-full py-4 text-sm font-bold hover:text-black ${pathname === "#" ? "text-[#002D6A]" : ""}`}
+                className={`font-roboto text-sm font-bold hover:text-black ${
+                  pathname === "#" ? "text-[#002D6A]" : ""
+                }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Travel Packages
               </Link>
               <Link
                 href="/"
-                className={`font-roboto w-full py-4 text-sm font-bold hover:text-black ${pathname === "/" ? "text-[#002D6A]" : ""}`}
+                className={`font-roboto text-sm font-bold hover:text-black ${
+                  pathname === "/" ? "text-[#002D6A]" : ""
+                }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Blog Home
               </Link>
               <Link
                 href="/categories"
-                className={`font-roboto w-full py-4 text-sm font-bold hover:text-black ${pathname === "/categories" ? "text-[#002D6A]" : ""}`}
+                className={`font-roboto text-sm font-bold hover:text-black ${
+                  pathname === "/categories" ? "text-[#002D6A]" : ""
+                }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Categories
               </Link>
               <Link
                 href="#"
-                className={`font-roboto w-full py-4 text-sm font-bold hover:text-black ${pathname === "#" ? "text-[#002D6A]" : ""}`}
+                className="font-roboto text-sm font-bold hover:text-black"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 About Us
               </Link>
               <Link
                 href="#"
-                className={`font-roboto w-full py-4 text-sm font-bold hover:text-black ${pathname === "#" ? "text-[#002D6A]" : ""}`}
+                className="font-roboto text-sm font-bold hover:text-black"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Contact Us
               </Link>
 
-              <div className="mt-auto cursor-pointer gap-3 md:flex">
+              <div className="mt-auto mr-auto ml-auto cursor-pointer gap-3 md:flex">
                 <svg
                   width="200"
                   height="40"
@@ -361,7 +366,7 @@ export default function Navbar() {
       </header>
 
       <div
-        className={`fixed top-0 left-0 z-40 w-full bg-white shadow-md transition-transform duration-500 ${showFixedNav ? "translate-y-0" : "-translate-y-full"}`}
+        className={`fixed top-0 left-0 z-40 w-full bg-white shadow-md transition-transform duration-600 ${showFixedNav ? "translate-y-0" : "-translate-y-full"}`}
       >
         <div className="mr-20 px-6 sm:px-6">
           <NavContent isFixed={true} />
