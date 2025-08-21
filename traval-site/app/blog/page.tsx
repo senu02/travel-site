@@ -56,7 +56,7 @@ export default function BlogPage() {
       setCurrentSlide((prev) =>
         prev === sliderImages.length - 1 ? 0 : prev + 1,
       );
-    }, 5000);
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [sliderImages.length]);
@@ -68,11 +68,11 @@ export default function BlogPage() {
       <hr className="mb-10 w-full border-t-2 border-[#B9AB9661]" />
 
       <section className="flex flex-col items-center px-4">
-        <div className="mb-[30px] flex w-full max-w-6xl flex-col items-start px-4 md:mt-10 md:mb-8">
-          <p className="font-roboto text-xs leading-7 font-bold tracking-widest text-[#927B64] md:mb-1 md:text-lg">
+        <div className="mb-[30px] flex w-full flex-col px-4 text-center md:mt-10 md:mb-8 md:max-w-6xl md:items-start">
+          <p className="font-roboto text-center text-xs leading-7 font-bold tracking-widest text-[#927B64] md:mb-1 md:text-lg">
             09 OCT 2024
           </p>
-          <h2 className="font-antonio mt-1 text-2xl font-normal text-[#927B64] uppercase md:text-5xl">
+          <h2 className="font-antonio mt-1 text-center text-2xl font-normal text-[#927B64] uppercase md:text-5xl">
             6 best ryokans in Japan to rejuvenate yourself
           </h2>
         </div>
@@ -93,7 +93,7 @@ export default function BlogPage() {
         </div>
 
         <div className="w-full max-w-6xl px-2 md:mt-6 md:px-2">
-          <p className="font-roboto mb-[30px] text-justify text-sm leading-normal font-light text-[#434343] md:text-xl md:leading-loose">
+          <p className="font-roboto mb-[20px] text-center text-sm leading-normal font-light text-[#434343] md:text-xl md:leading-loose">
             Mackinnons Travels Dive into a world of inspiration, insights, and
             ideas. Whether you're here to explore, learn, or simply unwind, our
             blog brings stories that resonate and topics that spark curiosity.
@@ -113,7 +113,7 @@ export default function BlogPage() {
             nec elementum.
           </p>
 
-          <p className="font-roboto mb-[30px] text-justify text-sm leading-normal font-light text-[#434343] md:text-xl md:leading-loose">
+          <p className="font-roboto mb-[30px] text-center text-sm leading-normal font-light text-[#434343] md:text-xl md:leading-loose">
             Quam eu enim ac mauris ipsum tincidunt. Amet gravida placerat lectus
             risus at urna condimentum nisi vestibulum. Orci suspendisse lobortis
             eu pulvinar suscipit eu mi donec. Sagittis mattis risus libero odio.
@@ -235,7 +235,7 @@ export default function BlogPage() {
       <section className="flex flex-col items-center px-4">
         <div className="flex w-full max-w-6xl flex-col items-start">
           <div className="flex flex-col items-start gap-4 md:flex-row md:items-center">
-            <p className="font-roboto text-primary justify-center text-center text-base font-normal md:text-xl">
+            <p className="font-roboto text-primary items-center text-base font-normal md:justify-center md:text-center md:text-xl">
               Share
             </p>
 
@@ -344,7 +344,7 @@ export default function BlogPage() {
                 <div className="absolute right-4 bottom-4 z-10"></div>
                 <div className="absolute right-0 bottom-0 left-0 h-2 rounded-t-full bg-[#F1C40F]"></div>
               </div>
-              <div className="p-4">
+              <div className="p-4 text-center">
                 <h1 className="font-roboto text-primary mb-2 text-sm font-bold uppercase sm:mb-4 sm:text-base">
                   Asia
                 </h1>
@@ -380,7 +380,7 @@ export default function BlogPage() {
                 <div className="absolute right-0 bottom-0 left-0 h-2 rounded-t-full bg-[#c50000]"></div>
               </div>
 
-              <div className="p-4">
+              <div className="p-4 text-center">
                 <h1 className="font-roboto text-primary mb-2 text-sm font-bold uppercase sm:mb-4 sm:text-base">
                   Asia
                 </h1>
@@ -415,7 +415,7 @@ export default function BlogPage() {
                 <div className="absolute right-4 bottom-4 z-10"></div>
                 <div className="absolute right-0 bottom-0 left-0 h-2 rounded-t-full bg-[#23a000]"></div>
               </div>
-              <div className="p-4">
+              <div className="p-4 text-center">
                 <h1 className="font-roboto text-primary mb-2 text-sm font-bold uppercase sm:mb-4 sm:text-base">
                   09 Sep 2024 - 11 OCT 2024
                 </h1>
@@ -450,7 +450,7 @@ export default function BlogPage() {
                 <div className="absolute right-4 bottom-4 z-10"></div>
                 <div className="absolute right-0 bottom-0 left-0 h-2 rounded-t-full bg-[#620090]"></div>
               </div>
-              <div className="p-4">
+              <div className="p-4 text-center">
                 <h1 className="font-roboto text-primary mb-2 text-sm font-bold uppercase sm:mb-4 sm:text-base">
                   Asia
                 </h1>
@@ -492,7 +492,7 @@ export default function BlogPage() {
         <span className="h-[1px] flex-1 bg-[#B9AB9661] md:h-[1px] md:w-full"></span>
       </div>
 
-      <section className="relative w-full overflow-hidden px-6 py-16">
+      <section className="relative w-full overflow-hidden px-4 py-16">
         <div className="absolute inset-0">
           <Image
             src="/images/bg4.png"
@@ -505,7 +505,7 @@ export default function BlogPage() {
           <div className="absolute top-0 right-0 left-0 h-40 bg-gradient-to-b from-white to-transparent"></div>
         </div>
 
-        <div className="relative z-10 mx-auto max-w-6xl px-4">
+        <div className="relative z-10 mx-auto md:max-w-7xl">
           <div className="mb-[30px] flex flex-col text-center md:mb-12">
             <div className="flex w-full flex-col items-center justify-between gap-4 md:flex-row">
               <div className="mb-[10px] flex items-center">
@@ -542,7 +542,7 @@ export default function BlogPage() {
                     <div className="absolute right-0 bottom-0 left-0 h-2 bg-[#F1C40F]"></div>
                   </div>
                 </Link>
-                <div className="text-left">
+                <div className="text-center">
                   <span className="font-roboto mt-[10px] block text-xs font-bold text-[#927B64] uppercase sm:mt-10 sm:text-sm md:mt-4 md:mb-2">
                     09 AUG 2024
                   </span>
@@ -569,7 +569,7 @@ export default function BlogPage() {
                     <div className="absolute right-0 bottom-0 left-0 h-2 bg-[#F1C40F]"></div>
                   </div>
                 </Link>
-                <div className="text-left">
+                <div className="text-center">
                   <span className="font-roboto mt-[10px] block text-xs font-bold text-[#927B64] uppercase sm:mt-10 sm:text-sm md:mt-4 md:mb-2">
                     09 AUG 2024
                   </span>

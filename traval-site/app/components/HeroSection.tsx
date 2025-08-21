@@ -48,7 +48,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      <div className="mt-[20px] flex items-center justify-center gap-4 px-4 md:mt-20 md:pr-40 md:pl-40">
+      <div className="mt-[35px] flex items-center justify-center gap-4 px-4 md:mt-20 md:pr-40 md:pl-40">
         <span className="h-[1px] flex-1 bg-[#B9AB9661] md:h-[1px] md:w-full"></span>
 
         <svg

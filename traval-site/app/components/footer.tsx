@@ -133,8 +133,8 @@ export default function Footer() {
         </div>
 
         {/* Column 3: Discover */}
-        <div className="font-roboto text-center md:text-left">
-          <h3 className="font-roboto mb-4 text-xs font-normal md:text-sm">
+        <div className="font-roboto mt-[20px] text-center md:text-left">
+          <h3 className="font-roboto mb-2 text-xs font-normal md:text-sm">
             Discover
           </h3>
           <ul className="space-y-3">
@@ -291,7 +291,7 @@ export default function Footer() {
       </div>
 
       <div className="font-roboto flex flex-col items-center justify-center space-y-2 border-t border-gray-200 px-6 py-6 text-center text-xs sm:px-10 md:flex-row md:justify-between md:space-y-0">
-        <div className="vmd:space-x-4 order-1 mb-[20px] space-x-4 md:order-2 md:mb-0">
+        <div className="vmd:space-x-4 order-1 mb-[25px] space-x-4 md:order-2 md:mb-0">
           <a href="#" className="hover:font-bold hover:text-[#927B64]">
             Terms & Conditions
           </a>

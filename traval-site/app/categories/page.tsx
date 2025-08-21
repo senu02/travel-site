@@ -54,8 +54,8 @@ export default function CategoriesPage() {
           ))}
         </div>
 
-        <div className="mx-[10%] mt-[30px] md:mt-20">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="mx-4 mt-[20px] md:mx-50 md:mt-20">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
             <div className="group mb-2 flex flex-col">
               <Link href="/blog" className="block">
                 <div className="relative mb-4 aspect-[3/2] w-full cursor-pointer overflow-hidden rounded-3xl shadow-md md:mb-4">
@@ -77,7 +77,7 @@ export default function CategoriesPage() {
                 </div>
               </Link>
 
-              <div className="text-left">
+              <div className="text-center">
                 <span className="font-roboto mt-[6px] block text-xs font-bold text-[#927B64] uppercase md:mt-10 md:mb-2 md:text-sm">
                   09 AUG 2024
                 </span>
@@ -103,7 +103,7 @@ export default function CategoriesPage() {
                   <div className="absolute right-0 bottom-0 left-0 h-2 bg-[#ff0000]"></div>
                 </div>
               </Link>
-              <div className="text-left">
+              <div className="text-center">
                 <span className="font-roboto mt-[6px] block text-xs font-bold text-[#927B64] uppercase md:mt-10 md:mb-2 md:text-sm">
                   09 AUG 2024
                 </span>
@@ -129,7 +129,7 @@ export default function CategoriesPage() {
                   <div className="absolute right-0 bottom-0 left-0 h-2 bg-[hsl(131,57%,45%)]"></div>
                 </div>
               </Link>
-              <div className="text-left">
+              <div className="text-center">
                 <span className="font-roboto mt-[6px] block text-xs font-bold text-[#927B64] uppercase md:mt-10 md:mb-2 md:text-sm">
                   09 AUG 2024
                 </span>
@@ -155,7 +155,7 @@ export default function CategoriesPage() {
                   <div className="absolute right-0 bottom-0 left-0 h-2 bg-[#6804b4]"></div>
                 </div>
               </Link>
-              <div className="text-left">
+              <div className="text-center">
                 <span className="font-roboto mt-[6px] block text-xs font-bold text-[#927B64] uppercase md:mt-10 md:mb-2 md:text-sm">
                   09 AUG 2024
                 </span>
@@ -181,7 +181,7 @@ export default function CategoriesPage() {
                   <div className="absolute right-0 bottom-0 left-0 h-2 bg-[#F1C40F]"></div>
                 </div>
               </Link>
-              <div className="text-left">
+              <div className="text-center">
                 <span className="font-roboto mt-[6px] block text-xs font-bold text-[#927B64] uppercase md:mt-10 md:mb-2 md:text-sm">
                   09 AUG 2024
                 </span>
@@ -207,7 +207,7 @@ export default function CategoriesPage() {
                   <div className="absolute right-0 bottom-0 left-0 h-2 bg-[#ff0000]"></div>
                 </div>
               </Link>
-              <div className="text-left">
+              <div className="text-center">
                 <span className="font-roboto mt-[6px] block text-xs font-bold text-[#927B64] uppercase md:mt-10 md:mb-2 md:text-sm">
                   09 AUG 2024
                 </span>
@@ -233,7 +233,7 @@ export default function CategoriesPage() {
                   <div className="absolute right-0 bottom-0 left-0 h-2 bg-[hsl(131,57%,45%)]"></div>
                 </div>
               </Link>
-              <div className="text-left">
+              <div className="text-center">
                 <span className="font-roboto mt-[6px] block text-xs font-bold text-[#927B64] uppercase md:mt-10 md:mb-2 md:text-sm">
                   09 AUG 2024
                 </span>
@@ -259,7 +259,7 @@ export default function CategoriesPage() {
                   <div className="absolute right-0 bottom-0 left-0 h-2 bg-[#6804b4]"></div>
                 </div>
               </Link>
-              <div className="text-left">
+              <div className="text-center">
                 <span className="font-roboto mt-[6px] block text-xs font-bold text-[#927B64] uppercase md:mt-10 md:mb-2 md:text-sm">
                   09 AUG 2024
                 </span>

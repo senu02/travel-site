@@ -126,7 +126,7 @@ export default function Home() {
         <HeroSection />
       </section>
 
-      <section className="font-antonio mx-auto mt-[10px] flex w-full flex-col items-center justify-center gap-10 px-4 py-10 md:mt-20 md:flex-row md:gap-12 md:px-6 md:py-10">
+      <section className="font-antonio mx-auto flex w-full flex-col items-center justify-center gap-10 px-4 py-10 md:mt-20 md:flex-row md:gap-12 md:px-6 md:py-10">
         <div className="w-full max-w-[644px] flex-shrink-0">
           <div className="text-center md:mb-10 md:hidden lg:text-left">
             <p className="font-roboto mb-2 flex items-center justify-center text-xs font-bold tracking-widest text-[#927B64] md:justify-start">
@@ -208,11 +208,11 @@ export default function Home() {
                   CATEGORY 1
                 </div>
               </div>
-              <div className="mt-6 px-2 text-center md:px-4">
+              <div className="mt-6 px-2 md:px-4">
                 <p className="font-roboto mb-1 text-xs font-bold text-[#927B64]">
                   30 OCT 2024
                 </p>
-                <p className="font-antonio text-base font-normal text-[#927B64] sm:text-lg md:text-xl lg:text-2xl">
+                <p className="font-antonio text-xl font-normal text-[#927B64] sm:text-lg md:text-xl lg:text-2xl">
                   7 BEST PLACES IN ASIA TO CELEBRATE CHRISTMAS
                 </p>
               </div>
@@ -232,11 +232,11 @@ export default function Home() {
                   CATEGORY 1
                 </div>
               </div>
-              <div className="mt-6 px-2 text-center md:px-4">
+              <div className="mt-6 px-2 md:px-4">
                 <p className="font-roboto mb-1 text-xs font-bold text-[#927B64]">
                   28 JULY 2024
                 </p>
-                <p className="font-antonio text-base font-normal text-[#927B64] sm:text-lg md:text-xl lg:text-2xl">
+                <p className="font-antonio text-xl font-normal text-[#927B64] sm:text-lg md:text-xl lg:text-2xl">
                   6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
                 </p>
               </div>
@@ -246,7 +246,7 @@ export default function Home() {
       </section>
 
       <div className="relative">
-        <section className="relative z-10 mt-[10px] py-8 md:mt-20 md:px-6 md:py-10">
+        <section className="relative z-10 py-8 md:mt-20 md:px-6 md:py-10">
           <div className="mb-8 flex flex-col items-center text-center md:mb-12">
             <div className="mb-2 flex items-center md:mb-4">
               <span className="mr-2 h-[2px] w-6 bg-[#C41230] md:h-[2px] md:w-20"></span>
@@ -301,7 +301,7 @@ export default function Home() {
                         </div>
                       </Link>
 
-                      <div className="mb-[20px] text-center">
+                      <div className="mb-[20px] text-left">
                         <span className="font-roboto mt-[6px] block text-xs font-bold text-[#927B64] uppercase">
                           {story.date}
                         </span>

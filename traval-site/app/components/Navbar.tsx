@@ -245,27 +245,41 @@ export default function Navbar() {
               <div className="w-8"></div> {/* Spacer for balance */}
             </div>
 
-            <div className="text-primary flex h-[calc(100vh-80px)] flex-col items-center overflow-y-auto px-4 py-8">
+            <div className="text-primary flex h-[calc(100vh-80px)] flex-col items-center overflow-y-auto px-8 py-8 text-left">
               <Link
                 href="#"
-                className={`font-roboto w-full py-4 text-center text-sm font-bold hover:text-black ${pathname === "#" ? "text-[#002D6A]" : ""}`}
+                className={`font-roboto w-full py-4 text-sm font-bold hover:text-black ${pathname === "#" ? "text-[#002D6A]" : ""}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Travel Packages
               </Link>
               <Link
                 href="/"
-                className={`font-roboto w-full py-4 text-center text-sm font-bold hover:text-black ${pathname === "/" ? "text-[#002D6A]" : ""}`}
+                className={`font-roboto w-full py-4 text-sm font-bold hover:text-black ${pathname === "/" ? "text-[#002D6A]" : ""}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Blog Home
               </Link>
               <Link
                 href="/categories"
-                className={`font-roboto w-full py-4 text-center text-sm font-bold hover:text-black ${pathname === "/categories" ? "text-[#002D6A]" : ""}`}
+                className={`font-roboto w-full py-4 text-sm font-bold hover:text-black ${pathname === "/categories" ? "text-[#002D6A]" : ""}`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Categories
+              </Link>
+              <Link
+                href="#"
+                className={`font-roboto w-full py-4 text-sm font-bold hover:text-black ${pathname === "#" ? "text-[#002D6A]" : ""}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                About Us
+              </Link>
+              <Link
+                href="#"
+                className={`font-roboto w-full py-4 text-sm font-bold hover:text-black ${pathname === "#" ? "text-[#002D6A]" : ""}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Contact Us
               </Link>
 
               <div className="mt-auto cursor-pointer gap-3 md:flex">
