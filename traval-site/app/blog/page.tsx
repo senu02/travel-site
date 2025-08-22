@@ -185,7 +185,6 @@ export default function BlogPage() {
             ))}
           </div>
 
-          {/* Slider indicators */}
           <div className="mt-4 flex justify-center space-x-2">
             {sliderImages.map((_, index) => (
               <button

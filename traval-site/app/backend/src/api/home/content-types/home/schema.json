@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "homes",
+  "info": {
+    "singularName": "home",
+    "pluralName": "homes",
+    "displayName": "Home "
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "hero_section": {
+      "type": "component",
+      "component": "home-sections.hero-section",
+      "repeatable": false
+    },
+    "latest_travel_stories": {
+      "type": "component",
+      "component": "home-sections.latest-travel-stories",
+      "repeatable": false
+    },
+    "other_stories": {
+      "type": "component",
+      "component": "home-sections.other-stories",
+      "repeatable": true
+    }
+  }
+}

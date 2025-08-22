@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_home_sections_latest_travel_stories",
+  "info": {
+    "displayName": "Latest_Travel_Stories"
+  },
+  "options": {},
+  "attributes": {
+    "sub_heading": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "blogs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::blog.blog"
+    }
+  },
+  "config": {}
+}
