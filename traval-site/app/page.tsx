@@ -46,36 +46,15 @@ export interface other_stories {
 }
 
 export default function Home() {
-  const [Other_stories, setOther_stories] = useState<other_stories>();
-  const [Home_pages, setHome_pages] = useState<home_page>();
+  const [Other_stories, setOther_stories] = useState<other_stories | null>(
+    null,
+  );
+  const [Home_pages, setHome_pages] = useState<home_page | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const getOther_stories = async () => {
-      try {
-        const STRAPI_URL = "http://localhost:1337";
-        const response = await fetch(
-          `${STRAPI_URL}/api/home?populate[latest_travel_stories][populate][fields]=*&populate[other_stories][populate][fields]=*`,
-        );
-
-        const data = await response.json();
-
-        setOther_stories({
-          heading: data?.data?.other_stories?.heading,
-          sub_heading: data?.data?.other_stories?.sub_heading,
-        });
-      } catch (error) {
-        console.error("Error fetching other story page:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-    getOther_stories();
-  }, []);
-
-  useEffect(() => {
-    const getHome_pages = async () => {
+    const fetchData = async () => {
       try {
         const STRAPI_URL = "http://localhost:1337";
         const response = await fetch(
@@ -88,13 +67,21 @@ export default function Home() {
           heading: data?.data?.latest_travel_stories?.heading,
           sub_heading: data?.data?.latest_travel_stories?.sub_heading,
         });
+
+        if (data?.data?.other_stories && data.data.other_stories.length > 0) {
+          setOther_stories({
+            heading: data.data.other_stories[0]?.heading,
+            sub_heading: data.data.other_stories[0]?.sub_heading,
+          });
+        }
       } catch (error) {
-        console.error("Error fetching home pages:", error);
+        console.error("Error fetching data:", error);
       } finally {
         setIsLoading(false);
       }
     };
-    getHome_pages();
+
+    fetchData();
   }, []);
 
   useEffect(() => {
@@ -111,7 +98,13 @@ export default function Home() {
     }
   }, []);
 
-  if (!Home_pages || !Other_stories) return null;
+  if (isLoading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        <div className="text-[#927B64]">Loading...</div>
+      </div>
+    );
+  }
 
   const stories = [
     {
@@ -192,10 +185,10 @@ export default function Home() {
           <div className="text-center md:mb-10 md:hidden lg:text-left">
             <p className="font-roboto mb-2 flex items-center justify-center text-xs font-bold tracking-widest text-[#927B64] md:justify-start">
               <span className="mr-2 h-[2px] w-6 bg-[#C41230] md:h-[2px] md:w-20"></span>
-              {Home_pages.sub_heading}
+              {Home_pages?.sub_heading}
             </p>
             <h2 className="font-antonio mb-[30px] text-4xl leading-tight font-normal text-[#6d563b] uppercase md:mb-4 md:text-7xl">
-              {Home_pages.heading}
+              {Home_pages?.heading}
             </h2>
           </div>
           <div className="relative flex h-[500px] w-full flex-col justify-between overflow-hidden rounded-2xl shadow-lg md:h-[892px]">
@@ -247,10 +240,10 @@ export default function Home() {
           <div className="hidden text-center md:mb-10 md:block lg:text-left">
             <p className="font-roboto flex items-center justify-center text-sm font-bold tracking-widest text-[#927B64] lg:justify-start">
               <span className="mr-2 h-[0.5px] w-10 bg-[#C41230] sm:w-28 md:h-[2px] md:w-20"></span>
-              {Home_pages.sub_heading}
+              {Home_pages?.sub_heading || "DREAM. EXPLORE. DISCOVER"}
             </p>
             <h2 className="font-antonio mt-4 mb-8 text-2xl font-normal tracking-normal text-[#927B64] sm:text-3xl md:text-4xl lg:mt-6 lg:text-5xl xl:text-6xl 2xl:text-8xl">
-              {Home_pages.heading}
+              {Home_pages?.heading || "LATEST TRAVEL STORIES"}
             </h2>
           </div>
 
@@ -312,11 +305,11 @@ export default function Home() {
             <div className="mb-2 flex items-center md:mb-4">
               <span className="mr-2 h-[2px] w-6 bg-[#C41230] md:h-[2px] md:w-20"></span>
               <p className="font-roboto text-center text-xs font-bold tracking-widest text-[#927B64] uppercase md:text-left md:text-lg">
-                {Other_stories.sub_heading}
+                {Other_stories?.sub_heading}
               </p>
             </div>
             <h2 className="font-antonio mb-2 text-4xl leading-tight font-normal text-[#6d563b] uppercase md:mb-4 md:text-7xl">
-              {Other_stories.heading}
+              {Other_stories?.heading}
             </h2>
           </div>
 
