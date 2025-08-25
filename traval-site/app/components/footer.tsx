@@ -269,21 +269,21 @@ export default function Footer() {
                 transform="matrix(-1 0 0 1 48.9121 0)"
                 fill="#927B64"
               />
-              <g clip-path="url(#clip0_72_960)">
+              <g clipPath="url(#clip0_72_960)">
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M27.0257 21.8393L22.1818 25.2024L17.1153 23.5133C16.7616 23.3952 16.5234 23.0634 16.5254 22.6906C16.5275 22.3178 16.7685 21.9881 17.1235 21.8741L30.0768 17.7026C30.3847 17.6036 30.7227 17.6849 30.9514 17.9136C31.1801 18.1423 31.2614 18.4802 31.1624 18.7882L26.9909 31.7415C26.8769 32.0965 26.5471 32.3375 26.1744 32.3396C25.8016 32.3416 25.4698 32.1034 25.3517 31.7497L23.6544 26.6586L27.0257 21.8393Z"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M27.0257 21.8393..."
                   fill="white"
                 />
               </g>
               <defs>
                 <clipPath id="clip0_72_960">
                   <rect
-                    width="14.6784"
-                    height="14.6784"
+                    width="24"
+                    height="24"
                     fill="white"
-                    transform="translate(16.5254 17.6611)"
+                    transform="translate(12 12)"
                   />
                 </clipPath>
               </defs>

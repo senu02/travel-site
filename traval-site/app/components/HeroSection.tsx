@@ -1,13 +1,51 @@
+"use client";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+
+export interface hero_sections {
+  heading: string;
+  sub_heading: string;
+  description: string;
+  imageUrl: string;
+  videoUrl: string;
+}
 
 export default function HeroSection() {
+  const [Hero_sections, setHero_sections] = useState<hero_sections>();
+
+  useEffect(() => {
+    const getHero_sections = async () => {
+      const STRAPI_URL = "http://localhost:1337";
+      const response = await fetch(
+        `${STRAPI_URL}/api/home?populate[hero_section][populate][image][populate][fields]=*&populate[hero_section][populate][video][populate][fields]=*`,
+      );
+      const data = await response.json();
+
+      setHero_sections({
+        heading: data?.data?.hero_section?.heading,
+        description: data?.data?.hero_section?.description,
+        imageUrl: data?.data?.attributes?.hero_section?.image?.data?.attributes
+          ?.url
+          ? `http://localhost:1337${data.data.hero_section.image.url}`
+          : "/images/bg.png",
+        sub_heading: data?.data?.hero_section?.sub_heading,
+        videoUrl: data?.data?.hero_section?.video?.data?.attributes?.url
+          ? `http://localhost:1337${data.data.attributes.hero_section.video.url}`
+          : "/images/bgvideo.mp4",
+      });
+    };
+    getHero_sections();
+  }, []);
+
+  if (!Hero_sections) return <></>;
+
   return (
     <section className="relative bg-white">
       <div className="grid grid-cols-1 items-end gap-8 md:order-1 md:grid-cols-2">
         <div className="flex flex-col gap-6 md:flex-row md:items-end">
           <div className="relative hidden h-48 w-full sm:h-72 md:flex md:h-[350px] md:w-3/6">
             <Image
-              src="/images/bg.png"
+              src={Hero_sections.imageUrl}
               alt="Travel"
               fill
               className="object-cover object-right md:rounded-ee-2xl md:rounded-r-2xl"
@@ -18,27 +56,23 @@ export default function HeroSection() {
             <div className="flex items-center justify-center md:justify-start">
               <span className="mr-2 h-[2px] w-6 bg-[#C41230] md:h-[2px] md:w-20"></span>
               <p className="font-roboto text-center text-xs font-bold tracking-widest text-[#927B64] uppercase md:text-left md:text-lg">
-                Mackinnons Travels Blog
+                {Hero_sections.sub_heading}
               </p>
             </div>
 
-            <h1 className="font-antonio text-center text-4xl leading-tight font-medium text-[#927B64] uppercase md:text-left md:text-8xl">
-              Adventure Awaits
-              <br />
-              Around the World
+            <h1 className="font-antonio pr-4 pl-4 text-center text-4xl leading-tight font-medium text-[#927B64] uppercase md:text-left md:text-8xl">
+              {Hero_sections.heading}
             </h1>
 
             <p className="font-roboto mt-4 pr-4 pl-4 text-center text-sm font-light text-[#434343] md:text-left md:text-xl">
-              Mackinnons Travels revolutionizes the way you book your travel by
-              giving you the flexibility to tailor-make your own travel package
-              using our comprehensive suite.
+              {Hero_sections.description}
             </p>
           </div>
         </div>
 
         <div className="order-3 flex justify-center md:justify-end">
           <video
-            src="/images/bgvideo.mp4"
+            src={Hero_sections.videoUrl}
             className="h-56 w-full rounded-4xl object-cover px-3 md:h-[750px] md:w-[800px] md:rounded-l-2xl md:rounded-bl-2xl md:px-0"
             autoPlay
             loop
