@@ -4,7 +4,7 @@
   "info": {
     "singularName": "category",
     "pluralName": "categories",
-    "displayName": "Blog_Category"
+    "displayName": "Blog Category"
   },
   "options": {
     "draftAndPublish": true
@@ -12,13 +12,7 @@
   "pluginOptions": {},
   "attributes": {
     "category": {
-      "type": "blocks"
-    },
-    "date": {
-      "type": "date"
-    },
-    "Title": {
-      "type": "text"
+      "type": "string"
     },
     "blogs": {
       "type": "relation",

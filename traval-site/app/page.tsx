@@ -14,42 +14,39 @@ import "swiper/css/pagination";
 
 import { Pagination, Autoplay } from "swiper/modules";
 
-const travelData = [
-  {
-    image: "/images/story1.png",
-    title: "6 Best Ryokans in Japan to Rejuvenate Yourself",
-    date: "09 AUG 2024",
-    categories: ["Japan", "Ryokan", "Wellness"],
-  },
-  {
-    image: "/images/story2.png",
-    title: "7 Best Places in Asia to Celebrate Christmas",
-    date: "30 OCT 2024",
-    categories: ["Asia", "Christmas", "Festivals"],
-  },
-  {
-    image: "/images/story3.png",
-    title: "6 Best Ryokans in Japan to Rejuvenate Yourself",
-    date: "09 AUG 2024",
-    categories: ["Japan", "Ryokan", "Wellness"],
-  },
-];
-
 export interface home_page {
   heading: string;
   sub_heading: string;
+  blogs: blog[];
 }
 
 export interface other_stories {
   heading: string;
   sub_heading: string;
+  blogs: blog[];
+}
+
+export interface blog {
+  id: number;
+  title: string;
+  date: string;
+  featured_image: any;
+  categories: blog_category[];
+}
+
+export interface blog_category {
+  id: number;
+  category: string;
 }
 
 export default function Home() {
+  const [Blogs, setBlogs] = useState<blog[]>([]);
+  const [OtherStories, setOtherStories] = useState<blog[]>([]);
+  const [Blog_categories, setBlog_categories] = useState<blog_category[]>([]);
+  const [Home_pages, setHome_pages] = useState<home_page | null>(null);
   const [Other_stories, setOther_stories] = useState<other_stories | null>(
     null,
   );
-  const [Home_pages, setHome_pages] = useState<home_page | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -58,22 +55,54 @@ export default function Home() {
       try {
         const STRAPI_URL = "http://localhost:1337";
         const response = await fetch(
-          `${STRAPI_URL}/api/home?populate[latest_travel_stories][populate][fields]=*&populate[other_stories][populate][fields]=*`,
+          `${STRAPI_URL}/api/home?populate[latest_travel_stories][populate][blogs][populate][featured_image][populate][fields]=*&populate[latest_travel_stories][populate][blogs][populate][categories][populate][fields]=*&populate[other_stories][populate][blogs][populate][featured_image][populate][fields]=*&populate[other_stories][populate][blogs][populate][categories][populate][fields]=*`,
         );
 
         const data = await response.json();
 
-        setHome_pages({
-          heading: data?.data?.latest_travel_stories?.heading,
-          sub_heading: data?.data?.latest_travel_stories?.sub_heading,
+        if (data.data?.latest_travel_stories) {
+          const latestStories = data.data.latest_travel_stories;
+          setHome_pages({
+            heading: latestStories.heading,
+            sub_heading: latestStories.sub_heading,
+            blogs: latestStories.blogs || [],
+          });
+
+          if (latestStories.blogs && latestStories.blogs.length > 0) {
+            setBlogs(latestStories.blogs);
+          }
+        }
+
+        if (data.data?.other_stories && data.data.other_stories.length > 0) {
+          const otherStories = data.data.other_stories[0];
+          setOther_stories({
+            heading: otherStories.heading,
+            sub_heading: otherStories.sub_heading,
+            blogs: otherStories.blogs || [],
+          });
+
+          if (otherStories.blogs && otherStories.blogs.length > 0) {
+            setOtherStories(otherStories.blogs);
+          }
+        }
+
+        const allBlogs = [
+          ...(data.data?.latest_travel_stories?.blogs || []),
+          ...(data.data?.other_stories?.[0]?.blogs || []),
+        ];
+
+        const categories: blog_category[] = [];
+        allBlogs.forEach((blog) => {
+          if (blog.categories) {
+            blog.categories.forEach((category: blog_category) => {
+              if (!categories.find((c) => c.id === category.id)) {
+                categories.push(category);
+              }
+            });
+          }
         });
 
-        if (data?.data?.other_stories && data.data.other_stories.length > 0) {
-          setOther_stories({
-            heading: data.data.other_stories[0]?.heading,
-            sub_heading: data.data.other_stories[0]?.sub_heading,
-          });
-        }
+        setBlog_categories(categories);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -98,79 +127,15 @@ export default function Home() {
     }
   }, []);
 
-  if (isLoading) {
-    return (
-      <div className="flex min-h-screen items-center justify-center">
-        <div className="text-[#927B64]">Loading...</div>
-      </div>
-    );
-  }
-
-  const stories = [
-    {
-      id: 1,
-      image: "/images/story1.png",
-      title: "6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF",
-      date: "09 AUG 2024",
-      color: "#F1C40F",
-      category: "CATEGORY 1",
-    },
-    {
-      id: 2,
-      image: "/images/story2.png",
-      title: "7 BEST PLACES IN ASIA TO CELEBRATE CHRISTMAS",
-      date: "09 AUG 2024",
-      color: "#ff0000",
-      category: "CATEGORY 1",
-    },
-    {
-      id: 3,
-      image: "/images/story3.png",
-      title: "6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF",
-      date: "09 AUG 2024",
-      color: "hsl(131,57%,45%)",
-      category: "CATEGORY 1",
-    },
-    {
-      id: 4,
-      image: "/images/story4.png",
-      title: "7 BEST PLACES IN ASIA TO CELEBRATE CHRISTMAS",
-      date: "09 AUG 2024",
-      color: "#6804b4",
-      category: "CATEGORY 1",
-    },
-    {
-      id: 5,
-      image: "/images/story5.jpg",
-      title: "6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF",
-      date: "09 AUG 2024",
-      color: "#F1C40F",
-      category: "CATEGORY 1",
-    },
-    {
-      id: 6,
-      image: "/images/story6.png",
-      title: "7 BEST PLACES IN ASIA TO CELEBRATE CHRISTMAS",
-      date: "09 AUG 2024",
-      color: "#ff0000",
-      category: "CATEGORY 1",
-    },
-    {
-      id: 7,
-      image: "/images/story3.png",
-      title: "6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF",
-      date: "09 AUG 2024",
-      color: "hsl(131,57%,45%)",
-      category: "CATEGORY 1",
-    },
-    {
-      id: 8,
-      image: "/images/story4.png",
-      title: "7 BEST PLACES IN ASIA TO CELEBRATE CHRISTMAS",
-      date: "09 AUG 2024",
-      color: "#6804b4",
-      category: "CATEGORY 1",
-    },
+  const colorMap = [
+    "#F1C40F",
+    "#ff0000",
+    "hsl(131,57%,45%)",
+    "#6804b4",
+    "#F1C40F",
+    "#ff0000",
+    "hsl(131,57%,45%)",
+    "#6804b4",
   ];
 
   return (
@@ -191,110 +156,102 @@ export default function Home() {
               {Home_pages?.heading}
             </h2>
           </div>
-          <div className="relative flex h-[500px] w-full flex-col justify-between overflow-hidden rounded-2xl shadow-lg md:h-[892px]">
-            <Image
-              src="/images/category1.png"
-              alt="Travel destination"
-              fill
-              className="-z-10 object-cover"
-            />
-            <div className="absolute inset-0 z-0 h-2/6 bg-gradient-to-b from-black/30 to-transparent"></div>
 
-            <div className="absolute top-4 left-4 z-10">
-              <span className="font-roboto px-3 py-1 text-xs font-semibold tracking-widest text-white sm:text-sm">
-                CATEGORY 1 • CATEGORY 2
-              </span>
-            </div>
+          {Blogs.length > 0 && (
+            <div className="relative flex h-[500px] w-full flex-col justify-between overflow-hidden rounded-2xl shadow-lg md:h-[892px]">
+              <Image
+                src={`http://localhost:1337${Blogs[0].featured_image[0].url}`}
+                alt={Blogs[0].title}
+                fill
+                className="-z-10 object-cover"
+              />
+              <div className="absolute inset-0 z-0 h-2/6 bg-gradient-to-b from-black/30 to-transparent"></div>
 
-            <div className="absolute right-0 bottom-0 left-0 z-10 flex items-end justify-between bg-gradient-to-t from-black/50 to-transparent p-5">
-              <div className="pr-4 text-white">
-                <p className="font-roboto mb-2 text-sm font-bold">
-                  30 OCT 2024
-                </p>
-                <p className="font-antonio text-xl font-normal sm:text-2xl md:text-[32px]">
-                  LOREM IPSUM DOLOR SIT AMET CONSECTETUR UT ET TINCIDUNT
-                  MOLESTIE SAPIEN
-                </p>
+              <div className="absolute top-4 left-4 z-10">
+                <span className="font-roboto px-3 py-1 text-xs font-semibold tracking-widest text-white sm:text-sm">
+                  {Blogs[0].categories.map((cat) => cat.category).join(" • ")}
+                </span>
               </div>
-              <button className="flex-shrink-0">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="40"
-                  height="41"
-                  viewBox="0 0 40 41"
-                  fill="none"
-                  className="h-8 w-8 md:h-10 md:w-10"
-                >
-                  <circle cx="20" cy="20.3889" r="20" fill="white" />
-                  <path
-                    d="M26.064 21.096C26.4545 20.7055 26.4545 20.0723 26.064 19.6818L19.7 13.3178C19.3095 12.9273 18.6763 12.9273 18.2858 13.3178C17.8953 13.7084 17.8953 14.3415 18.2858 14.7321L23.9426 20.3889L18.2858 26.0458C17.8953 26.4363 17.8953 27.0695 18.2858 27.46C18.6763 27.8505 19.3095 27.8505 19.7 27.46L26.064 21.096ZM14.6445 20.3889L14.6445 21.3889L25.3568 21.3889L25.3568 20.3889L25.3568 19.3889L14.6445 19.3889L14.6445 20.3889Z"
-                    fill="#927B64"
-                  />
-                </svg>
-              </button>
+
+              <div className="absolute right-0 bottom-0 left-0 z-10 flex items-end justify-between bg-gradient-to-t from-black/50 to-transparent p-5">
+                <div className="pr-4 text-white">
+                  <p className="font-roboto mb-2 text-sm font-bold">
+                    {new Date(Blogs[0].date)
+                      .toLocaleDateString("en-GB", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                      })
+                      .toUpperCase()}
+                  </p>
+                  <p className="font-antonio text-xl font-normal sm:text-2xl md:text-[32px]">
+                    {Blogs[0].title}
+                  </p>
+                </div>
+                <Link href={`/blog/${Blogs[0].id}`} className="flex-shrink-0">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="40"
+                    height="41"
+                    viewBox="0 0 40 41"
+                    fill="none"
+                    className="h-8 w-8 md:h-10 md:w-10"
+                  >
+                    <circle cx="20" cy="20.3889" r="20" fill="white" />
+                    <path
+                      d="M26.064 21.096C26.4545 20.7055 26.4545 20.0723 26.064 19.6818L19.7 13.3178C19.3095 12.9273 18.6763 12.9273 18.2858 13.3178C17.8953 13.7084 17.8953 14.3415 18.2858 14.7321L23.9426 20.3889L18.2858 26.0458C17.8953 26.4363 17.8953 27.0695 18.2858 27.46C18.6763 27.8505 19.3095 27.8505 19.7 27.46L26.064 21.096ZM14.6445 20.3889L14.6445 21.3889L25.3568 21.3889L25.3568 20.3889L25.3568 19.3889L14.6445 19.3889L14.6445 20.3889Z"
+                      fill="#927B64"
+                    />
+                  </svg>
+                </Link>
+              </div>
             </div>
-          </div>
+          )}
         </div>
 
         <div className="flex w-full flex-col items-center lg:w-1/2 lg:items-start">
           <div className="hidden text-center md:mb-10 md:block lg:text-left">
             <p className="font-roboto flex items-center justify-center text-sm font-bold tracking-widest text-[#927B64] lg:justify-start">
               <span className="mr-2 h-[0.5px] w-10 bg-[#C41230] sm:w-28 md:h-[2px] md:w-20"></span>
-              {Home_pages?.sub_heading || "DREAM. EXPLORE. DISCOVER"}
+              {Home_pages?.sub_heading}
             </p>
             <h2 className="font-antonio mt-4 mb-8 text-2xl font-normal tracking-normal text-[#927B64] sm:text-3xl md:text-4xl lg:mt-6 lg:text-5xl xl:text-6xl 2xl:text-8xl">
-              {Home_pages?.heading || "LATEST TRAVEL STORIES"}
+              {Home_pages?.heading}
             </h2>
           </div>
 
           <div className="grid w-full grid-cols-1 gap-8 sm:grid-cols-2">
-            <div>
-              <div className="relative h-[300px] overflow-hidden rounded-2xl shadow-md sm:h-[350px] md:h-[400px] lg:h-[459px]">
-                <Image
-                  src="/images/categoryy2.png"
-                  alt="Christmas destinations"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
+            {Blogs.slice(1, 3).map((blog, index) => (
+              <div key={blog.id}>
+                <div className="relative h-[300px] overflow-hidden rounded-2xl shadow-md sm:h-[350px] md:h-[400px] lg:h-[459px]">
+                  <Image
+                    src={`http://localhost:1337${blog.featured_image[0].url}`}
+                    alt={blog.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
 
-                <div className="font-roboto absolute top-6 left-8 z-10 text-sm font-semibold tracking-widest text-white">
-                  CATEGORY 1
+                  <div className="font-roboto absolute top-6 left-8 z-10 text-sm font-semibold tracking-widest text-white">
+                    {blog.categories[0]?.category || "CATEGORY"}
+                  </div>
+                </div>
+                <div className="mt-6 px-2 md:px-4">
+                  <p className="font-roboto mb-1 text-xs font-bold text-[#927B64]">
+                    {new Date(blog.date)
+                      .toLocaleDateString("en-GB", {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric",
+                      })
+                      .toUpperCase()}
+                  </p>
+                  <p className="font-antonio text-xl font-normal text-[#927B64] sm:text-lg md:text-xl lg:text-2xl">
+                    {blog.title}
+                  </p>
                 </div>
               </div>
-              <div className="mt-6 px-2 md:px-4">
-                <p className="font-roboto mb-1 text-xs font-bold text-[#927B64]">
-                  30 OCT 2024
-                </p>
-                <p className="font-antonio text-xl font-normal text-[#927B64] sm:text-lg md:text-xl lg:text-2xl">
-                  7 BEST PLACES IN ASIA TO CELEBRATE CHRISTMAS
-                </p>
-              </div>
-            </div>
-
-            <div>
-              <div className="relative h-[300px] overflow-hidden rounded-2xl shadow-md sm:h-[350px] md:h-[400px] lg:h-[459px]">
-                <Image
-                  src="/images/category3.png"
-                  alt="Japanese ryokans"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
-
-                <div className="font-roboto absolute top-6 left-8 z-10 text-sm font-bold tracking-widest text-white">
-                  CATEGORY 1
-                </div>
-              </div>
-              <div className="mt-6 px-2 md:px-4">
-                <p className="font-roboto mb-1 text-xs font-bold text-[#927B64]">
-                  28 JULY 2024
-                </p>
-                <p className="font-antonio text-xl font-normal text-[#927B64] sm:text-lg md:text-xl lg:text-2xl">
-                  6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -329,13 +286,13 @@ export default function Home() {
                 modules={[Pagination, Autoplay]}
                 className="mySwiper"
               >
-                {stories.map((story) => (
+                {OtherStories.slice(0, 8).map((story, index) => (
                   <SwiperSlide key={story.id}>
                     <div className="group mb-2 flex flex-col">
-                      <Link href="/blog" className="block">
+                      <Link href={`/blog/${story.id}`} className="block">
                         <div className="relative mb-4 aspect-[3/2] w-full cursor-pointer overflow-hidden rounded-3xl shadow-md">
                           <Image
-                            src={story.image}
+                            src={`http://localhost:1337${story.featured_image[0].url}`}
                             alt={story.title}
                             fill
                             className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
@@ -343,12 +300,14 @@ export default function Home() {
                           <div className="absolute inset-0 flex flex-col justify-between">
                             <div className="relative h-1/3 w-full bg-gradient-to-b from-black/40 to-transparent">
                               <span className="font-roboto absolute top-6 left-8 text-[10px] leading-relaxed font-semibold tracking-widest text-white">
-                                {story.category}
+                                {story.categories[0]?.category || "CATEGORY"}
                               </span>
                             </div>
                             <div
                               className="h-2 w-full"
-                              style={{ backgroundColor: story.color }}
+                              style={{
+                                backgroundColor: colorMap[index] || "#F1C40F",
+                              }}
                             ></div>
                           </div>
                         </div>
@@ -356,7 +315,13 @@ export default function Home() {
 
                       <div className="mb-[20px] text-left">
                         <span className="font-roboto mt-[6px] block text-xs font-bold text-[#927B64] uppercase">
-                          {story.date}
+                          {new Date(story.date)
+                            .toLocaleDateString("en-GB", {
+                              day: "2-digit",
+                              month: "short",
+                              year: "numeric",
+                            })
+                            .toUpperCase()}
                         </span>
                         <h3 className="font-antonio text-lg font-normal text-[#927B64] uppercase">
                           {story.title}
@@ -369,166 +334,48 @@ export default function Home() {
             </div>
 
             <div className="hidden grid-cols-1 gap-15 md:grid md:grid-cols-2">
-              <div className="group mb-2 flex flex-col">
-                <Link href="/blog" className="block">
-                  <div className="relative mb-4 aspect-[3/2] w-full cursor-pointer overflow-hidden rounded-3xl shadow-md md:mb-4">
-                    <Image
-                      src="/images/story1.png"
-                      alt="Travel 2"
-                      fill
-                      className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
-                    />
-
-                    <div className="absolute inset-0 flex flex-col justify-between">
-                      <div className="relative h-1/3 w-full bg-gradient-to-b from-black/40 to-transparent">
-                        <span className="font-roboto absolute top-6 left-8 text-[10px] leading-relaxed font-semibold tracking-widest text-white md:text-sm">
-                          CATEGORY 1
-                        </span>
+              {OtherStories.slice(0, 8).map((story, index) => (
+                <div key={story.id} className="group flex flex-col md:mb-8">
+                  <Link href={`/blog/${story.id}`} className="block">
+                    <div className="relative mb-4 aspect-[3/2] w-full cursor-pointer overflow-hidden rounded-3xl shadow-md">
+                      <Image
+                        src={`http://localhost:1337${story.featured_image[0].url}`}
+                        alt={story.title}
+                        fill
+                        className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 flex flex-col justify-between">
+                        <div className="relative h-1/3 w-full bg-gradient-to-b from-black/40 to-transparent">
+                          <span className="font-roboto absolute top-6 left-8 text-[10px] leading-relaxed font-semibold tracking-widest text-white md:text-sm">
+                            {story.categories[0]?.category || "CATEGORY"}
+                          </span>
+                        </div>
+                        <div
+                          className="h-2 w-full"
+                          style={{
+                            backgroundColor: colorMap[index] || "#F1C40F",
+                          }}
+                        ></div>
                       </div>
-                      <div className="h-2 w-full bg-[#F1C40F]"></div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
 
-                <div className="text-left">
-                  <span className="font-roboto mt-[6px] block text-xs font-bold text-[#927B64] uppercase md:mt-10 md:mb-2 md:text-sm">
-                    09 AUG 2024
-                  </span>
-                  <h3 className="font-antonio text-lg font-normal text-[#927B64] uppercase md:mb-8 md:text-3xl">
-                    6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
-                  </h3>
-                </div>
-              </div>
-
-              <div className="group flex flex-col md:mb-8">
-                <Link href="/blog" className="block">
-                  <div className="relative mb-4 aspect-[3/2] w-full overflow-hidden rounded-3xl shadow-md">
-                    <Image
-                      src="/images/story2.png"
-                      alt="Travel 3"
-                      fill
-                      className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
-                    <span className="font-roboto absolute top-6 left-8 text-[10px] leading-relaxed font-semibold tracking-widest text-white md:text-sm">
-                      CATEGORY 1
+                  <div className="text-left">
+                    <span className="font-roboto mt-[6px] block text-xs font-bold text-[#927B64] uppercase md:mt-10 md:mb-2 md:text-sm">
+                      {new Date(story.date)
+                        .toLocaleDateString("en-GB", {
+                          day: "2-digit",
+                          month: "short",
+                          year: "numeric",
+                        })
+                        .toUpperCase()}
                     </span>
-                    <div className="absolute right-0 bottom-0 left-0 h-2 bg-[#ff0000]"></div>
+                    <h3 className="font-antonio text-lg font-normal text-[#927B64] uppercase md:mb-8 md:text-3xl">
+                      {story.title}
+                    </h3>
                   </div>
-                </Link>
-                <div className="text-left">
-                  <span className="font-roboto mt-[6px] block text-xs font-bold text-[#927B64] uppercase md:mt-10 md:mb-2 md:text-sm">
-                    09 AUG 2024
-                  </span>
-                  <h3 className="font-antonio text-lg font-normal text-[#927B64] uppercase md:mb-8 md:text-3xl">
-                    7 best places in Asia to celebrate Christmas
-                  </h3>
                 </div>
-              </div>
-
-              <div className="group flex flex-col md:mb-8">
-                <Link href="/blog" className="block">
-                  <div className="relative mb-4 aspect-[3/2] w-full overflow-hidden rounded-3xl shadow-md">
-                    <Image
-                      src="/images/story3.png"
-                      alt="Travel 2"
-                      fill
-                      className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
-                    <span className="font-roboto absolute top-6 left-8 text-[10px] leading-relaxed font-semibold tracking-widest text-white md:text-sm">
-                      CATEGORY 1
-                    </span>
-                    <div className="absolute right-0 bottom-0 left-0 h-2 bg-[hsl(131,57%,45%)]"></div>
-                  </div>
-                </Link>
-                <div className="text-left">
-                  <span className="font-roboto mt-[6px] block text-xs font-bold text-[#927B64] uppercase md:mt-10 md:mb-2 md:text-sm">
-                    09 AUG 2024
-                  </span>
-                  <h3 className="font-antonio text-lg font-normal text-[[#927B64] uppercase md:mb-8 md:text-3xl">
-                    6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
-                  </h3>
-                </div>
-              </div>
-
-              <div className="group flex flex-col md:mb-8">
-                <Link href="/blog" className="block">
-                  <div className="relative mb-4 aspect-[3/2] w-full overflow-hidden rounded-3xl shadow-md">
-                    <Image
-                      src="/images/story4.png"
-                      alt="Travel 3"
-                      fill
-                      className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
-                    <span className="font-roboto absolute top-6 left-8 text-[10px] leading-relaxed font-semibold tracking-widest text-white md:text-sm">
-                      CATEGORY 1
-                    </span>
-                    <div className="absolute right-0 bottom-0 left-0 h-2 bg-[#6804b4]"></div>
-                  </div>
-                </Link>
-                <div className="text-left">
-                  <span className="font-roboto mt-[6px] block text-xs font-bold text-[#927B64] uppercase md:mt-10 md:mb-2 md:text-sm">
-                    09 AUG 2024
-                  </span>
-                  <h3 className="font-antonio text-lg font-normal text-[#927B64] uppercase md:mb-8 md:text-3xl">
-                    7 best places in Asia to celebrate Christmas
-                  </h3>
-                </div>
-              </div>
-
-              <div className="group flex flex-col md:mb-8">
-                <Link href="/blog" className="block">
-                  <div className="relative mb-4 aspect-[3/2] w-full cursor-pointer overflow-hidden rounded-3xl shadow-md">
-                    <Image
-                      src="/images/story5.jpg"
-                      alt="Travel 2"
-                      fill
-                      className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
-                    <span className="font-roboto absolute top-6 left-8 text-[10px] leading-relaxed font-semibold tracking-widest text-white md:text-sm">
-                      CATEGORY 1
-                    </span>
-                    <div className="absolute right-0 bottom-0 left-0 h-2 bg-[#F1C40F]"></div>
-                  </div>
-                </Link>
-                <div className="text-left">
-                  <span className="font-roboto mt-[6px] block text-xs font-bold text-[#927B64] uppercase md:mt-10 md:mb-2 md:text-sm">
-                    09 AUG 2024
-                  </span>
-                  <h3 className="font-antonio text-lg font-normal text-[#927B64] uppercase md:mb-8 md:text-3xl">
-                    6 BEST RYOKANS IN JAPAN TO REJUVENATE YOURSELF
-                  </h3>
-                </div>
-              </div>
-
-              <div className="group flex flex-col md:mb-8">
-                <Link href="/blog" className="block">
-                  <div className="relative mb-4 aspect-[3/2] w-full overflow-hidden rounded-3xl shadow-md">
-                    <Image
-                      src="/images/story6.png"
-                      alt="Travel 3"
-                      fill
-                      className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
-                    <span className="font-roboto absolute top-6 left-8 text-[10px] leading-relaxed font-semibold tracking-widest text-white md:text-sm">
-                      CATEGORY 1
-                    </span>
-                    <div className="absolute right-0 bottom-0 left-0 h-2 bg-[#ff0000]"></div>
-                  </div>
-                </Link>
-                <div className="text-left">
-                  <span className="font-roboto mt-[6px] block text-xs font-bold text-[#927B64] uppercase md:mt-10 md:mb-2 md:text-sm">
-                    09 AUG 2024
-                  </span>
-                  <h3 className="font-antonio text-lg font-normal text-[#927B64] uppercase md:mb-8 md:text-3xl">
-                    7 best places in Asia to celebrate Christmas
-                  </h3>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -577,12 +424,12 @@ export default function Home() {
           </h3>
 
           <div className="mx-auto mb-[30px] flex flex-wrap justify-center gap-4 md:mb-15">
-            {[1, 2, 3, 4, 5].map((num) => (
+            {Blog_categories.slice(0, 5).map((category) => (
               <button
-                key={num}
+                key={category.id}
                 className="font-roboto cursor-pointer rounded-full bg-[#F5F4F1] px-6 py-2 text-xs font-semibold text-[#927B64] uppercase transition-colors hover:bg-[#D0C7B8] md:text-base"
               >
-                CATEGORY {num}
+                {category.category}
               </button>
             ))}
           </div>
