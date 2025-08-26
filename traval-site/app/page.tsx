@@ -17,20 +17,19 @@ import { Pagination, Autoplay } from "swiper/modules";
 export interface home_page {
   heading: string;
   sub_heading: string;
-  blogs: blog[];
 }
 
 export interface other_stories {
   heading: string;
   sub_heading: string;
-  blogs: blog[];
 }
 
 export interface blog {
   id: number;
   title: string;
   date: string;
-  featured_image: any;
+  featured_imageUrl: string;
+  description: string;
   categories: blog_category[];
 }
 
@@ -41,12 +40,11 @@ export interface blog_category {
 
 export default function Home() {
   const [Blogs, setBlogs] = useState<blog[]>([]);
-  const [OtherStories, setOtherStories] = useState<blog[]>([]);
   const [Blog_categories, setBlog_categories] = useState<blog_category[]>([]);
-  const [Home_pages, setHome_pages] = useState<home_page | null>(null);
   const [Other_stories, setOther_stories] = useState<other_stories | null>(
     null,
   );
+  const [Home_pages, setHome_pages] = useState<home_page | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -55,54 +53,37 @@ export default function Home() {
       try {
         const STRAPI_URL = "http://localhost:1337";
         const response = await fetch(
-          `${STRAPI_URL}/api/home?populate[latest_travel_stories][populate][blogs][populate][featured_image][populate][fields]=*&populate[latest_travel_stories][populate][blogs][populate][categories][populate][fields]=*&populate[other_stories][populate][blogs][populate][featured_image][populate][fields]=*&populate[other_stories][populate][blogs][populate][categories][populate][fields]=*`,
+          `${STRAPI_URL}/api/home?populate[latest_travel_stories][populate][blogs][populate][featured_image][fields]=*&populate[latest_travel_stories][populate][blogs][populate][categories][fields]=*&populate[other_stories][populate][blogs][populate][featured_image][fields]=*&populate[other_stories][populate][blogs][populate][categories][fields]=*`,
         );
 
         const data = await response.json();
+        const homeData = data?.data;
 
-        if (data.data?.latest_travel_stories) {
-          const latestStories = data.data.latest_travel_stories;
-          setHome_pages({
-            heading: latestStories.heading,
-            sub_heading: latestStories.sub_heading,
-            blogs: latestStories.blogs || [],
-          });
-
-          if (latestStories.blogs && latestStories.blogs.length > 0) {
-            setBlogs(latestStories.blogs);
-          }
-        }
-
-        if (data.data?.other_stories && data.data.other_stories.length > 0) {
-          const otherStories = data.data.other_stories[0];
-          setOther_stories({
-            heading: otherStories.heading,
-            sub_heading: otherStories.sub_heading,
-            blogs: otherStories.blogs || [],
-          });
-
-          if (otherStories.blogs && otherStories.blogs.length > 0) {
-            setOtherStories(otherStories.blogs);
-          }
-        }
-
-        const allBlogs = [
-          ...(data.data?.latest_travel_stories?.blogs || []),
-          ...(data.data?.other_stories?.[0]?.blogs || []),
-        ];
-
-        const categories: blog_category[] = [];
-        allBlogs.forEach((blog) => {
-          if (blog.categories) {
-            blog.categories.forEach((category: blog_category) => {
-              if (!categories.find((c) => c.id === category.id)) {
-                categories.push(category);
-              }
-            });
-          }
+        setHome_pages({
+          heading: data?.data?.latest_travel_stories?.heading,
+          sub_heading: data?.data?.latest_travel_stories?.sub_heading,
         });
 
-        setBlog_categories(categories);
+        if (homeData?.other_stories) {
+          setOther_stories({
+            heading: data.data.other_stories[0]?.heading,
+            sub_heading: data.data.other_stories[0]?.sub_heading,
+          });
+        }
+
+        const latestBlogs = homeData?.latest_travel_stories?.blogs || [];
+        const otherBlogs = homeData?.other_stories?.blogs || [];
+
+        const allBlogs = [...latestBlogs, ...otherBlogs].map((blog) => ({
+          id: blog.id,
+          title: blog.title,
+          date: blog.date,
+          featured_imageUrl: `${STRAPI_URL}${blog.featured_image?.[0]?.url || ""}`,
+          description: blog.description,
+          categories: blog.categories || [],
+        }));
+
+        setBlogs(allBlogs);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
@@ -127,16 +108,7 @@ export default function Home() {
     }
   }, []);
 
-  const colorMap = [
-    "#F1C40F",
-    "#ff0000",
-    "hsl(131,57%,45%)",
-    "#6804b4",
-    "#F1C40F",
-    "#ff0000",
-    "hsl(131,57%,45%)",
-    "#6804b4",
-  ];
+  const sliderBlogs = Blogs.slice(0, 8);
 
   return (
     <div className="min-h-screen">
@@ -160,7 +132,7 @@ export default function Home() {
           {Blogs.length > 0 && (
             <div className="relative flex h-[500px] w-full flex-col justify-between overflow-hidden rounded-2xl shadow-lg md:h-[892px]">
               <Image
-                src={`http://localhost:1337${Blogs[0].featured_image[0].url}`}
+                src={Blogs[0].featured_imageUrl || "/images/placeholder.jpg"}
                 alt={Blogs[0].title}
                 fill
                 className="-z-10 object-cover"
@@ -188,7 +160,7 @@ export default function Home() {
                     {Blogs[0].title}
                   </p>
                 </div>
-                <Link href={`/blog/${Blogs[0].id}`} className="flex-shrink-0">
+                <button className="flex-shrink-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="40"
@@ -203,7 +175,7 @@ export default function Home() {
                       fill="#927B64"
                     />
                   </svg>
-                </Link>
+                </button>
               </div>
             </div>
           )}
@@ -225,7 +197,7 @@ export default function Home() {
               <div key={blog.id}>
                 <div className="relative h-[300px] overflow-hidden rounded-2xl shadow-md sm:h-[350px] md:h-[400px] lg:h-[459px]">
                   <Image
-                    src={`http://localhost:1337${blog.featured_image[0].url}`}
+                    src={blog.featured_imageUrl || "/images/placeholder.jpg"}
                     alt={blog.title}
                     fill
                     className="object-cover"
@@ -233,7 +205,7 @@ export default function Home() {
                   <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
 
                   <div className="font-roboto absolute top-6 left-8 z-10 text-sm font-semibold tracking-widest text-white">
-                    {blog.categories[0]?.category || "CATEGORY"}
+                    {blog.categories[0]?.category || "Uncategorized"}
                   </div>
                 </div>
                 <div className="mt-6 px-2 md:px-4">
@@ -286,28 +258,30 @@ export default function Home() {
                 modules={[Pagination, Autoplay]}
                 className="mySwiper"
               >
-                {OtherStories.slice(0, 8).map((story, index) => (
-                  <SwiperSlide key={story.id}>
+                {sliderBlogs.map((blog) => (
+                  <SwiperSlide key={blog.id}>
                     <div className="group mb-2 flex flex-col">
-                      <Link href={`/blog/${story.id}`} className="block">
+                      <Link href={`/blog/${blog.id}`} className="block">
                         <div className="relative mb-4 aspect-[3/2] w-full cursor-pointer overflow-hidden rounded-3xl shadow-md">
                           <Image
-                            src={`http://localhost:1337${story.featured_image[0].url}`}
-                            alt={story.title}
+                            src={
+                              blog.featured_imageUrl ||
+                              "/images/placeholder.jpg"
+                            }
+                            alt={blog.title}
                             fill
                             className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
                           />
                           <div className="absolute inset-0 flex flex-col justify-between">
                             <div className="relative h-1/3 w-full bg-gradient-to-b from-black/40 to-transparent">
                               <span className="font-roboto absolute top-6 left-8 text-[10px] leading-relaxed font-semibold tracking-widest text-white">
-                                {story.categories[0]?.category || "CATEGORY"}
+                                {blog.categories[0]?.category ||
+                                  "Uncategorized"}
                               </span>
                             </div>
                             <div
                               className="h-2 w-full"
-                              style={{
-                                backgroundColor: colorMap[index] || "#F1C40F",
-                              }}
+                              style={{ backgroundColor: "#F1C40F" }}
                             ></div>
                           </div>
                         </div>
@@ -315,7 +289,7 @@ export default function Home() {
 
                       <div className="mb-[20px] text-left">
                         <span className="font-roboto mt-[6px] block text-xs font-bold text-[#927B64] uppercase">
-                          {new Date(story.date)
+                          {new Date(blog.date)
                             .toLocaleDateString("en-GB", {
                               day: "2-digit",
                               month: "short",
@@ -324,7 +298,7 @@ export default function Home() {
                             .toUpperCase()}
                         </span>
                         <h3 className="font-antonio text-lg font-normal text-[#927B64] uppercase">
-                          {story.title}
+                          {blog.title}
                         </h3>
                       </div>
                     </div>
@@ -334,27 +308,27 @@ export default function Home() {
             </div>
 
             <div className="hidden grid-cols-1 gap-15 md:grid md:grid-cols-2">
-              {OtherStories.slice(0, 8).map((story, index) => (
-                <div key={story.id} className="group flex flex-col md:mb-8">
-                  <Link href={`/blog/${story.id}`} className="block">
+              {sliderBlogs.map((blog, index) => (
+                <div key={blog.id} className="group flex flex-col md:mb-8">
+                  <Link href={`/blog/${blog.id}`} className="block">
                     <div className="relative mb-4 aspect-[3/2] w-full cursor-pointer overflow-hidden rounded-3xl shadow-md">
                       <Image
-                        src={`http://localhost:1337${story.featured_image[0].url}`}
-                        alt={story.title}
+                        src={
+                          blog.featured_imageUrl || "/images/placeholder.jpg"
+                        }
+                        alt={blog.title}
                         fill
                         className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
                       />
                       <div className="absolute inset-0 flex flex-col justify-between">
                         <div className="relative h-1/3 w-full bg-gradient-to-b from-black/40 to-transparent">
                           <span className="font-roboto absolute top-6 left-8 text-[10px] leading-relaxed font-semibold tracking-widest text-white md:text-sm">
-                            {story.categories[0]?.category || "CATEGORY"}
+                            {blog.categories[0]?.category || "Uncategorized"}
                           </span>
                         </div>
                         <div
                           className="h-2 w-full"
-                          style={{
-                            backgroundColor: colorMap[index] || "#F1C40F",
-                          }}
+                          style={{ backgroundColor: "#F1C40F" }}
                         ></div>
                       </div>
                     </div>
@@ -362,7 +336,7 @@ export default function Home() {
 
                   <div className="text-left">
                     <span className="font-roboto mt-[6px] block text-xs font-bold text-[#927B64] uppercase md:mt-10 md:mb-2 md:text-sm">
-                      {new Date(story.date)
+                      {new Date(blog.date)
                         .toLocaleDateString("en-GB", {
                           day: "2-digit",
                           month: "short",
@@ -371,7 +345,7 @@ export default function Home() {
                         .toUpperCase()}
                     </span>
                     <h3 className="font-antonio text-lg font-normal text-[#927B64] uppercase md:mb-8 md:text-3xl">
-                      {story.title}
+                      {blog.title}
                     </h3>
                   </div>
                 </div>
@@ -424,12 +398,12 @@ export default function Home() {
           </h3>
 
           <div className="mx-auto mb-[30px] flex flex-wrap justify-center gap-4 md:mb-15">
-            {Blog_categories.slice(0, 5).map((category) => (
+            {[1, 2, 3, 4, 5].map((num) => (
               <button
-                key={category.id}
+                key={num}
                 className="font-roboto cursor-pointer rounded-full bg-[#F5F4F1] px-6 py-2 text-xs font-semibold text-[#927B64] uppercase transition-colors hover:bg-[#D0C7B8] md:text-base"
               >
-                {category.category}
+                CATEGORY {num}
               </button>
             ))}
           </div>
