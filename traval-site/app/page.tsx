@@ -108,7 +108,7 @@ export default function Home() {
     }
   }, []);
 
-  const sliderBlogs = Blogs.slice(0, 8);
+  const sliderBlogs = Blogs.slice(0, 10);
 
   return (
     <div className="min-h-screen">
@@ -132,8 +132,8 @@ export default function Home() {
           {Blogs.length > 0 && (
             <div className="relative flex h-[500px] w-full flex-col justify-between overflow-hidden rounded-2xl shadow-lg md:h-[892px]">
               <Image
-                src={Blogs[0].featured_imageUrl || "/images/placeholder.jpg"}
-                alt={Blogs[0].title}
+                src={Blogs[2].featured_imageUrl || "/images/placeholder.jpg"}
+                alt={Blogs[2].title}
                 fill
                 className="-z-10 object-cover"
               />
@@ -141,14 +141,14 @@ export default function Home() {
 
               <div className="absolute top-4 left-4 z-10">
                 <span className="font-roboto px-3 py-1 text-xs font-semibold tracking-widest text-white sm:text-sm">
-                  {Blogs[0].categories.map((cat) => cat.category).join(" • ")}
+                  {Blogs[1].categories.map((cat) => cat.category).join(" • ")}
                 </span>
               </div>
 
               <div className="absolute right-0 bottom-0 left-0 z-10 flex items-end justify-between bg-gradient-to-t from-black/50 to-transparent p-5">
                 <div className="pr-4 text-white">
                   <p className="font-roboto mb-2 text-sm font-bold">
-                    {new Date(Blogs[0].date)
+                    {new Date(Blogs[2].date)
                       .toLocaleDateString("en-GB", {
                         day: "2-digit",
                         month: "short",
@@ -157,7 +157,7 @@ export default function Home() {
                       .toUpperCase()}
                   </p>
                   <p className="font-antonio text-xl font-normal sm:text-2xl md:text-[32px]">
-                    {Blogs[0].title}
+                    {Blogs[2].title}
                   </p>
                 </div>
                 <button className="flex-shrink-0">
