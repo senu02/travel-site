@@ -6,17 +6,31 @@ import HeroSection from "./components/HeroSection";
 import Image from "next/image";
 import Footer from "./components/footer";
 import Link from "next/link";
-
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
 import "swiper/css/pagination";
-
 import { Pagination, Autoplay } from "swiper/modules";
 
-export interface home_page {
+export interface Home {
+  hero_section: herodata[];
+  latest_travel_stories_section: latest_travel_stories[];
+  other_stories_section: other_stories[];
+  blogs: blog[];
+  blog_categories: blog_category[];
+}
+
+export interface herodata {
   heading: string;
   sub_heading: string;
+  description: string;
+  imageUrl: string;
+  videoUrl: string;
+}
+
+export interface latest_travel_stories {
+  heading: string;
+  sub_heading: string;
+  blogs: blog[];
 }
 
 export interface other_stories {
@@ -44,7 +58,10 @@ export default function Home() {
   const [Other_stories, setOther_stories] = useState<other_stories | null>(
     null,
   );
-  const [Home_pages, setHome_pages] = useState<home_page | null>(null);
+  const [Home_pages, setHome_pages] = useState<latest_travel_stories | null>(
+    null,
+  );
+  const [Hero_sections, setHero_sections] = useState<herodata | null>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -53,15 +70,30 @@ export default function Home() {
       try {
         const STRAPI_URL = "http://localhost:1337";
         const response = await fetch(
-          `${STRAPI_URL}/api/home?populate[latest_travel_stories][populate][blogs][populate][featured_image][fields]=*&populate[latest_travel_stories][populate][blogs][populate][categories][fields]=*&populate[other_stories][populate][blogs][populate][featured_image][fields]=*&populate[other_stories][populate][blogs][populate][categories][fields]=*`,
+          `${STRAPI_URL}/api/home?populate[hero_section][populate][image][populate][fields]=*&populate[hero_section][populate][video][populate][fields]=*&populate[latest_travel_stories][populate][blogs][populate][featured_image][fields]=*&populate[latest_travel_stories][populate][blogs][populate][categories][fields]=*&populate[other_stories][populate][blogs][populate][featured_image][fields]=*&populate[other_stories][populate][blogs][populate][categories][fields]=*`,
         );
 
         const data = await response.json();
         const homeData = data?.data;
 
+        if (homeData?.hero_section) {
+          setHero_sections({
+            heading: homeData.hero_section.heading || "",
+            sub_heading: homeData.hero_section.sub_heading || "",
+            description: homeData.hero_section.description || "",
+            imageUrl: homeData.hero_section.image?.data?.attributes?.url
+              ? `${STRAPI_URL}${homeData.hero_section.image.data.attributes.url}`
+              : "/images/bg.png",
+            videoUrl: homeData.hero_section.video?.data?.attributes?.url
+              ? `${STRAPI_URL}${homeData.hero_section.video.data.attributes.url}`
+              : "/images/bgvideo.mp4",
+          });
+        }
+
         setHome_pages({
           heading: data?.data?.latest_travel_stories?.heading,
           sub_heading: data?.data?.latest_travel_stories?.sub_heading,
+          blogs: homeData?.latest_travel_stories?.blogs || [],
         });
 
         if (homeData?.other_stories) {
@@ -108,13 +140,13 @@ export default function Home() {
     }
   }, []);
 
-  const sliderBlogs = Blogs.slice(0, 10);
+  const sliderBlogs = Blogs.slice(0, 8);
 
   return (
     <div className="min-h-screen">
       <section>
         <Navbar />
-        <HeroSection />
+        <HeroSection heroData={Hero_sections} />
       </section>
 
       <section className="font-antonio mx-auto flex w-full flex-col items-center justify-center gap-10 px-4 py-10 md:mt-20 md:flex-row md:gap-12 md:px-6 md:py-10">
@@ -132,7 +164,7 @@ export default function Home() {
           {Blogs.length > 0 && (
             <div className="relative flex h-[500px] w-full flex-col justify-between overflow-hidden rounded-2xl shadow-lg md:h-[892px]">
               <Image
-                src={Blogs[2].featured_imageUrl || "/images/placeholder.jpg"}
+                src={Blogs[2].featured_imageUrl}
                 alt={Blogs[2].title}
                 fill
                 className="-z-10 object-cover"
@@ -197,7 +229,7 @@ export default function Home() {
               <div key={blog.id}>
                 <div className="relative h-[300px] overflow-hidden rounded-2xl shadow-md sm:h-[350px] md:h-[400px] lg:h-[459px]">
                   <Image
-                    src={blog.featured_imageUrl || "/images/placeholder.jpg"}
+                    src={blog.featured_imageUrl}
                     alt={blog.title}
                     fill
                     className="object-cover"
@@ -205,7 +237,7 @@ export default function Home() {
                   <div className="absolute inset-0 z-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent"></div>
 
                   <div className="font-roboto absolute top-6 left-8 z-10 text-sm font-semibold tracking-widest text-white">
-                    {blog.categories[0]?.category || "Uncategorized"}
+                    {blog.categories[0]?.category}
                   </div>
                 </div>
                 <div className="mt-6 px-2 md:px-4">
@@ -265,8 +297,7 @@ export default function Home() {
                         <div className="relative mb-4 aspect-[3/2] w-full cursor-pointer overflow-hidden rounded-3xl shadow-md">
                           <Image
                             src={
-                              blog.featured_imageUrl ||
-                              "/images/placeholder.jpg"
+                              blog.featured_imageUrl || "/images/category1.png"
                             }
                             alt={blog.title}
                             fill
